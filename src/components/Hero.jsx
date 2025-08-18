@@ -1,16 +1,8 @@
 import React from 'react';
-import { Download, Mail, Phone, MapPin, ArrowRight, Sparkles } from 'lucide-react';
+import { Download, Mail, Phone, MapPin, ArrowRight, Sparkles, Globe, Smartphone, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const Hero = ({ t = {
-  home: {
-    title: "Rihab Cherni",
-    subtitle: "Développeuse Full Stack",
-    description: "Passionnée par la création d'expériences numériques innovantes et performantes. Spécialisée en React, Node.js et technologies modernes.",
-    cta: "Voir mes projets",
-    download: "Télécharger CV"
-  }
-}, isDark = false, visibleSections = new Set(['home']), scrollToSection = () => {} }) => {
+const Hero = ({ t , isDark = false, visibleSections = new Set(['home']), scrollToSection = () => {} }) => {
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -97,14 +89,9 @@ const Hero = ({ t = {
           <Sparkles />
         </motion.div>
       </div>
-      <div className="max-w-7xl mx-auto w-full">
+      <div className="max-w-6xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">          
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={visibleSections.has('home') ? "visible" : "hidden"}
-            className="space-y-8"
-          >
+          <motion.div variants={containerVariants} initial="hidden" animate={visibleSections.has('home') ? "visible" : "hidden"} className="space-y-8">
             <motion.div variants={itemVariants} className="space-y-2">
               <motion.span 
                 className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-50 to-blue-50 dark:from-blue-900/20 dark:to-blue-900/20 rounded-full text-sm font-medium text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800"
@@ -214,10 +201,7 @@ const Hero = ({ t = {
                   }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <motion.div
-                    animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
-                  >
+                  <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}>
                     <item.icon className="h-4 w-4" />
                   </motion.div>
                   {item.text}
@@ -225,45 +209,67 @@ const Hero = ({ t = {
               ))}
             </motion.div>
           </motion.div>
-          <motion.div
-            variants={imageVariants}
-            initial="hidden"
-            animate={visibleSections.has('home') ? "visible" : "hidden"}
-            className="relative flex justify-center lg:justify-end"
-          >
-            <div className="relative w-80 h-80 lg:w-96 lg:h-96">              
-              <motion.div 
-                className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 via-blue-500 to-pink-500 p-1"
-                whileHover={{ 
-                  scale: 1.05,
-                  rotate: 5
-                }}
-                transition={{ type: "spring", stiffness: 200, damping: 15 }}>
-                <div className="w-full h-full rounded-full overflow-hidden">
-                  <img src="img.jpg" alt={t.home.title} className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"/>
-                </div>
-              </motion.div>
-              <motion.div
-                className="absolute -top-3 -right-3 w-6 h-6 bg-blue-500 rounded-full opacity-80"
-                animate={{ 
-                  scale: [1, 1.2, 1]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              />
-              
-              <motion.div
-                className="absolute -bottom-3 -left-3 w-4 h-4 bg-blue-500 rounded-full opacity-80"
-                animate={{ 
-                  scale: [1, 1.3, 1]
-                }}
-                transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
-              />
-            </div>
-          </motion.div>
+         <motion.div
+  variants={imageVariants}
+  initial="hidden"
+  animate={visibleSections.has('home') ? "visible" : "hidden"}
+  className="relative flex justify-center lg:justify-end"
+>
+  <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mb-6 sm:mb-0">
+    {/* Cercle avec image */}
+    <motion.div
+      className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 via-blue-500 to-purple-500 p-1"
+      whileHover={{ scale: 1.01, rotate: 2 }}
+      transition={{ type: "spring", stiffness: 200, damping: 15 }}
+    >
+      <div className="w-full h-full rounded-full overflow-hidden">
+        <img
+          src="img.jpg"
+          alt={t.home.title}
+          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+        />
+      </div>
+    </motion.div>
+
+    {/* Icônes autour de l'image */}
+    {[
+      { icon: Globe, label: "Web", top: "-8%", left: "50%", transform: "translateX(-50%)", color: "text-blue-600 dark:text-blue-400", bgColor: "bg-blue-50 dark:bg-blue-900/30", borderColor: "border-blue-200 dark:border-blue-800" },
+      { icon: Smartphone, label: "Mobile", top: "50%", left: "-8%", transform: "translateY(-50%)", color: "text-green-600 dark:text-green-400", bgColor: "bg-green-50 dark:bg-green-900/30", borderColor: "border-green-200 dark:border-green-800" },
+      { icon: Shield, label: "Sécurité", top: "50%", right: "-8%", transform: "translateY(-50%)", color: "text-purple-600 dark:text-purple-400", bgColor: "bg-purple-50 dark:bg-purple-900/30", borderColor: "border-purple-200 dark:border-purple-800" },
+    ].map((item, i) => (
+      <motion.div
+        key={i}
+        className={`absolute flex items-center justify-center w-14 h-14 rounded-full ${item.bgColor} ${item.borderColor} border-2 shadow-lg ${item.color}`}
+        style={{ 
+          top: item.top, 
+          left: item.left, 
+          right: item.right,
+          transform: item.transform
+        }}
+        animate={{ 
+          y: [0, -8, 0],
+          rotate: [0, 5, -5, 0]
+        }}
+        transition={{ 
+          duration: 3, 
+          repeat: Infinity, 
+          delay: i * 0.6,
+          ease: "easeInOut"
+        }}
+        whileHover={{ 
+          scale: 1.1,
+          boxShadow: "0 10px 25px rgba(0,0,0,0.15)"
+        }}
+      >
+        <item.icon className="h-6 w-6" />
+      </motion.div>
+    ))}
+  </div>
+</motion.div>
+
         </div>
       </div>
     </section>
   );
 };
-
 export default Hero;

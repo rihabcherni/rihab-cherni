@@ -1,0 +1,23 @@
+@import "tailwindcss";
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+.rtl .flex-row {
+  flex-direction: row-reverse;
+}
+.rtl .mr-4 {
+  margin-right: 0;
+  margin-left: 1rem; 
+}
+.rtl .ml-4 {
+  margin-left: 0;
+  margin-right: 1rem;
+}
+.rtl footer, .rtl section {
+  text-align: right;
+}

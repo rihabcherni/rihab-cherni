@@ -38,13 +38,13 @@ const Navbar = ({
           </div>
 
           {/* Controls */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2">
             {/* Language Selector */}
-            <div className="relative">
+            <div className="relative hover:scale-110 hover:rotate-5 ">
               <select
                 value={language}
                 onChange={(e) => setLanguage(e.target.value)}
-                className={`appearance-none bg-transparent border rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 hover:scale-105 ${isDark ? 'border-gray-700 text-white' : 'border-gray-300 text-gray-900'
+                className={`appearance-none bg-transparent border rounded-md px-4 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 hover:scale-105 ${isDark ? 'border-gray-700 text-white' : 'border-gray-300 text-gray-900'
                   }`}
                 style={{ backgroundColor: isDark ? '#374151' : '#f9fafb' }}
               >
@@ -52,16 +52,16 @@ const Navbar = ({
                 <option value="en" style={{ backgroundColor: isDark ? '#374151' : '#f9fafb', color: isDark ? 'white' : 'black' }}>EN</option>
                 <option value="ar" style={{ backgroundColor: isDark ? '#374151' : '#f9fafb', color: isDark ? 'white' : 'black' }}>AR</option>
               </select>
-              <Globe className="absolute right-1 top-1.5 h-3 w-3 pointer-events-none animate-spin" style={{ animationDuration: '8s' }} />
+              <Globe className="absolute right-0.5 top-0 h-4 w-4 pointer-events-none animate-spin" style={{ animationDuration: '8s' }} />
             </div>
 
             {/* Theme Toggle */}
             <button
               onClick={() => setIsDark(!isDark)}
-              className={`p-2 rounded-lg transition-all duration-300 transform hover:scale-110 hover:rotate-12 ${isDark ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'
+              className={`px-4 py-1  rounded-lg transition-all duration-300 transform hover:scale-110 hover:rotate-5 ${isDark ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'
                 }`}
             >
-              {isDark ? <Sun className="h-5 w-5 animate-bounce" /> : <Moon className="h-5 w-5 animate-pulse" />}
+              {isDark ? <Sun className="h-6 w-6 animate-pulse text-amber-400" /> : <Moon className="h-6 w-6 animate-pulse" />}
             </button>
 
             {/* Mobile Menu Button */}

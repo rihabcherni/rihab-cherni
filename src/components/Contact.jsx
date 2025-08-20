@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { contactItems, socialLinks } from "../data/data";
+import SectionTitle from "./SectionTitle";
 
 const Contact = ({ t, isDark, visibleSections }) => {
   const formRef = useRef();
@@ -25,7 +26,7 @@ const Contact = ({ t, isDark, visibleSections }) => {
   return (
     <section
       id="contact"
-      className={`py-20 ${isDark ? "bg-gray-800/50" : "bg-gray-50"}`}
+      className={`py-10 ${isDark ? "bg-gray-800/50" : "bg-gray-50"}`}
     >
       <div className="max-w-6xl mx-auto px-4">
         <div
@@ -34,14 +35,7 @@ const Contact = ({ t, isDark, visibleSections }) => {
               : "opacity-0 translate-y-10"
             }`}
         >
-          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent">
-            {t.contact.title}
-          </h2>
-
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">
-            {t.contact.description}
-          </p>
-
+          <SectionTitle title={t.contact.title} subtitle={t.contact.subtitle} />
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-6">
               {contactItems.map((item, index) => {

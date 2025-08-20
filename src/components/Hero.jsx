@@ -94,7 +94,12 @@ const Hero = ({ t , isDark = false, visibleSections = new Set(['home']), scrollT
           <motion.div variants={containerVariants} initial="hidden" animate={visibleSections.has('home') ? "visible" : "hidden"} className="space-y-8">
             <motion.div variants={itemVariants} className="space-y-2">
               <motion.span 
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-50 to-blue-50 dark:from-blue-900/20 dark:to-blue-900/20 rounded-full text-sm font-medium text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800"
+                className="inline-flex items-center gap-2 px-4 py-2 
+                          bg-gradient-to-r from-blue-50/20 via-transparent to-blue-100/20 
+                          dark:from-blue-900/20 dark:via-transparent dark:to-blue-800/20 
+                          rounded-2xl text-sm font-medium text-blue-600 dark:text-blue-400 
+                          border border-white/40 dark:border-gray-600 
+                          shadow-md shadow-blue-500/30"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -104,7 +109,7 @@ const Hero = ({ t , isDark = false, visibleSections = new Set(['home']), scrollT
                 >
                   👋
                 </motion.div>
-                Salut, je suis
+                {t.home.welcome}
               </motion.span>
             </motion.div>
             <motion.div variants={itemVariants} className="space-y-4">
@@ -141,7 +146,7 @@ const Hero = ({ t , isDark = false, visibleSections = new Set(['home']), scrollT
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <motion.button
+              <motion.button 
                 onClick={() => scrollToSection('projects')}
                 className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-xl font-semibold flex items-center gap-3 shadow-xl shadow-blue-500/25"
                 whileHover={{ 
@@ -152,7 +157,7 @@ const Hero = ({ t , isDark = false, visibleSections = new Set(['home']), scrollT
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 {t.home.cta}
-                <motion.div
+                <motion.div 
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 >
@@ -199,8 +204,7 @@ const Hero = ({ t , isDark = false, visibleSections = new Set(['home']), scrollT
                     scale: 1.05,
                     color: item.color === 'blue' ? '#3b82f6' : item.color === 'green' ? '#10b981' : '#8b5cf6'
                   }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                  transition={{ type: "spring", stiffness: 300 }} dir={item.dir || "ltr"} >
                   <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}>
                     <item.icon className="h-4 w-4" />
                   </motion.div>
@@ -210,63 +214,62 @@ const Hero = ({ t , isDark = false, visibleSections = new Set(['home']), scrollT
             </motion.div>
           </motion.div>
          <motion.div
-  variants={imageVariants}
-  initial="hidden"
-  animate={visibleSections.has('home') ? "visible" : "hidden"}
-  className="relative flex justify-center lg:justify-end"
->
-  <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mb-6 sm:mb-0">
-    {/* Cercle avec image */}
-    <motion.div
-      className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 via-blue-500 to-purple-500 p-1"
-      whileHover={{ scale: 1.01, rotate: 2 }}
-      transition={{ type: "spring", stiffness: 200, damping: 15 }}
-    >
-      <div className="w-full h-full rounded-full overflow-hidden">
-        <img
-          src="img.jpg"
-          alt={t.home.title}
-          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-        />
-      </div>
-    </motion.div>
+            variants={imageVariants}
+            initial="hidden"
+            animate={visibleSections.has('home') ? "visible" : "hidden"}
+            className="relative flex justify-center lg:justify-end"
+          >
+            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mb-6 sm:mb-0">
+              {/* Cercle avec image */}
+              <motion.div
+                className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 via-blue-500 to-purple-500 p-1"
+                whileHover={{ scale: 1.02, rotate: 1.3 }}
+                transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              >
+                <div className="w-full h-full rounded-full overflow-hidden">
+                  <img
+                    src="img.jpg"
+                    alt={t.home.title}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
+              </motion.div>
 
-    {/* Icônes autour de l'image */}
-    {[
-      { icon: Globe, label: "Web", top: "-8%", left: "50%", transform: "translateX(-50%)", color: "text-blue-600 dark:text-blue-400", bgColor: "bg-blue-50 dark:bg-blue-900/30", borderColor: "border-blue-200 dark:border-blue-800" },
-      { icon: Smartphone, label: "Mobile", top: "50%", left: "-8%", transform: "translateY(-50%)", color: "text-green-600 dark:text-green-400", bgColor: "bg-green-50 dark:bg-green-900/30", borderColor: "border-green-200 dark:border-green-800" },
-      { icon: Shield, label: "Sécurité", top: "50%", right: "-8%", transform: "translateY(-50%)", color: "text-purple-600 dark:text-purple-400", bgColor: "bg-purple-50 dark:bg-purple-900/30", borderColor: "border-purple-200 dark:border-purple-800" },
-    ].map((item, i) => (
-      <motion.div
-        key={i}
-        className={`absolute flex items-center justify-center w-14 h-14 rounded-full ${item.bgColor} ${item.borderColor} border-2 shadow-lg ${item.color}`}
-        style={{ 
-          top: item.top, 
-          left: item.left, 
-          right: item.right,
-          transform: item.transform
-        }}
-        animate={{ 
-          y: [0, -8, 0],
-          rotate: [0, 5, -5, 0]
-        }}
-        transition={{ 
-          duration: 3, 
-          repeat: Infinity, 
-          delay: i * 0.6,
-          ease: "easeInOut"
-        }}
-        whileHover={{ 
-          scale: 1.1,
-          boxShadow: "0 10px 25px rgba(0,0,0,0.15)"
-        }}
-      >
-        <item.icon className="h-6 w-6" />
-      </motion.div>
-    ))}
-  </div>
-</motion.div>
-
+              {/* Icônes autour de l'image */}
+              {[
+                { icon: Globe, label: "Web", top: "-8%", left: "50%", transform: "translateX(-50%)", color: "text-blue-600 dark:text-blue-400", bgColor: "bg-blue-200 dark:bg-blue-900/30", borderColor: "border-blue-400 dark:border-blue-800" },
+                { icon: Smartphone, label: "Mobile", top: "50%", left: "-8%", transform: "translateY(-50%)", color: "text-green-600 dark:text-green-400", bgColor: "bg-green-200 dark:bg-green-900/30", borderColor: "border-green-400 dark:border-green-800" },
+                { icon: Shield, label: "Sécurité", top: "80%", right: "10%", transform: "translateY(-50%)", color: "text-purple-600 dark:text-purple-400", bgColor: "bg-purple-200 dark:bg-purple-900/30", borderColor: "border-purple-400 dark:border-purple-800" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  className={`absolute flex items-center justify-center w-14 h-14 rounded-full ${item.bgColor} ${item.borderColor} border-4 shadow-lg ${item.color}`}
+                  style={{ 
+                    top: item.top, 
+                    left: item.left, 
+                    right: item.right,
+                    transform: item.transform
+                  }}
+                  animate={{ 
+                    y: [0, -8, 0],
+                    rotate: [0, 5, -5, 0]
+                  }}
+                  transition={{ 
+                    duration: 3, 
+                    repeat: Infinity, 
+                    delay: i * 0.6,
+                    ease: "easeInOut"
+                  }}
+                  whileHover={{ 
+                    scale: 1.1,
+                    boxShadow: "0 10px 25px rgba(0,0,0,0.15)"
+                  }}
+                >
+                  <item.icon className="h-6 w-6" />
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

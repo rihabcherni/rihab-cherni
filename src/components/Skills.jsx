@@ -2,6 +2,7 @@ import React from 'react';
 import { Code, Globe, Briefcase, Phone, Award, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { techIconsClass } from '../data/data';
+import SectionTitle from './SectionTitle';
 
 const categoryIcons = {
   programming: Code,
@@ -14,18 +15,15 @@ const categoryIcons = {
 
 const Skills = ({ t, skills, isDark, visibleSections }) => {
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-10">
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={visibleSections.has('skills') ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-500 to-blue-600 bg-clip-text text-transparent">
-            {t.skills.title}
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <SectionTitle title={t.skills.title} subtitle={t.skills.subtitle} />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {Object.entries(skills).map(([category, skillList], index) => {
               const Icon = categoryIcons[category];
               return (
@@ -44,7 +42,7 @@ const Skills = ({ t, skills, isDark, visibleSections }) => {
                     <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center animate-pulse">
                       {Icon && <Icon className="w-4 h-4 text-white" />}
                     </div>
-                    <h3 className="text-xl font-semibold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+                    <h3 className="text-xl font-semibold bg-gradient-to-r from-gray-400 to-gray-500 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
                       {t.skills[category]}
                     </h3>
                   </div>

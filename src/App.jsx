@@ -1,6 +1,5 @@
-import './App.css'
+import './App.css';
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import Navbar from './components/Nav';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,26 +9,41 @@ import Skills from './components/Skills';
 import Footer from './components/Footer';
 import Contact from './components/Contact';
 import BackgroundAnimation from './components/BackgroundAnimation';
+import Certifications from './components/Certifications';
+import Loading from './components/Loading'; 
 import { translations } from './data/translations';
-import { contactItems, experiences, projects, skills } from './data/data';
+import { experiences } from './data/experiences';
+import { contactItems, projects, skills } from './data/data';
 
 const App = () => {
   const [isDark, setIsDark] = useState(true);
-  const [language, setLanguage] = useState('fr');
+  const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'fr');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [visibleSections, setVisibleSections] = useState(new Set());
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
 
   const t = translations[language];
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
+    const savedLang = localStorage.getItem('language');
+    if (savedLang) {
+      setLanguage(savedLang);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('language', language);
+  }, [language]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 3000);
     return () => clearTimeout(timer);
   }, []);
+
   useEffect(() => {
     if (loading) return;
     const handleScroll = () => {
-      const sections = ['home', 'about', 'experience', 'projects', 'skills', 'contact'];
+      const sections = ['home', 'about', 'experience', 'projects', 'skills', 'certifications', 'contact'];
       const scrollY = window.scrollY;
       sections.forEach(section => {
         const element = document.getElementById(section);
@@ -42,9 +56,10 @@ const App = () => {
       });
     };
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [loading]);
+
   useEffect(() => {
     if (loading) return;
     const observer = new IntersectionObserver(
@@ -70,16 +85,9 @@ const App = () => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
   };
+
   if (loading) {
-    return (
-      <div className="flex items-center justify-center h-screen bg-gray-900">
-        <motion.div
-          className="w-16 h-16 border-4 border-t-transparent border-blue-500 rounded-full"
-          animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-        />
-      </div>
-    );
+    return <Loading  t={t} isDark={isDark}/>;
   }
 
   return (
@@ -95,6 +103,7 @@ const App = () => {
         <Experience t={t} isDark={isDark} visibleSections={visibleSections} experiences={experiences} />
         <Projects t={t} isDark={isDark} visibleSections={visibleSections} projects={projects} />      
         <Skills t={t} skills={skills} isDark={isDark} visibleSections={visibleSections} />
+        <Certifications t={t} isDark={isDark} visibleSections={visibleSections}/>
         <Contact t={t} isDark={isDark} visibleSections={visibleSections} contactItems={contactItems}/>
         <Footer isDark={isDark} scrollToSection={scrollToSection} />
         <BackgroundAnimation isDark={isDark} />

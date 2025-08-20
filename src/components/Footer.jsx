@@ -13,9 +13,9 @@ const Footer = ({ isDark, scrollToSection }) => {
       </footer>
       <button
         onClick={() => scrollToSection('home')}
-        className="fixed bottom-8 right-8 p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 z-40 group overflow-hidden transform hover:scale-120 hover:rotate-360"
+        className="fixed bottom-8 right-6 p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 z-40 group overflow-hidden transform hover:scale-105 hover:rotate-360"
       >
-        <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300 animate-ping" />
+        <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300 animate-bounce" />
         <ChevronRight className="h-6 w-6 transform -rotate-90 relative z-10 animate-bounce" />
       </button>
     </>

@@ -1,13 +1,14 @@
 import React from 'react';
 import { GraduationCap, Globe, Award } from 'lucide-react';
+import SectionTitle from './SectionTitle';
 
 const About = ({ t, isDark, visibleSections }) => {
 
   const languages = [
-    { lang: 'العربية', level: 'langue maternelle', progress: 100 },
-    { lang: 'Français', level: 'intermédiaire', progress: 80 },
-    { lang: 'English', level: 'intermediate', progress: 75 },
-    { lang: 'Italiano', level: 'débutant', progress: 40 }
+    { lang: t.about.langAr, level: t.about.levelAr, progress: 100 },
+    { lang: t.about.langFr, level: t.about.levelFr, progress: 80 },
+    { lang: t.about.langAng, level: t.about.levelAng, progress: 75 },
+    { lang: t.about.langItalien, level: t.about.levelItalien, progress: 40 }
   ];
 
   const certifications = [
@@ -18,15 +19,11 @@ const About = ({ t, isDark, visibleSections }) => {
   ];
 
   return (
-    <section id="about" className={`py-20 ${isDark ? 'bg-gray-800/50' : 'bg-gray-50'}`}>
+    <section id="about" className={`py-10 ${isDark ? 'bg-gray-800/50' : 'bg-gray-50'}`}>
       <div className="max-w-6xl mx-auto px-4">
-        <div className={`transition-all duration-1000 ${
-          visibleSections.has('about') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
-            {t.about.title}
-          </h2>
-
+        <div className={`transition-all duration-1000 ${visibleSections.has('about') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+          <SectionTitle title={t.about.title} subtitle={t.about.subtitle} />
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <p className="text-lg leading-relaxed mb-6 text-gray-600 dark:text-gray-300">
@@ -46,13 +43,17 @@ const About = ({ t, isDark, visibleSections }) => {
                   <h4 className="font-semibold">Licence en Informatique de Gestion</h4>
                   <p className="text-sm text-gray-500 dark:text-gray-400">ESSECT • 2019-2022</p>
                 </div>
+                 <div className={`p-4 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-white'} shadow-sm hover:shadow-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1`}>
+                  <h4 className="font-semibold">Baccalauréat, Mathématiques</h4>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Lycée Secondaire Mohamed Attaia, Khaznadar • 2019</p>
+                </div>
               </div>
             </div>
 
             <div className="space-y-6">
               <div>
                 <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                  <Globe className="h-6 w-6 text-blue-500 animate-spin" style={{animationDuration: '4s'}} />
+                  <Globe className="h-6 w-6 text-blue-500 animate-spin" style={{ animationDuration: '4s' }} />
                   {t.about.languages}
                 </h3>
                 <div className="space-y-3">

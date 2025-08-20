@@ -42,29 +42,6 @@ export const skills = {
   database: ['MySQL', 'PostgreSQL', 'MongoDB', 'Firebase'],
   tools: ['Git', 'Docker', 'Jenkins', 'Postman', 'Linux', 'Unity']
 };
-export const experiences = [
-  {
-    title: 'Stage PFE: Développeuse Web Full Stack',
-    company: 'ADDINN Tunisie',
-    period: 'Février - Juin 2025',
-    description: 'Conception et développement d\'une application web «AutoTest» pour l\'automatisation des tests fonctionnels, de sécurité et des analyses SEO.',
-    tech: ['FastAPI', 'Angular', 'PostgreSQL', 'Docker', 'WebSockets']
-  },
-  {
-    title: 'Stage Technicien: Développeuse Mobile',
-    company: 'SNCFT',
-    period: 'Juillet - Août 2024',
-    description: 'Conception et réalisation d\'une application mobile pour la gestion du fret ferroviaire.',
-    tech: ['Flutter', 'Node.js', 'MongoDB', 'WebSockets']
-  },
-  {
-    title: 'Stage Ouvrier: Développeuse Web Full Stack',
-    company: 'IPACT Consult Inc.',
-    period: 'Juillet - Août 2023',
-    description: 'Développement de l\'application de santé "NPWT" avec intégration d\'IA.',
-    tech: ['React.js', 'Node.js', 'MongoDB', 'Docker', 'Jenkins']
-  }
-];
 export const projects = [
   {
     title: 'AutoTest - Test Automation Platform',

@@ -5,21 +5,19 @@ export const experiences = [
     location: 'Tunis, Tunisie',
     period: 'Février - Juin 2025',
     description:
-      "Conception et développement d'une application web «AutoTest» pour l'automatisation des tests fonctionnels, de sécurité (pentesting) et des analyses SEO. Intégration d'outils (ZAP, Nmap, Nuclei, Wapiti, SQLMap...) pour la détection des vulnérabilités, génération de rapports exploitables, tableau de bord dynamique, notifications temps réel via WebSocket et intégrations (Slack, Jira, email).",
+      "Application web «AutoTest» pour automatiser les tests fonctionnels, sécurité et SEO, avec détection de vulnérabilités, rapports, tableau de bord dynamique et notifications en temps réel via WebSocket (Slack, Jira, Gmail).",
     tech: [
       'FastAPI',
       'Angular',
       'PostgreSQL',
       'Docker',
+      'GitLab',
       'WebSockets',
       'RabbitMQ',
       'Selenium',
       'BeautifulSoup',
-      'Drawflow',
-      'OWASP ZAP',
-      'Jira API',
-      'Slack API',
-      'GitLab'
+      'ZAP',
+      'Jira/Slack API'
     ],
     link: 'https://github.com/rihabcherni/autotest'
   },
@@ -62,7 +60,7 @@ export const experiences = [
     location: 'Ariana, Tunisie',
     period: 'Février - Juin 2022',
     description:
-      "Conception et développement de l'application web «RE-School Ecology» destinée à la gestion et collecte des déchets via des poubelles intelligentes, incluant suivi en temps réel, optimisation des itinéraires et sensibilisation écologique.",
+      "Conception et développement de l'application web «RE-School Ecology» destinée à la gestion et collecte des déchets via des poubelles intelligentes dans les écoles, incluant suivi en temps réel, optimisation des itinéraires et sensibilisation écologique.",
     tech: ['React.js', 'Laravel', 'MUI', 'MySQL', 'UML', 'PHP', 'Figma', 'Jira'],
     link: 'https://github.com/rihabcherni/re-school-ecology'
   },
@@ -73,7 +71,7 @@ export const experiences = [
     period: 'Juillet - Août 2021',
     description:
       'Développement de l’application web éducative «Alma» pour l’apprentissage en ligne (ressources, suivi progression, quiz, évaluations, interactions enseignants-élèves). Utilisation de Scrum avec Jira.',
-    tech: ['React.js', 'MUI', 'HTML', 'CSS', 'Zeplin', 'Jira', 'Scrum', 'Slack'],
+    tech: ['React.js', 'MUI', 'HTML', 'CSS', 'Zeplin', 'Jira', 'Scrum', 'Slack', 'Github'],
     link: 'https://github.com/rihabcherni/alma'
   }
 ];

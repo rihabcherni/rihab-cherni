@@ -70,7 +70,7 @@ const Experience = ({ t, isDark, visibleSections, experiences }) => {
   };
 
   return (
-    <section id="experience" className="py-10">
+    <section id="experience" className="p-10">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial="hidden"
@@ -125,8 +125,8 @@ const Experience = ({ t, isDark, visibleSections, experiences }) => {
                         isEven ? 'mb-8' : 'mt-8'
                       }`}
                       style={{
-                        marginTop: isEven ? 0 : '22rem',
-                        marginBottom: isEven ? '22rem' : 0,
+                        marginTop: isEven ? 0 : '22.5rem',
+                        marginBottom: isEven ? '22.5rem' : 0,
                         marginLeft: '-6rem',
                         marginRight: '-6rem'
                       }}
@@ -152,7 +152,7 @@ const Experience = ({ t, isDark, visibleSections, experiences }) => {
                               whileHover={{ scale: 1.1, rotate: 3 }}
                               transition={{ duration: 0.2 }}
                             >
-                              <Github className={`h-6 w-6 hover:text-white transition-colors z-50`}/>
+                              <Github className={`h-5 w-5 hover:text-white transition-colors z-50`}/>
                             </motion.a>
                           )}
                           {/* Period Badge (à gauche) */}
@@ -171,14 +171,14 @@ const Experience = ({ t, isDark, visibleSections, experiences }) => {
                         {/* Title & Company */}
                         <div className="mb-3">
                           <motion.h3 
-                            className="text-base font-bold mb-1.5 line-clamp-2 leading-tight"
+                            className="text-[14px] font-bold mb-2 line-clamp-2 leading-tight"
                             whileHover={{ x: 2 }}
                             transition={{ duration: 0.2 }}
                           >
                             {exp.title}
                           </motion.h3>
                           <motion.p 
-                            className="text-blue-500 font-semibold text-sm mb-1"
+                            className="text-blue-500 font-semibold text-[13px] mb-1"
                             whileHover={{ scale: 1.02 }}
                             transition={{ duration: 0.2 }}
                           >
@@ -213,11 +213,11 @@ const Experience = ({ t, isDark, visibleSections, experiences }) => {
                         
                         {/* Tech Stack */}
                         <div>
-                          <div className="flex flex-wrap gap-1.5">
-                            {exp.tech.slice(0, expandedCards[index] ? exp.tech.length : 3).map((tech, techIndex) => (
+                          <div className="flex flex-wrap gap-1">
+                            {exp.tech.slice(0, expandedCards[index] ? exp.tech.length : 5).map((tech, techIndex) => (
                               <motion.span
                                 key={techIndex}
-                                className={`px-2 py-1 rounded-full text-xs font-medium ${
+                                className={`px-2 py-1 rounded-full text-[10px] font-medium ${
                                   isDark 
                                     ? 'bg-gray-700 text-gray-300 hover:bg-blue-600 hover:text-white' 
                                     : 'bg-gray-100 text-gray-700 hover:bg-blue-500 hover:text-white'
@@ -251,18 +251,15 @@ const Experience = ({ t, isDark, visibleSections, experiences }) => {
                     {/* Connection line to timeline dot */}
                     <motion.div
                       className={`absolute left-1/2 w-px ${
-                        isEven 
-                          ? 'bottom-1/2 h-8 mb-3' 
-                          : 'top-1/2 h-8 mt-3'
-                      } ${
-                        isDark ? 'bg-gray-600' : 'bg-gray-300'
-                      } transform -translate-x-1/2`}
+                        isEven ? 'bottom-1/2' : 'top-1/2'
+                      } ${isDark ? 'bg-gray-600' : 'bg-gray-300'} transform -translate-x-1/2`}
                       initial={{ scaleY: 0 }}
                       animate={{ scaleY: 1 }}
                       transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
                       style={{
                         [isEven ? 'bottom' : 'top']: '50%',
-                        transformOrigin: isEven ? 'bottom' : 'top'
+                        transformOrigin: isEven ? 'bottom' : 'top',
+                        height: expandedCards[index] ? '2rem' : '4rem',
                       }}
                     />
                   </motion.div>
@@ -308,7 +305,7 @@ const Experience = ({ t, isDark, visibleSections, experiences }) => {
                               whileHover={{ scale: 1.1, rotate: 3 }}
                               transition={{ duration: 0.2 }}
                             >
-                              <Github className={`h-6 w-6 hover:text-white transition-colors z-50`}/>
+                              <Github className={`h-5 w-5 hover:text-white transition-colors z-50`}/>
                             </motion.a>
                           )}
                         {/* Period Badge (à gauche) */}
@@ -459,7 +456,7 @@ const Experience = ({ t, isDark, visibleSections, experiences }) => {
                               whileHover={{ scale: 1.1, rotate: 3 }}
                               transition={{ duration: 0.2 }}
                             >
-                              <Github className={`h-6 w-6 hover:text-white transition-colors z-50`}/>
+                              <Github className={`h-5 w-5 hover:text-white transition-colors z-50`}/>
                             </motion.a>
                           )}
                         {/* Period Badge (à gauche) */}

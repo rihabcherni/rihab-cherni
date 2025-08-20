@@ -27,7 +27,7 @@ export const certifications = [
     bgColor: 'bg-red-50 dark:bg-red-900/20',
     borderColor: 'border-red-200 dark:border-red-800',
     iconColor: 'text-red-600 dark:text-red-400',
-    skills: ['CCNA', 'Cisco Networking', 'Sécurité réseau', 'Automation'],
+    skills: ['Networking', 'Sécurité réseau', 'Automation'],
   },
   {
     title: 'CCNA: Switching, Routing, and Wireless Essentials',
@@ -42,7 +42,7 @@ export const certifications = [
     bgColor: 'bg-green-50 dark:bg-green-900/20',
     borderColor: 'border-green-200 dark:border-green-800',
     iconColor: 'text-green-600 dark:text-green-400',
-    skills: ['CCNA', 'Switching', 'Routing', 'Wireless Essentials'],
+    skills: ['Switching', 'Routing', 'Wireless Essentials'],
   },
   {
     title: 'AWS Academy Introduction to Cloud Semester 1',
@@ -132,7 +132,7 @@ export const certifications = [
     bgColor: 'bg-indigo-50 dark:bg-indigo-900/20',
     borderColor: 'border-indigo-200 dark:border-indigo-800',
     iconColor: 'text-indigo-600 dark:text-indigo-400',
-    skills: ['Programmation', 'Logique', 'Algorithmes', 'Développement'],
+    skills: ['Programmation', 'Logique', 'Algorithmes'],
   },
   {
     title: "L'essentiel du HTML5",

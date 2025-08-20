@@ -113,7 +113,7 @@ const Hero = ({ t , isDark = false, visibleSections = new Set(['home']), scrollT
               </motion.span>
             </motion.div>
             <motion.div variants={itemVariants} className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
                 <motion.span 
                   className="bg-gradient-to-r from-gray-600 via-blue-800 to-blue-800 dark:from-white dark:via-blue-200 dark:to-blue-200 bg-clip-text text-transparent"
                   whileHover={{ scale: 1.02 }}
@@ -124,7 +124,7 @@ const Hero = ({ t , isDark = false, visibleSections = new Set(['home']), scrollT
               </h1>
               
               <motion.div 
-                className="text-2xl lg:text-4xl font-semibold text-gray-600 dark:text-gray-300"
+                className="text-2xl lg:text-3xl font-semibold text-gray-600 dark:text-gray-300"
                 variants={itemVariants}
               >
                 <motion.span
@@ -138,7 +138,7 @@ const Hero = ({ t , isDark = false, visibleSections = new Set(['home']), scrollT
             </motion.div>
             <motion.p 
               variants={itemVariants}
-              className="text-lg lg:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl"
+              className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl"
             >
               {t.home.description}
             </motion.p>

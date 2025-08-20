@@ -13,7 +13,8 @@ import Certifications from './components/Certifications';
 import Loading from './components/Loading'; 
 import { translations } from './data/translations';
 import { experiences } from './data/experiences';
-import { contactItems, projects, skills } from './data/data';
+import { projects } from './data/projects';
+import { contactItems, skills } from './data/data';
 
 const App = () => {
   const [isDark, setIsDark] = useState(true);

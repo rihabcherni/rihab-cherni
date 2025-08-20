@@ -192,13 +192,15 @@ const Certifications = ({ t, isDark = false, visibleSections = new Set(['certifi
 
                                                 {/* Year Badge */}
                                                 <div className="absolute top-4 right-4 z-10">
-                                                    <motion.span
-                                                        className="inline-block px-2 py-1 text-xs font-bold 
-                                                                 bg-black/20 text-white rounded-full backdrop-blur-sm"
-                                                        whileHover={{ scale: 1.05 }}
-                                                    >
-                                                        {cert.year}
-                                                    </motion.span>
+                                                    
+                                                     <motion.span
+                                                        className="px-2 py-1 font-bold 
+                                                                 bg-black/20 text-white rounded-full backdrop-blur-sm flex items-center gap-2 text-xs mb-3"
+                                                            whileHover={{ x: 3 }}
+                                                        >
+                                                            <Calendar className="h-3 w-3" />
+                                                            {cert.date}
+                                                        </motion.span>
                                                 </div>
                                                 {/* Card Header with Image */}
                                                 <div className="relative h-48 overflow-hidden">
@@ -260,21 +262,15 @@ const Certifications = ({ t, isDark = false, visibleSections = new Set(['certifi
                                                 {/* Card Content */}
                                                 <div className={`px-6 py-3 space-y-4 bg-gradient-to-r ${cert.color} flex-1 flex flex-col`}>
                                                     <div className="flex-1">
-                                                        <h3 className="text-lg font-bold text-gray-800 dark:text-white
+                                                        <h3 className="text-[14px] font-bold text-gray-800 dark:text-white
                                                                      group-hover:text-gray-900 dark:group-hover:text-gray-100 
-                                                                     transition-colors line-clamp-2 min-h-[2.5rem] mb-2">
+                                                                     transition-colors line-clamp-2 min-h-[2rem]">
                                                             {cert.title}
                                                         </h3>
                                                         <p className="text-gray-600 dark:text-gray-400 font-medium text-sm mb-3">
                                                             {cert.organization}
                                                         </p>
-                                                        <motion.div
-                                                            className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-3"
-                                                            whileHover={{ x: 3 }}
-                                                        >
-                                                            <Calendar className="h-3 w-3" />
-                                                            {cert.date}
-                                                        </motion.div>
+                                                       
                                                         {cert.skills && cert.skills.length > 0 && (
                                                             <div>
                                                                 <motion.div className="flex items-center gap-1 mb-1">

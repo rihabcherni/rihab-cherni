@@ -31,7 +31,7 @@ export const experiences = [
     description:
       "Conception et réalisation d'une application mobile pour la gestion du fret ferroviaire (itinéraires, ressources, suivi des horaires, réclamations, messagerie instantanée via WebSocket).",
     tech: ['Flutter', 'Node.js', 'Express.js', 'MongoDB', 'WebSockets', 'Trello', 'GitHub'],
-    link: 'https://github.com/rihabcherni/fret-mobile'
+    link: 'https://github.com/rihabcherni/sncft-mobile-app'
   },
   {
     title: 'Stage Ouvrier: Développeuse Web Full Stack MERN',

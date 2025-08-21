@@ -19,7 +19,7 @@ export const experiences = [
       'ZAP',
       'Jira/Slack API'
     ],
-    link: 'https://github.com/rihabcherni/autotest'
+    link: 'https://github.com/rihabcherni/pfe-Autotest'
   },
   {
     title: 'Stage Technicien: Développeuse Mobile',
@@ -52,7 +52,7 @@ export const experiences = [
       'Mocha',
       'Chai'
     ],
-    link: 'https://github.com/rihabcherni/npwt'
+    link: 'https://github.com/rihabcherni/stage-npwt'
   },
   {
     title: 'Stage PFE: Développeuse Web Full Stack',
@@ -62,7 +62,7 @@ export const experiences = [
     description:
       "Conception et développement de l'application web «RE-School Ecology» destinée à la gestion et collecte des déchets via des poubelles intelligentes dans les écoles, incluant suivi en temps réel, optimisation des itinéraires et sensibilisation écologique.",
     tech: ['React.js', 'Laravel', 'MUI', 'MySQL', 'UML', 'PHP', 'Figma', 'Jira'],
-    link: 'https://github.com/rihabcherni/re-school-ecology'
+    link: 'https://github.com/rihabcherni/pfe-reSchool-ecology'
   },
   {
     title: "Stage d'été: Développeuse Web Front-end",

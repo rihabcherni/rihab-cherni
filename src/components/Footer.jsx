@@ -1,13 +1,13 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 
-const Footer = ({ isDark, scrollToSection }) => {
+const Footer = ({t, isDark, scrollToSection }) => {
   return (
     <>
       <footer className={`py-6 border-t ${isDark ? 'border-gray-800 bg-gray-900' : 'border-gray-200 bg-white'}`}>
         <div className="max-w-6xl mx-auto px-4 text-center">
           <p className="text-blue-800 font-medium">
-            © 2025 Rihab Cherni. Tous droits réservés.
+            {t.footer.footer}
           </p>
         </div>
       </footer>

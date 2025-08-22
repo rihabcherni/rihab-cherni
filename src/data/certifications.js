@@ -92,7 +92,7 @@ export const certifications = [
   {
     title: 'Dashboard in a Day - Power BI',
     organization: 'Microsoft',
-    date: '27 - 28 Janvier 2024',
+    date: 'Janvier 2024',
     year: '2024',
     domain: 'Business Intelligence',
     image: '/certificates/img/bi.jpg',
@@ -137,7 +137,7 @@ export const certifications = [
   {
     title: "L'essentiel du HTML5",
     organization: 'LinkedIn Learning',
-    date: '30 Juin 2021',
+    date: 'Juin 2021',
     year: '2021',
     domain: 'Développement Web',
     image: '/certificates/img/html.PNG',
@@ -152,7 +152,7 @@ export const certifications = [
   {
     title: 'Les fondements des CSS',
     organization: 'LinkedIn Learning',
-    date: '19 Juillet 2021',
+    date: 'Juillet 2021',
     year: '2021',
     domain: 'Développement Web',
     image: '/certificates/img/css.PNG',
@@ -167,7 +167,7 @@ export const certifications = [
   {
     title: 'Savoir gérer son stress',
     organization: 'LinkedIn Learning',
-    date: '03 Juillet 2021',
+    date: 'Juillet 2021',
     year: '2021',
     domain: 'Développement Personnel',
     image: '/certificates/img/stress.PNG',
@@ -182,7 +182,7 @@ export const certifications = [
   {
     title: 'SOLID Principles',
     organization: 'TeraCourses',
-    date: '01 Juillet 2021',
+    date: 'Juillet 2021',
     year: '2021',
     domain: 'Développement Logiciel',
     image: '/certificates/img/solid.PNG',
@@ -197,7 +197,7 @@ export const certifications = [
   {
     title: 'Database SQL',
     organization: 'TeraCourses',
-    date: '13 Juin 2021',
+    date: 'Juin 2021',
     year: '2021',
     domain: 'Base de Données',
     image: '/certificates/img/sql.PNG',
@@ -212,7 +212,7 @@ export const certifications = [
   {
     title: 'Sass',
     organization: 'TeraCourses',
-    date: '13 Juin 2021',
+    date: 'Juin 2021',
     year: '2021',
     domain: 'Frontend Development',
     image: '/certificates/img/sass.PNG',

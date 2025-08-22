@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { certifications } from '../data/certifications';
 import SectionTitle from './SectionTitle';
 
-const Certifications = ({ t, isDark = false, visibleSections = new Set(['certifications']), scrollToSection = () => {} }) => {
+const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [cardsPerSlide, setCardsPerSlide] = useState(3);
     const carouselRef = useRef(null);
@@ -131,7 +131,7 @@ const Certifications = ({ t, isDark = false, visibleSections = new Set(['certifi
                                 whileHover={canGoPrev ? { scale: 1.1, x: -2 } : {}}
                                 whileTap={canGoPrev ? { scale: 0.9 } : {}}
                             >
-                                <ChevronLeft className="h-6 w-6" />
+                                {isRTL ?<ChevronRight className="h-6 w-6" />:<ChevronLeft className="h-6 w-6" />}
                             </motion.button>
 
                             <motion.button
@@ -146,7 +146,7 @@ const Certifications = ({ t, isDark = false, visibleSections = new Set(['certifi
                                 whileHover={canGoNext ? { scale: 1.1, x: 2 } : {}}
                                 whileTap={canGoNext ? { scale: 0.9 } : {}}
                             >
-                                <ChevronRight className="h-6 w-6" />
+                                {isRTL ?<ChevronLeft className="h-6 w-6" />:<ChevronRight className="h-6 w-6" />}
                             </motion.button>
                         </div>
                     </div>
@@ -156,7 +156,7 @@ const Certifications = ({ t, isDark = false, visibleSections = new Set(['certifi
                         <motion.div
                             className="flex transition-transform duration-500 ease-out gap-6"
                             style={{ 
-                                transform: `translateX(-${currentIndex * (100 / totalSlides)}%)`,
+                                transform: `translateX(${isRTL ? currentIndex * (100 / totalSlides) : -currentIndex * (100 / totalSlides)}%)`,
                                 width: `${totalSlides * 100}%`
                             }}
                         >
@@ -276,7 +276,7 @@ const Certifications = ({ t, isDark = false, visibleSections = new Set(['certifi
                                                                 <motion.div className="flex items-center gap-1 mb-1">
                                                                     <Tag className="h-3 w-3 text-gray-500 dark:text-gray-400" />
                                                                     <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
-                                                                        Compétences
+                                                                        {t.certifications.Skills}
                                                                     </span>
                                                                 </motion.div>
                                                                 <div className="flex flex-wrap gap-1">
@@ -328,7 +328,7 @@ const Certifications = ({ t, isDark = false, visibleSections = new Set(['certifi
                                                             >
                                                                 <Download className="h-4 w-4" />
                                                             </motion.div>
-                                                            <span>PDF</span>
+                                                            <span>{t.certifications.pdf}</span>
                                                         </motion.a>
                                                         {(cert.link || cert.verifyUrl) && (
                                                             <motion.a

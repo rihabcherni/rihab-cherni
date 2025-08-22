@@ -23,6 +23,7 @@ const App = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [visibleSections, setVisibleSections] = useState(new Set());
   const [loading, setLoading] = useState(true);
+  const isRTL = language === 'ar';
 
   const t = translations[language];
   useEffect(() => {
@@ -34,10 +35,12 @@ const App = () => {
 
   useEffect(() => {
     localStorage.setItem('language', language);
-  }, [language]);
+    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+    document.documentElement.lang = language;
+  }, [language, isRTL]);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000);
+    const timer = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -104,9 +107,9 @@ const App = () => {
         <Experience t={t} isDark={isDark} visibleSections={visibleSections} experiences={experiences} />
         <Projects t={t} isDark={isDark} visibleSections={visibleSections} projects={projects} />      
         <Skills t={t} skills={skills} isDark={isDark} visibleSections={visibleSections} />
-        <Certifications t={t} isDark={isDark} visibleSections={visibleSections}/>
+        <Certifications t={t} isDark={isDark} visibleSections={visibleSections} isRTL={isRTL} />
         <Contact t={t} isDark={isDark} visibleSections={visibleSections} contactItems={contactItems}/>
-        <Footer isDark={isDark} scrollToSection={scrollToSection} />
+        <Footer t={t} isDark={isDark} scrollToSection={scrollToSection} />
         <BackgroundAnimation isDark={isDark} />
       </div>
     </div>

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, Calendar, Github, ExternalLink, User, Building2, Briefcase } from 'lucide-react';
 import SectionTitle from './SectionTitle';
+import { motion } from 'framer-motion';
 
-
-const Projects = ({ t, isDark, visibleSections, projects }) => {
+const Projects = ({ t, isDark, visibleSections }) => {
   const [expandedProjects, setExpandedProjects] = useState(new Set());
-  const projectList = projects;
+  const [showAll, setShowAll] = useState(false); // pour afficher tous les projets
   const isVisible = visibleSections?.has('projects') ?? true;
 
   const toggleExpanded = (index) => {
@@ -25,7 +25,6 @@ const Projects = ({ t, isDark, visibleSections, projects }) => {
 
   const renderLinks = (project) => {
     const links = [];
-    
     if (project.link) {
       links.push(
         <a
@@ -42,7 +41,6 @@ const Projects = ({ t, isDark, visibleSections, projects }) => {
         </a>
       );
     }
-
     if (project.linkweb) {
       links.push(
         <a
@@ -53,20 +51,22 @@ const Projects = ({ t, isDark, visibleSections, projects }) => {
           className="p-2.5 rounded-full bg-white/90 backdrop-blur-sm text-gray-800 
           hover:bg-white hover:scale-110 hover:rotate-12 hover:text-black 
           transition-all duration-200 shadow-lg"
-          title="Site Web"
+          title="Website"
         >
           <ExternalLink className="h-4 w-4" />
         </a>
       );
     }
-
     return links;
   };
+
+  // Limiter le nombre de projets affichés
+  const displayedProjects = showAll ? t.projects.projectsListe : t.projects.projectsListe.slice(0, 6);
 
   return (
     <section 
       id="projects" 
-      className={`py-10 transition-colors duration-300 ${isDark ? 'bg-gray-800/50' : 'bg-gray-50'}`}
+      className={`py-8 transition-colors duration-300 ${isDark ? 'bg-gray-800/50' : 'bg-gray-50'}`}
     >
       <div className="max-w-6xl mx-auto px-4">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -76,7 +76,7 @@ const Projects = ({ t, isDark, visibleSections, projects }) => {
           />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projectList.map((project, index) => {
+            {displayedProjects.map((project, index) => {
               const isExpanded = expandedProjects.has(index);
               const shouldTruncate = project.description.length > 100;
               return (
@@ -119,7 +119,6 @@ const Projects = ({ t, isDark, visibleSections, projects }) => {
                       {project.title}
                     </h3>
 
-                    {/* Project Meta Information */}
                     <div className="mb-3 space-y-2">
                       {project.role && (
                         <div className={`flex items-center gap-2 text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
@@ -144,6 +143,7 @@ const Projects = ({ t, isDark, visibleSections, projects }) => {
                         )}
                       </div>
                     </div>
+
                     <div className={`mb-2 text-sm leading-relaxed transition-colors duration-300
                       ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                       <p>
@@ -159,22 +159,11 @@ const Projects = ({ t, isDark, visibleSections, projects }) => {
                           className={`mt-1 text-xs font-semibold hover:underline transition-colors duration-200
                             ${isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-500'}`}
                         >
-                          {isExpanded ? 
-                            <div className="text-blue-500 hover:text-blue-600 text-xs flex items-center gap-1 transition-colors">
-                              {t.projects.moins} 
-                              <ChevronUp className="w-3 h-3" />
-                              </div>
-                            :                            
-                            <div className="text-blue-500 hover:text-blue-600 text-xs flex items-center gap-1 transition-colors">
-                              {t.projects.plus}
-                              <ChevronDown className="w-3 h-3" />
-                            </div>
-                            }
+                          {isExpanded ?t.projects.moins : t.projects.plus }
                         </button>
                       )}
                     </div>
-                    
-                    {/* Technology Tags */}
+
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech, techIndex) => (
                         <span
@@ -191,25 +180,32 @@ const Projects = ({ t, isDark, visibleSections, projects }) => {
                       ))}
                     </div>
                   </div>
-
-                  {/* Hover Overlay Effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
                 </div>
               );
             })}
           </div>
+          {t.projects.projectsListe.length > 3 && (
+            <div className="mt-4 text-center">
+              <motion.button 
+                onClick={() => setShowAll(!showAll)}
+                className={`group px-10 py-2 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-3xl font-semibold  shadow-xl shadow-blue-500/25 transition-all duration-300hover:bg-blue-500`}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }} >
+                {showAll ? t.projects.moins : t.projects.plus }
+              </motion.button>
+            </div>
+          )}
         </div>
       </div>
+
       <style jsx>{`
         @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
     </section>

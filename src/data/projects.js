@@ -35,7 +35,7 @@ export const projects = [
     gradient: 'from-green-300 to-green-100',
   },
   {
-    title: 'E-learning Mobile App - Accessibility',
+    title: 'E-learning Mobile App Accessibility',
     description:
       'Conception et développement d’une application mobile d’apprentissage en ligne (E-learning) dédiée aux personnes malvoyantes et non-voyantes, centrée sur l’accessibilité.',
     tech: ['Flutter', 'Django', 'MongoDB', 'Postman', 'UML', 'GitHub', 'Jira', 'Draw.io'],

@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { Calendar, Github, ExternalLink, User, Building2, Briefcase } from 'lucide-react';
+import { ChevronDown, ChevronUp, Calendar, Github, ExternalLink, User, Building2, Briefcase } from 'lucide-react';
 import SectionTitle from './SectionTitle';
-import { motion } from 'framer-motion';
 
 
 const Projects = ({ t, isDark, visibleSections, projects }) => {
   const [expandedProjects, setExpandedProjects] = useState(new Set());
-  const translatedText = t;
   const projectList = projects;
   const isVisible = visibleSections?.has('projects') ?? true;
 
@@ -73,15 +71,14 @@ const Projects = ({ t, isDark, visibleSections, projects }) => {
       <div className="max-w-6xl mx-auto px-4">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <SectionTitle 
-            title={translatedText.projects.title} 
-            subtitle={translatedText.projects.subtitle} 
+            title={t.projects.title} 
+            subtitle={t.projects.subtitle} 
           />
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projectList.map((project, index) => {
               const isExpanded = expandedProjects.has(index);
               const shouldTruncate = project.description.length > 100;
-              
               return (
                 <div
                   key={index}
@@ -93,7 +90,6 @@ const Projects = ({ t, isDark, visibleSections, projects }) => {
                     animation: isVisible ? `fadeInUp 0.8s ease-out both` : 'none'
                   }}
                 >
-                  {/* Project Image */}
                   <div className="relative h-48 overflow-hidden">
                     <img
                       src={project.image}
@@ -102,7 +98,6 @@ const Projects = ({ t, isDark, visibleSections, projects }) => {
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
                     
-                    {/* Top badges and links */}
                     <div className="absolute top-4 left-4 right-4 flex justify-between items-start z-10">
                       {project.date && (
                         <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold
@@ -112,17 +107,14 @@ const Projects = ({ t, isDark, visibleSections, projects }) => {
                           {project.date}
                         </span>
                       )}
-                      
-                      {/* Dynamic links */}
                       <div className="flex gap-2">
                         {renderLinks(project)}
                       </div>
                     </div>
                   </div>
 
-                  {/* Project Content */}
-                  <div className="p-6">
-                    <h3 className={`text-xl font-bold mb-3 transition-all duration-300 group-hover:translate-x-1
+                  <div className="px-6 py-3">
+                    <h3 className={`text-lg font-bold mb-1 transition-all duration-300 group-hover:translate-x-1
                       ${isDark ? 'text-white' : 'text-gray-900'}`}>
                       {project.title}
                     </h3>
@@ -152,9 +144,7 @@ const Projects = ({ t, isDark, visibleSections, projects }) => {
                         )}
                       </div>
                     </div>
-                    
-                    {/* Description with Show More/Less */}
-                    <div className={`mb-4 text-sm leading-relaxed transition-colors duration-300
+                    <div className={`mb-2 text-sm leading-relaxed transition-colors duration-300
                       ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                       <p>
                         {isExpanded || !shouldTruncate 
@@ -166,10 +156,20 @@ const Projects = ({ t, isDark, visibleSections, projects }) => {
                       {shouldTruncate && (
                         <button
                           onClick={() => toggleExpanded(index)}
-                          className={`mt-2 text-xs font-semibold hover:underline transition-colors duration-200
+                          className={`mt-1 text-xs font-semibold hover:underline transition-colors duration-200
                             ${isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-500'}`}
                         >
-                          {isExpanded ? 'Show less' : 'Show more'}
+                          {isExpanded ? 
+                            <div className="text-blue-500 hover:text-blue-600 text-xs flex items-center gap-1 transition-colors">
+                              {t.projects.moins} 
+                              <ChevronUp className="w-3 h-3" />
+                              </div>
+                            :                            
+                            <div className="text-blue-500 hover:text-blue-600 text-xs flex items-center gap-1 transition-colors">
+                              {t.projects.plus}
+                              <ChevronDown className="w-3 h-3" />
+                            </div>
+                            }
                         </button>
                       )}
                     </div>
@@ -200,8 +200,6 @@ const Projects = ({ t, isDark, visibleSections, projects }) => {
           </div>
         </div>
       </div>
-
-      {/* CSS Animation Keyframes */}
       <style jsx>{`
         @keyframes fadeInUp {
           from {

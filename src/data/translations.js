@@ -172,7 +172,9 @@ export const translations = {
       title: 'Projets',
       subtitle: 'Travaux pratiques et projets que j\'ai réalisés',
       view: 'Voir Projet',
-      tech: 'Technologies'
+      tech: 'Technologies',
+      plus:'Voir plus',
+      moins:'Voir moins',
     },
     skills: {
       title: 'Compétences',
@@ -374,7 +376,9 @@ export const translations = {
       title: 'Projects',
       subtitle: 'Practical work and projects I have completed',
       view: 'View Project',
-      tech: 'Technologies'
+      tech: 'Technologies',
+      plus:'Show more',
+      moins:'Show less',
     },
     skills: {
       title: 'Skills',
@@ -449,19 +453,19 @@ export const translations = {
       specialization:"التخصص",
       associations: [
         {
-          role: "مدير مشروع",
+          role: "مديرة مشروع",
           organization: "IEEE Computer Society ENSIT",
         },
         {
-          role: "عضو",
+          role: "عضوة",
           organization: "نادي GEEKS ENSIT",
         },
         {
-          role: "عضو",
+          role: "عضوة",
           organization: "نادي Android ESEN منوبة",
         },
         {
-          role: "عضو",
+          role: "عضوة",
           organization: "الهلال الأحمر التونسي",
         }
       ],
@@ -474,7 +478,7 @@ export const translations = {
         },
         {
           "degree": "شهادة البكالوريوس في نظم معلومات الإدارة",
-          "spec": "الأعمال الإلكترونية (E-business)",
+          "spec": "الأعمال الإلكترونية",
           "school": "المدرسة العليا للعلوم الاقتصادية والتجارية بتونس (ESSECT)",
           "period": "2019-2022"
         },
@@ -575,7 +579,9 @@ export const translations = {
       title: 'المشاريع',
       subtitle: 'الأعمال العملية والمشاريع التي أنجزتها',
       view: 'عرض المشروع',
-      tech: 'التقنيات'
+      tech: 'التقنيات',
+      plus:'عرض المزيد',
+      moins:'عرض أقل',
     },
     skills: {
       title: 'المهارات',

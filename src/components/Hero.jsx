@@ -2,7 +2,7 @@ import React from 'react';
 import { Download, Mail, Phone, MapPin, ArrowRight, Sparkles, Globe, Smartphone, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const Hero = ({ t , isDark = false, visibleSections = new Set(['home']), scrollToSection = () => {} }) => {
+const Hero = ({ t , isDark, visibleSections, scrollToSection,isRTL }) => {
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -90,8 +90,8 @@ const Hero = ({ t , isDark = false, visibleSections = new Set(['home']), scrollT
         </motion.div>
       </div>
       <div className="max-w-6xl mx-auto w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">          
-          <motion.div variants={containerVariants} initial="hidden" animate={visibleSections.has('home') ? "visible" : "hidden"} className="space-y-8">
+        <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 items-center">          
+          <motion.div variants={containerVariants} initial="hidden" animate={visibleSections.has('home') ? "visible" : "hidden"} className="space-y-8 lg:col-span-2">
             <motion.div variants={itemVariants} className="space-y-2">
               <motion.span 
                 className="inline-flex items-center gap-2 px-4 py-2 
@@ -189,38 +189,43 @@ const Hero = ({ t , isDark = false, visibleSections = new Set(['home']), scrollT
               </motion.a>
             </motion.div>
             <motion.div 
-              variants={itemVariants}
-              className="flex flex-wrap gap-6 pt-4"
-            >
-              {[
-                { icon: Mail, text: "cherni.rihab23@gmail.com", color: "blue" },
-                { icon: Phone, text: "+216 23 710 078", color: "green" },
-                { icon: MapPin, text: "Tunis, Tunisia", color: "blue" }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  className={`flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 cursor-pointer group`}
-                  whileHover={{ 
-                    scale: 1.05,
-                    color: item.color === 'blue' ? '#3b82f6' : item.color === 'green' ? '#10b981' : '#8b5cf6'
-                  }}
-                  transition={{ type: "spring", stiffness: 300 }} dir={item.dir || "ltr"} >
-                  <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}>
-                    <item.icon className="h-4 w-4" />
+                variants={itemVariants}
+                className="flex flex-wrap gap-6 pt-4"
+              >
+                {[
+                  { icon: Mail, text: "cherni.rihab23@gmail.com", color: "blue" },
+                  { icon: Phone, text: "+216 23 710 078", color: "green" },
+                  { icon: MapPin, text: t.home.address, color: "blue" }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className={`flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 cursor-pointer group 
+                      ${isRTL ? 'flex-row-reverse text-right' : 'flex-row text-left'}`}
+                    whileHover={{ 
+                      scale: 1.05,
+                      color: item.color === 'blue' ? '#3b82f6' : item.color === 'green' ? '#10b981' : '#8b5cf6'
+                    }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    dir={"ltr"}
+                  >
+                    <motion.div 
+                      animate={{ rotate: [0, 10, -10, 0] }} 
+                      transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
+                    >
+                      <item.icon className="h-4 w-4" />
+                    </motion.div>
+                    <span>{item.text}</span>
                   </motion.div>
-                  {item.text}
-                </motion.div>
-              ))}
-            </motion.div>
+                ))}
+              </motion.div>
           </motion.div>
-         <motion.div
-            variants={imageVariants}
-            initial="hidden"
-            animate={visibleSections.has('home') ? "visible" : "hidden"}
-            className="relative flex justify-center lg:justify-end"
-          >
+          <motion.div
+              variants={imageVariants}
+              initial="hidden"
+              animate={visibleSections.has('home') ? "visible" : "hidden"}
+              className="relative flex justify-center lg:justify-end lg:col-span-1"
+            >
             <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mb-6 sm:mb-0">
-              {/* Cercle avec image */}
               <motion.div
                 className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 via-blue-500 to-purple-500 p-1"
                 whileHover={{ scale: 1.02, rotate: 1.3 }}
@@ -234,8 +239,6 @@ const Hero = ({ t , isDark = false, visibleSections = new Set(['home']), scrollT
                   />
                 </div>
               </motion.div>
-
-              {/* Icônes autour de l'image */}
               {[
                 { icon: Globe, label: "Web", top: "-8%", left: "50%", transform: "translateX(-50%)", color: "text-blue-600 dark:text-blue-400", bgColor: "bg-blue-200 dark:bg-blue-900/30", borderColor: "border-blue-400 dark:border-blue-800" },
                 { icon: Smartphone, label: "Mobile", top: "50%", left: "-8%", transform: "translateY(-50%)", color: "text-green-600 dark:text-green-400", bgColor: "bg-green-200 dark:bg-green-900/30", borderColor: "border-green-400 dark:border-green-800" },

@@ -18,7 +18,8 @@ export const translations = {
       subtitle: 'Ingénieure en Informatique & Développeur Full-Stack',
       description: 'Spécialisée en Nouvelles Technologies et Sécurité, passionnée par le développement web, mobile et l\'intelligence artificielle.',
       cta: 'Voir Mon Travail',
-      download: 'Télécharger CV'
+      download: 'Télécharger CV',
+      address:'Manouba, Tunisie'
     },
     about: {
       title: 'À Propos de Moi',
@@ -35,6 +36,46 @@ export const translations = {
       levelAng: "Intermédiaire",
       langItalien: "Italien",
       levelItalien: "Débutant",
+      specialization:"Spécialité",
+      club:'Engagement Associatif',
+      associations: [
+        {
+          role: "Chef de Projet",
+          organization: "IEEE Computer Society ENSIT",
+        },
+        {
+          role: "Membre",
+          organization: "Club GEEKS ENSIT",
+        },
+        {
+          role: "Membre",
+          organization: "Club Android ESEN Manouba",
+        },
+        {
+          role: "Membre",
+          organization: "Croissant-Rouge Tunisien",
+        }
+      ], 
+      school: [
+        {
+          "degree": "Diplôme d'ingénieur en génie informatique",
+          "spec": "Nouvelles technologies et sécurité",
+          "school": "École Nationale Supérieure des Ingénieurs de Tunis (ENSIT)",
+          "period": "2022-2025"
+        },
+        {
+          "degree": "Licence en Informatique de Gestion",
+          "spec": "E-business",
+          "school": "École Supérieure des Sciences Économiques et Commerciales de Tunis (ESSECT)",
+          "period": "2019-2022"
+        },
+        {
+          "degree": "Baccalauréat",
+          "spec": "Mathématiques",
+          "school": "Lycée Secondaire Mohamed Attaia, Khaznadar, Tunis",
+          "period": "2019"
+        }
+      ]
     },
     certifications: {
       title: 'Mes Certifications',
@@ -94,7 +135,15 @@ export const translations = {
       certifications: 'Certification',
       contact: 'Contact'
     },
-    home: { welcome: 'Available for freelance work', title: 'Rihab Cherni', subtitle: 'Computer Engineer & Full-Stack Developer', description: 'Specialized in New Technologies and Security, passionate about web development, mobile development, and artificial intelligence.', cta: 'View My Work', download: 'Download CV' },
+    home: { 
+      welcome: 'Available for freelance work', 
+      title: 'Rihab Cherni', 
+      subtitle: 'Computer Engineer & Full-Stack Developer', 
+      description: 'Specialized in New Technologies and Security, passionate about web development, mobile development, and artificial intelligence.', 
+      cta: 'View My Work', 
+      download: 'Download CV',
+      address:'Manouba, Tunisia'
+    },
     about: {
       title: 'About Me',
       subtitle: 'Get to know the person behind the code',
@@ -110,6 +159,46 @@ export const translations = {
       levelAng: "Intermediate",
       langItalien: "Italian",
       levelItalien: "Beginner",
+      club:'Associative Involvement',
+      specialization:"Specialization",
+      associations: [
+        {
+          role: "Project Manager",
+          organization: "IEEE Computer Society ENSIT",
+        },
+        {
+          role: "Member",
+          organization: "GEEKS ENSIT Club",
+        },
+        {
+          role: "Member",
+          organization: "Android Club ESEN Manouba",
+        },
+        {
+          role: "Member",
+          organization: "Tunisian Red Crescent",
+        }
+      ], 
+      school: [
+        {
+          "degree": "Engineering Degree in Computer Engineering",
+          "spec": "New Technologies and Security",
+          "school": "National Higher School of Engineers of Tunis (ENSIT)",
+          "period": "2022-2025"
+        },
+        {
+          "degree": "Bachelor’s Degree in Management Information Systems",
+          "spec": "E-business",
+          "school": "Higher School of Economic and Commercial Sciences of Tunis (ESSECT)",
+          "period": "2019-2022"
+        },
+        {
+          "degree": "Baccalaureate",
+          "spec": "Mathematics",
+          "school": "Mohamed Attaia High School, Khaznadar, Tunis",
+          "period": "2019"
+        }
+      ]
     },
     certifications: {
       title: 'My Certifications',
@@ -176,11 +265,12 @@ export const translations = {
       pdf:'تحميل'
     },
     home: {
-      welcome: 'متاح للعمل الحر', title: 'رحاب الشارني',
-      subtitle: 'مهندسة معلوماتية ومطور شامل النطاق  ',
-      description: 'متخصصة في التقنيات الجديدة والأمن، شغوفة بتطوير المواقع والتطبيقات المحمولة والذكاء الاصطناعي.',
+      welcome: 'متاحة للعمل الحر', title: 'رحاب الشارني',
+      subtitle: 'مهندسة معلوماتية ومطوّرة برمجيات',
+      description: 'متخصصة في التقنيات الجديدة والأمن السيبراني، شغوفة بتطوير مواقع الويب والتطبيقات المحمولة والذكاء الاصطناعي.',
       cta: 'اطلع على أعمالي',
-      download: 'تحميل السيرة الذاتية'
+      download: 'تحميل السيرة الذاتية',
+      address:'منوبة، تونس'
     },
     about: {
       title: 'نبذة عني',
@@ -197,6 +287,46 @@ export const translations = {
       levelAng: "متوسط",
       langItalien: "الإيطالية",
       levelItalien: "مبتدئ",
+      club:'الانخراط الجمعياتي',
+      specialization:"التخصص",
+      associations: [
+        {
+          role: "مدير مشروع",
+          organization: "جمعية IEEE Computer Society ENSIT",
+        },
+        {
+          role: "عضو",
+          organization: "نادي GEEKS ENSIT",
+        },
+        {
+          role: "عضو",
+          organization: "نادي Android ESEN منوبة",
+        },
+        {
+          role: "عضو",
+          organization: "الهلال الأحمر التونسي",
+        }
+      ],
+      school: [
+        {
+          "degree": "شهادة هندسة في هندسة الحاسوب",
+          "spec": "التقنيات الحديثة والأمن السيبراني",
+          "school": "المدرسة الوطنية العليا للمهندسين بتونس (ENSIT)",
+          "period": "2022-2025"
+        },
+        {
+          "degree": "شهادة البكالوريوس في نظم معلومات الإدارة",
+          "spec": "الأعمال الإلكترونية (E-business)",
+          "school": "المدرسة العليا للعلوم الاقتصادية والتجارية بتونس (ESSECT)",
+          "period": "2019-2022"
+        },
+        {
+          "degree": "البكالوريا",
+          "spec": "الرياضيات",
+          "school": "ثانوية محمد عطية خزدار، تونس",
+          "period": "2019"
+        }
+      ]
     },
     experience: {
       title: 'الخبرة المهنية',

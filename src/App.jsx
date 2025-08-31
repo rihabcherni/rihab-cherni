@@ -102,7 +102,7 @@ const App = () => {
         <Navbar isDark={isDark} setIsDark={setIsDark} language={language} setLanguage={setLanguage}
           isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}
           activeSection={activeSection} scrollToSection={scrollToSection} translations={translations}/>
-        <Hero t={t} isDark={isDark} visibleSections={visibleSections} scrollToSection={scrollToSection} />
+        <Hero t={t} isDark={isDark} visibleSections={visibleSections} scrollToSection={scrollToSection}  isRTL={isRTL}/>
         <About t={t} isDark={isDark} visibleSections={visibleSections} />
         <Experience t={t} isDark={isDark} visibleSections={visibleSections} experiences={experiences} />
         <Projects t={t} isDark={isDark} visibleSections={visibleSections} projects={projects} />      

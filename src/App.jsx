@@ -12,7 +12,6 @@ import BackgroundAnimation from './components/BackgroundAnimation';
 import Certifications from './components/Certifications';
 import Loading from './components/Loading'; 
 import { translations } from './data/translations';
-import { experiences } from './data/experiences';
 import { projects } from './data/projects';
 import { contactItems, skills } from './data/data';
 
@@ -104,7 +103,7 @@ const App = () => {
           activeSection={activeSection} scrollToSection={scrollToSection} translations={translations}/>
         <Hero t={t} isDark={isDark} visibleSections={visibleSections} scrollToSection={scrollToSection}  isRTL={isRTL}/>
         <About t={t} isDark={isDark} visibleSections={visibleSections} />
-        <Experience t={t} isDark={isDark} visibleSections={visibleSections} experiences={experiences} />
+        <Experience t={t} isDark={isDark} visibleSections={visibleSections} />
         <Projects t={t} isDark={isDark} visibleSections={visibleSections} projects={projects} />      
         <Skills t={t} skills={skills} isDark={isDark} visibleSections={visibleSections} />
         <Certifications t={t} isDark={isDark} visibleSections={visibleSections} isRTL={isRTL} />

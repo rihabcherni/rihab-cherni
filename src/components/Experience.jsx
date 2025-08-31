@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, ChevronUp, ExternalLink, MapPin, Calendar, Users, Github } from 'lucide-react';
+import { ChevronDown, ChevronUp,  MapPin, Calendar, Github } from 'lucide-react';
 import SectionTitle from './SectionTitle';
 
-const Experience = ({ t, isDark, visibleSections, experiences }) => {
+const Experience = ({ t, isDark, visibleSections }) => {
   const [expandedCards, setExpandedCards] = useState({});
 
   const toggleExpanded = (index) => {
@@ -89,14 +89,14 @@ const Experience = ({ t, isDark, visibleSections, experiences }) => {
             />
             
             <div className="flex items-center justify-between px-3 relative">
-              {experiences.map((exp, index) => {
+              {t.experience.listeExperiences.map((exp, index) => {
                 const isEven = index % 2 === 0;
                 return (
                   <motion.div
                     key={index}
                     variants={itemVariants}
                     className="relative flex-1 min-w-0 group"
-                    style={{ maxWidth: `${100 / experiences.length}%` }}
+                    style={{ maxWidth: `${100 / t.experience.listeExperiences.length}%` }}
                     whileHover={{ 
                       scale: 1.02,
                       transition: { duration: 0.2 }
@@ -203,9 +203,9 @@ const Experience = ({ t, isDark, visibleSections, experiences }) => {
                               className="text-blue-500 hover:text-blue-600 text-xs mt-1 flex items-center gap-1 transition-colors"
                             >
                               {expandedCards[index] ? (
-                                <>Voir moins <ChevronUp className="w-3 h-3" /></>
+                                <>{t.experience.moins} <ChevronUp className="w-3 h-3" /></>
                               ) : (
-                                <>Voir plus <ChevronDown className="w-3 h-3" /></>
+                                <>{t.experience.plus}<ChevronDown className="w-3 h-3" /></>
                               )}
                             </button>
                           )}
@@ -272,7 +272,7 @@ const Experience = ({ t, isDark, visibleSections, experiences }) => {
           {/* Tablet Timeline - Vertical Grid */}
           <div className="hidden md:block xl:hidden relative mt-12">
             <div className="grid grid-cols-2 gap-8">
-              {experiences.map((exp, index) => (
+              {t.experience.listeExperiences.map((exp, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
@@ -397,7 +397,7 @@ const Experience = ({ t, isDark, visibleSections, experiences }) => {
             />
             
             <div className="space-y-8 pl-16">
-              {experiences.map((exp, index) => (
+              {t.experience.listeExperiences.map((exp, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}

@@ -24,5 +24,4 @@ const SectionTitle = ({ title, subtitle, center = true }) => {
     </div>
   );
 };
-
 export default SectionTitle;

@@ -32,7 +32,7 @@ const About = ({ t, isDark, visibleSections }) => {
           <SectionTitle title={t.about.title} subtitle={t.about.subtitle} />
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <p className="text-lg leading-relaxed mb-4 text-gray-500 dark:text-gray-300">
+              <p className="text-[16px] leading-relaxed mb-4 text-gray-500 dark:text-gray-300">
                 {t.about.description}
               </p>
 

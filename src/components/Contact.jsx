@@ -22,12 +22,8 @@ const Contact = ({ t, isDark, visibleSections }) => {
         alert(t.contact.error || "Erreur lors de l’envoi du message.");
       });
   };
-
   return (
-    <section
-      id="contact"
-      className={`py-10 ${isDark ? "bg-gray-800/50" : "bg-gray-50"}`}
-    >
+    <section id="contact" className='py-10'>
       <div className="max-w-6xl mx-auto px-4">
         <div
           className={`text-center transition-all duration-1000 ${visibleSections.has("contact")

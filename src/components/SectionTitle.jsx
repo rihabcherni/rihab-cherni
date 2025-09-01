@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const SectionTitle = ({ title, subtitle, center = true }) => {
   return (
-    <div className={`relative mb-10 ${center ? 'text-center' : ''}`}>
+    <div className={`relative mt-8 mb-10 ${center ? 'text-center' : ''}`}>
        <motion.h2
         className="text-[40px] font-bold"
       >

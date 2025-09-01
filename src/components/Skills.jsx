@@ -29,7 +29,7 @@ const Skills = ({ t, skills, isDark, visibleSections }) => {
               return (
                 <motion.div
                   key={category}
-                  className={`relative p-6 rounded-xl ${isDark ? 'bg-gray-800' : 'bg-gray-50'} shadow-sm group overflow-hidden transform transition-all duration-500 hover:scale-105 hover:-translate-y-2`}
+                  className={`relative p-6 rounded-xl ${isDark ? 'bg-gray-800/50' : 'bg-gray-50'} shadow-sm group overflow-hidden transform transition-all duration-500 hover:scale-105 hover:-translate-y-2`}
                   initial={{ opacity: 0, y: 50 }}
                   animate={visibleSections.has('skills') ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: index * 0.15, duration: 0.6 }}

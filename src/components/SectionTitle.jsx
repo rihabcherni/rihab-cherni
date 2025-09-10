@@ -4,7 +4,7 @@ const SectionTitle = ({ title, subtitle, center = true }) => {
   return (
     <div className={`relative mt-8 mb-10 ${center ? 'text-center' : ''}`}>
        <motion.h2
-        className="text-[40px] font-bold"
+        className="text-[36px] font-bold"
       >
         <span className="bg-gradient-to-r from-gray-600 via-blue-400 to-blue-800 dark:from-white
          dark:via-blue-200 dark:to-blue-200 bg-clip-text text-transparent">

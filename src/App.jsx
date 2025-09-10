@@ -14,6 +14,7 @@ import Loading from './components/Loading';
 import { translations } from './data/translations';
 import { contactItems, skills } from './data/data';
 import Analytics from "./Analytics";
+import { translationsProject } from './data/project';
 
 const App = () => {
   const [isDark, setIsDark] = useState(true);
@@ -25,6 +26,7 @@ const App = () => {
   const isRTL = language === 'ar';
 
   const t = translations[language];
+  const tp = translationsProject[language];
   useEffect(() => {
     const savedLang = localStorage.getItem('language');
     if (savedLang) {
@@ -105,7 +107,7 @@ const App = () => {
         <Hero t={t} isDark={isDark} visibleSections={visibleSections} scrollToSection={scrollToSection}  isRTL={isRTL}/>
         <About t={t} isDark={isDark} visibleSections={visibleSections} />
         <Experience t={t} isDark={isDark} visibleSections={visibleSections} />
-        <Projects t={t} isDark={isDark} visibleSections={visibleSections} />      
+        <Projects t={t} tp={tp} isDark={isDark} visibleSections={visibleSections} />      
         <Skills t={t} skills={skills} isDark={isDark} visibleSections={visibleSections} />
         <Certifications t={t} isDark={isDark} visibleSections={visibleSections} isRTL={isRTL} />
         <Contact t={t} isDark={isDark} visibleSections={visibleSections} contactItems={contactItems}/>

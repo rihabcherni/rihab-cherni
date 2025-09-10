@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { contactItems, socialLinks } from "../data/data";
 import SectionTitle from "./SectionTitle";
+import ReactGA from "react-ga4";
 
 const Contact = ({ t, isDark, visibleSections }) => {
   const formRef = useRef();
@@ -17,6 +18,12 @@ const Contact = ({ t, isDark, visibleSections }) => {
       .then(() => {
         alert(t.contact.success || "Message envoyé avec succès !");
         formRef.current.reset();
+        
+        ReactGA.event({
+          category: "Contact",
+          action: "Form Submitted",
+          label: "Contact Section"
+        });
       })
       .catch(() => {
         alert(t.contact.error || "Erreur lors de l’envoi du message.");

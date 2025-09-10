@@ -13,6 +13,7 @@ import Certifications from './components/Certifications';
 import Loading from './components/Loading'; 
 import { translations } from './data/translations';
 import { contactItems, skills } from './data/data';
+import Analytics from "./Analytics";
 
 const App = () => {
   const [isDark, setIsDark] = useState(true);
@@ -96,6 +97,7 @@ const App = () => {
     <div className={`min-h-screen transition-colors duration-300 ${
       isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
     } ${language === 'ar' ? 'rtl' : 'ltr'}`}>
+      <Analytics activeSection={activeSection} />
       <div className={`${language === 'ar' ? 'flex-row-reverse' : 'flex-row'}`}>
         <Navbar isDark={isDark} setIsDark={setIsDark} language={language} setLanguage={setLanguage}
           isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}

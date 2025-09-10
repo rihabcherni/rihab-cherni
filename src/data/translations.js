@@ -228,7 +228,7 @@ export const translations = {
           title: 'Application Mobile E-learning Accessible',
           description:
             'Conception et développement d’une application mobile d’apprentissage en ligne (E-learning) destinée aux personnes malvoyantes et non-voyantes, centrée sur l’accessibilité.',
-          tech: ['Flutter', 'Django', 'MongoDB', 'Postman', 'UML', 'GitHub', 'Jira', 'Draw.io'],
+          tech: ['Flutter', 'Django', 'MongoDB', 'Postman', 'UML', 'GitHub', 'Jira'],
           link: 'https://github.com/rihabcherni/pfa2-Nawerny-E-learning',
           date: 'Jan - Avr 2024',
           role: 'Développeuse Mobile',
@@ -560,7 +560,7 @@ export const translations = {
           title: 'E-learning Mobile App Accessibility',
           description:
             'Design and development of a mobile e-learning application for visually impaired and blind users, focused on accessibility.',
-          tech: ['Flutter', 'Django', 'MongoDB', 'Postman', 'UML', 'GitHub', 'Jira', 'Draw.io'],
+          tech: ['Flutter', 'Django', 'MongoDB', 'Postman', 'UML', 'GitHub', 'Jira'],
           link: 'https://github.com/rihabcherni/pfa2-Nawerny-E-learning',
           date: 'Jan - Apr 2024',
           role: 'Mobile Developer',
@@ -891,7 +891,7 @@ export const translations = {
           title: 'تطبيق تعليم إلكتروني متاح للجميع',
           description:
             'تصميم وتطوير تطبيق تعليم إلكتروني على الهاتف المحمول مخصص للأشخاص ضعاف البصر وغير المبصرين، مع التركيز على الوصولية.',
-          tech: ['Flutter', 'Django', 'MongoDB', 'Postman', 'UML', 'GitHub', 'Jira', 'Draw.io'],
+          tech: ['Flutter', 'Django', 'MongoDB', 'Postman', 'UML', 'GitHub', 'Jira'],
           link: 'https://github.com/rihabcherni/pfa2-Nawerny-E-learning',
           date: 'يناير - أبريل 2024',
           role: 'مطور تطبيقات الهاتف المحمول',

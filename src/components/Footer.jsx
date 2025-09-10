@@ -23,3 +23,5 @@ const Footer = ({t, isDark, scrollToSection }) => {
 };
 
 export default Footer;
+
+

@@ -1,13 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Download, Calendar, Award, ExternalLink, Sparkles, ChevronLeft, ChevronRight, ArrowRight, Tag, Shield } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { Download, Calendar, Award, ExternalLink, Sparkles, ChevronLeft, ChevronRight, Tag } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { certifications } from '../data/certifications';
 import SectionTitle from './SectionTitle';
 
 const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [cardsPerSlide, setCardsPerSlide] = useState(3);
-    const carouselRef = useRef(null);
 
     useEffect(() => {
         const updateCardsPerSlide = () => {
@@ -82,46 +81,27 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
     return (
         <section id="certifications" className={`py-10 px-4 lg:px-8 relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-gray-800/50' : 'bg-gray-200'}`}>
             <div className="absolute inset-0 pointer-events-none">
-                <motion.div
-                    variants={sparkleVariants}
-                    animate="animate"
-                    className="absolute top-32 left-16 w-6 h-6 text-blue-400 opacity-30"
-                >
+                <motion.div variants={sparkleVariants} animate="animate" className="absolute top-32 left-16 w-6 h-6 text-blue-400 opacity-30">
                     <Sparkles />
                 </motion.div>
-                <motion.div
-                    variants={sparkleVariants}
-                    animate="animate"
-                    style={{ animationDelay: '2s' }}
-                    className="absolute top-64 right-20 w-4 h-4 text-blue-400 opacity-20"
-                >
+                <motion.div variants={sparkleVariants} animate="animate" style={{ animationDelay: '2s' }} className="absolute top-24 right-50 w-4 h-4 text-red-400 opacity-25">
                     <Sparkles />
                 </motion.div>
-                <motion.div
-                    variants={sparkleVariants}
-                    animate="animate"
-                    style={{ animationDelay: '3s' }}
-                    className="absolute bottom-40 left-1/4 w-5 h-5 text-green-400 opacity-25"
-                >
+                <motion.div variants={sparkleVariants} animate="animate" style={{ animationDelay: '3s' }} className="absolute top-64 right-20 w-4 h-4 text-blue-400 opacity-20">
+                    <Sparkles />
+                </motion.div>
+                <motion.div variants={sparkleVariants} animate="animate" style={{ animationDelay: '4s' }} className="absolute bottom-40 left-1/4 w-5 h-5 text-green-400 opacity-25">
                     <Sparkles />
                 </motion.div>
             </div>
-
             <div className="max-w-7xl mx-auto">
                 <motion.div variants={containerVariants} initial="hidden" animate={visibleSections.has('certifications') ? "visible" : "hidden"} className="text-center mb-2">
                     <SectionTitle title={t.certifications.title} subtitle={t.certifications.subtitle} />
                 </motion.div>
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate={visibleSections.has('certifications') ? "visible" : "hidden"}
-                    className="relative"
-                >
+                <motion.div variants={containerVariants} initial="hidden" animate={visibleSections.has('certifications') ? "visible" : "hidden"} className="relative">
                     <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 z-20 pointer-events-none px-4">
                         <div className="flex justify-between">
-                            <motion.button
-                                onClick={prevSlide}
-                                disabled={!canGoPrev}
+                            <motion.button onClick={prevSlide} disabled={!canGoPrev}
                                 className={`pointer-events-auto w-14 h-14 rounded-full flex items-center justify-center
                                           shadow-lg backdrop-blur-sm border transition-all duration-300 -ml-7
                                           ${canGoPrev 
@@ -133,7 +113,6 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                             >
                                 {isRTL ?<ChevronRight className="h-6 w-6" />:<ChevronLeft className="h-6 w-6" />}
                             </motion.button>
-
                             <motion.button
                                 onClick={nextSlide}
                                 disabled={!canGoNext}
@@ -150,8 +129,6 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                             </motion.button>
                         </div>
                     </div>
-
-                    {/* Carousel Track */}
                     <div className="overflow-hidden rounded-2xl mx-8">
                         <motion.div
                             className="flex transition-transform duration-500 ease-out gap-6"
@@ -177,7 +154,6 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                             transition={{ duration: 0.3 }}
                                         >
                                             <div className={`group relative overflow-hidden rounded-2xl ${cert.bgColor} ${cert.borderColor} border-2 shadow-xl hover:shadow-2xl transition-all duration-300 h-full flex flex-col`}>
-                                                {/* Domain Tag */}
                                                 <div className="absolute top-4 left-4 z-10">
                                                     <motion.span
                                                         className={`inline-block px-3 py-1 text-xs font-medium rounded-full 
@@ -189,8 +165,6 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                         {cert.domain}
                                                     </motion.span>
                                                 </div>
-
-                                                {/* Year Badge */}
                                                 <div className="absolute top-4 right-4 z-10">
                                                     
                                                      <motion.span
@@ -202,9 +176,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                             {cert.date}
                                                         </motion.span>
                                                 </div>
-                                                {/* Card Header with Image */}
                                                 <div className="relative h-48 overflow-hidden">
-                                                    {/* Certificate Image */}
                                                     {cert.image ? (
                                                         <motion.div
                                                             className="absolute inset-0"
@@ -225,8 +197,6 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                             transition={{ duration: 0.3 }}
                                                         />
                                                     )}
-
-                                                    {/* Certificate Icon */}
                                                     <div className="absolute inset-0 flex items-center justify-center">
                                                         <motion.div
                                                             className={`w-16 h-16 ${cert.image ? 'bg-black/500' : 'bg-white/20'} rounded-full flex items-center justify-center backdrop-blur-sm`}
@@ -243,8 +213,6 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                             <Award className="h-8 w-8 text-white" />
                                                         </motion.div>
                                                     </div>
-
-                                                    {/* Floating elements */}
                                                     <motion.div
                                                         className="absolute bottom-4 left-4 w-6 h-6 bg-white/10 rounded-full"
                                                         animate={{
@@ -258,8 +226,6 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                         }}
                                                     />
                                                 </div>
-
-                                                {/* Card Content */}
                                                 <div className={`px-6 py-3 space-y-4 bg-gradient-to-r ${cert.color} flex-1 flex flex-col`}>
                                                     <div className="flex-1">
                                                         <h3 className="text-[14px] font-bold text-gray-800 dark:text-white
@@ -362,7 +328,6 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                             ))}
                         </motion.div>
                     </div>
-                    {/* Carousel Indicators */}
                     <div className="flex justify-center gap-2 mt-8">
                         {Array.from({ length: totalSlides }).map((_, index) => (
                             <motion.button

@@ -79,9 +79,7 @@ const Experience = ({ t, isDark, visibleSections }) => {
         >
           <SectionTitle title={t.experience.title} subtitle={t.experience.subtitle} />
           
-          {/* Desktop Timeline - Horizontal */}
           <div className="hidden xl:block relative mt-8 px-20">
-            {/* Timeline Line */}
             <motion.div 
               className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 to-blue-800 rounded-full transform -translate-y-1/2 origin-left"
               variants={horizontalLineVariants}

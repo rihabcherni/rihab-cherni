@@ -59,23 +59,20 @@ const Projects = ({ t, isDark, visibleSections }) => {
     }
     return links;
   };
-
-  // Limiter le nombre de projets affichés
-  const displayedProjects = showAll ? t.projects.projectsListe : t.projects.projectsListe.slice(0, 6);
-
+  const displayedProjects = showAll ? t.projects.projectsListe : t.projects.projectsListe.slice(0, 4);
   return (
     <section 
       id="projects" 
       className={`py-8 transition-colors duration-300 ${isDark ? 'bg-gray-800/50' : 'bg-gray-200'}`}
     >
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="px-14 mx-auto">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <SectionTitle 
             title={t.projects.title} 
             subtitle={t.projects.subtitle} 
           />
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {displayedProjects.map((project, index) => {
               const isExpanded = expandedProjects.has(index);
               const shouldTruncate = project.description.length > 100;

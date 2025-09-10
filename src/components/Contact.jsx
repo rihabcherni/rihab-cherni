@@ -23,8 +23,8 @@ const Contact = ({ t, isDark, visibleSections }) => {
       });
   };
   return (
-    <section id="contact" className='py-10'>
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="contact" className='py-10 overflow-x-hidden'>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`text-center transition-all duration-1000 ${visibleSections.has("contact")
               ? "opacity-100 translate-y-0"
@@ -32,14 +32,14 @@ const Contact = ({ t, isDark, visibleSections }) => {
             }`}
         >
           <SectionTitle title={t.contact.title} subtitle={t.contact.subtitle} />
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
               {contactItems.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <div
                     key={index}
-                    className={`relative p-6 rounded-xl ${isDark ? "bg-gray-800" : "bg-white"
+                    className={`relative p-6 rounded-xl max-w-full ${isDark ? "bg-gray-800" : "bg-white"
                       } shadow-lg group overflow-hidden transform transition-all duration-500 hover:scale-105 hover:-translate-y-2`}
                     style={{
                       animationDelay: `${index * 100}ms`,
@@ -48,12 +48,10 @@ const Contact = ({ t, isDark, visibleSections }) => {
                         : "none",
                     }}
                   >
-                    {/* Gradient Background on Hover */}
                     <div
                       className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
                     />
 
-                    {/* Icon with bounce */}
                     <div
                       className="animate-bounce"
                       style={{
@@ -65,8 +63,6 @@ const Contact = ({ t, isDark, visibleSections }) => {
                         className={`h-8 w-8 mx-auto mb-4 bg-gradient-to-br ${item.color} bg-clip-text`}
                       />
                     </div>
-
-                    {/* Title and value */}
                     <h3 className="font-semibold mb-2 text-center">{t.contact[item.key]}</h3>
                     <p className="text-gray-600 dark:text-gray-300 text-sm text-center" dir={item.dir || "ltr"}>
                       {item.value}
@@ -95,11 +91,7 @@ const Contact = ({ t, isDark, visibleSections }) => {
                 })}
               </div>
             </div>
-
-            <div
-              className={`p-8 rounded-2xl ${isDark ? "bg-gray-800" : "bg-white"
-                } shadow-xl transform transition-all duration-500 hover:scale-105`}
-            >
+            <div className={`p-8 rounded-2xl max-w-full  ${isDark ? "bg-gray-800" : "bg-white"} shadow-xl transform transition-all duration-500 hover:scale-105`}>
               <h3 className="text-2xl font-bold text-center mb-8 bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
                 {t.contact.titleForm || "Envoyez-moi un message"}
               </h3>

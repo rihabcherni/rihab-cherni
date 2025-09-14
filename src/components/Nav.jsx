@@ -82,7 +82,7 @@ const Navbar = ({
           >
             {/* Language Selector */}
             <div className="relative hover:scale-110 hover:rotate-5 ">
-              <select
+              <select aria-label="language"
                 value={language}
                 onChange={(e) => setLanguage(e.target.value)}
                 className={`appearance-none bg-transparent border rounded-md px-4 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 hover:scale-105 ${isDark ? 'border-gray-700 text-white' : 'border-gray-300 text-gray-900'

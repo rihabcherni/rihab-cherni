@@ -233,6 +233,7 @@ const Hero = ({ t , isDark, visibleSections, scrollToSection,isRTL }) => {
               >
                 <div className="w-full h-full rounded-full overflow-hidden">
                   <img
+                    loading="lazy"
                     src="img.jpg"
                     alt={t.home.title}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"

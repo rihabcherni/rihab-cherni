@@ -190,6 +190,7 @@ const Experience = ({ t, isDark, visibleSections }) => {
                           </p>
                           {exp.description.length > 100 && (
                             <button
+                              aria-label="View btn"
                               onClick={() => toggleExpanded(index)}
                               className="text-blue-500 hover:text-blue-600 text-xs mt-1 flex items-center gap-1 transition-colors"
                             >
@@ -226,6 +227,7 @@ const Experience = ({ t, isDark, visibleSections }) => {
                             ))}
                             {exp.tech.length > 3 && !expandedCards[index] && (
                               <button
+                                aria-label="View btn"
                                 onClick={() => toggleExpanded(index)}
                                 className={`px-2 py-1 rounded-full text-xs font-medium ${
                                   isDark ? 'bg-gray-700 text-gray-400 hover:bg-gray-600' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
@@ -331,6 +333,7 @@ const Experience = ({ t, isDark, visibleSections }) => {
                         </p>
                         {exp.description.length > 150 && (
                           <button
+                            aria-label="View btn"
                             onClick={() => toggleExpanded(index)}
                             className="text-blue-500 hover:text-blue-600 text-sm mt-2 flex items-center gap-1 transition-colors"
                           >
@@ -361,6 +364,7 @@ const Experience = ({ t, isDark, visibleSections }) => {
                           ))}
                           {exp.tech.length > 6 && !expandedCards[index] && (
                             <button
+                              aria-label="View btn"
                               onClick={() => toggleExpanded(index)}
                               className={`px-3 py-1 rounded-full text-xs font-medium ${
                                 isDark ? 'bg-gray-700 text-gray-400 hover:bg-gray-600' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
@@ -481,6 +485,7 @@ const Experience = ({ t, isDark, visibleSections }) => {
                         </p>
                         {exp.description.length > 120 && (
                           <button
+                            aria-label="View btn"
                             onClick={() => toggleExpanded(index)}
                             className="text-blue-500 hover:text-blue-600 text-sm mt-2 flex items-center gap-1 transition-colors"
                           >
@@ -511,6 +516,7 @@ const Experience = ({ t, isDark, visibleSections }) => {
                           ))}
                           {exp.tech.length > 4 && !expandedCards[index] && (
                             <button
+                              aria-label="View btn"
                               onClick={() => toggleExpanded(index)}
                               className={`px-2 py-1 rounded-full text-xs font-medium ${
                                 isDark ? 'bg-gray-700 text-gray-400 hover:bg-gray-600' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'

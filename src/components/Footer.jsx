@@ -12,6 +12,7 @@ const Footer = ({t, isDark, scrollToSection }) => {
         </div>
       </footer>
       <button
+        aria-label="Scroll btn"
         onClick={() => scrollToSection('home')}
         className="fixed bottom-8 right-6 p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 z-40 group overflow-hidden transform hover:scale-105 hover:rotate-360"
       >

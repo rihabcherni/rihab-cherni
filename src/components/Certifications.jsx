@@ -184,6 +184,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                             transition={{ duration: 0.3 }}
                                                         >
                                                             <img 
+                                                                loading="lazy"
                                                                 src={cert.image} 
                                                                 alt={cert.title}
                                                                 className="w-full h-full object-cover"

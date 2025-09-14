@@ -22,6 +22,7 @@ const Navbar = ({
           <div className="hidden md:flex items-center space-x-8">
             {Object.entries(t.nav).map(([key, value]) => (
               <button
+                aria-label="Scroll btn"
                 key={key}
                 onClick={() => scrollToSection(key)}
                 className={`relative transition-all duration-300 transform hover:scale-105 ${activeSection === key
@@ -57,6 +58,7 @@ const Navbar = ({
 
             {/* Theme Toggle */}
             <button
+              aria-label="Theme btn"
               onClick={() => setIsDark(!isDark)}
               className={`px-4 py-1  rounded-lg transition-all duration-300 transform hover:scale-110 hover:rotate-5 ${isDark ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'
                 }`}
@@ -66,6 +68,7 @@ const Navbar = ({
 
             {/* Mobile Menu Button */}
             <button
+              aria-label="Mobile btn"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2 rounded-lg transition-transform duration-300 hover:scale-110"
             >
@@ -82,6 +85,7 @@ const Navbar = ({
           <div className="px-4 py-2 space-y-2">
             {Object.entries(t.nav).map(([key, value]) => (
               <button
+                aria-label="Mobile Menu btn"
                 key={key}
                 onClick={() => scrollToSection(key)}
                 className={`block w-full text-left py-2 px-3 rounded-md transition-all duration-300 transform hover:scale-105 ${activeSection === key

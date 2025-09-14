@@ -82,6 +82,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                 >
                   <div className="relative h-48 overflow-hidden">
                     <img
+                      loading="lazy"
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -130,6 +131,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                       <p>{isExpanded || !shouldTruncate ? project.description : truncateText(project.description)}</p>
                       {shouldTruncate && (
                         <button
+                          aria-label="View btn"
                           onClick={() => toggleExpanded(index)}
                           className={`mt-1 text-xs font-semibold hover:underline transition-colors duration-200
                             ${isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-500'}`}

@@ -141,7 +141,8 @@ const Contact = ({ t, isDark, visibleSections }) => {
                       : "bg-white text-gray-900 border-gray-300"
                     } focus:outline-none focus:ring-2 focus:ring-blue-500`}
                 />
-                <button
+                <button 
+                  aria-label="Submit btn"
                   type="submit"
                   className="w-full py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
                 >

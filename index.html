@@ -5,17 +5,11 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-
-  <!-- Title & Description for SEO -->
   <title>Rihab Cherni - Software Engineer Portfolio</title>
   <meta name="description"
     content="Portfolio de Rihab Cherni - Software Engineer spécialisée en sécurité, développement full-stack, et optimisation web." />
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="logo.png" />
-
-  <!-- Open Graph / Social Media -->
   <meta property="og:title" content="Rihab Cherni - Software Engineer Portfolio" />
   <meta property="og:description"
     content="Découvrez mes projets en cybersécurité, développement web et automatisation." />
@@ -29,12 +23,8 @@
   <meta name="twitter:description"
     content="Découvrez mes projets en cybersécurité, développement web et automatisation." />
   <meta name="twitter:image" content="logo.png" />
-
-  <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-
-  <!-- Content Security Policy -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com;
@@ -43,8 +33,6 @@
     img-src 'self' data: https://www.google-analytics.com;
     connect-src 'self' https://www.google-analytics.com;
   ">
-
-  <!-- Fonts & Icons (load asynchronously with JS, no inline handler) -->
   <link id="fa-css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     media="print" />
   <noscript>
@@ -54,6 +42,14 @@
     const faLink = document.getElementById('fa-css');
     faLink.onload = () => faLink.media = 'all';
   </script>
+  <link rel="preload" href="/assets/devicon-CirD-cQx.ttf" as="font" type="font/ttf" crossorigin>
+  <style>
+    @font-face {
+      font-family: 'Devicon';
+      src: url('/assets/devicon-CirD-cQx.ttf') format('truetype');
+      font-display: swap; 
+    }
+  </style>
 
 </head>
 
@@ -63,8 +59,6 @@
   </noscript>
 
   <div id="root"></div>
-
-  <!-- React entry point -->
   <script type="module" src="/src/main.jsx" defer></script>
 </body>
 

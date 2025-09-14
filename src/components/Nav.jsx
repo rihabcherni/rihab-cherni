@@ -99,6 +99,7 @@ const Navbar = ({
 
             {/* Theme Toggle */}
             <button
+              aria-label="Toggle dark mode"
               onClick={() => setIsDark(!isDark)}
               className={`px-4 py-1 rounded-lg transition-all duration-300 transform hover:scale-110 hover:rotate-5 ${isDark ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'
                 }`}
@@ -108,6 +109,7 @@ const Navbar = ({
 
             {/* Mobile Menu Button */}
             <button
+              aria-label="Open main menu"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2 rounded-lg transition-transform duration-300 hover:scale-110"
             >

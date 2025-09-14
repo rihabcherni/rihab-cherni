@@ -23,7 +23,7 @@ const About = ({ t, isDark, visibleSections }) => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Education */}
             <div className="space-y-6">
-              <p className="text-[16px] leading-relaxed mb-4 text-gray-500 dark:text-gray-300">
+              <p className="text-[16px] leading-relaxed mb-4 text-gray-200 dark:text-gray-300">
                 {t.about.description}
               </p>
 
@@ -45,7 +45,7 @@ const About = ({ t, isDark, visibleSections }) => {
                         stiffness: 120
                       }}
                       className={`p-4 rounded-xl border ${
-                        isDark ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-200'
+                        isDark ? 'bg-gray-700/70 border-gray-600' : 'bg-white border-gray-200'
                       } shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1`}
                     >
                       <div className="flex justify-between items-center">
@@ -77,7 +77,7 @@ const About = ({ t, isDark, visibleSections }) => {
                         <span className="font-medium text-sm group-hover:text-blue-500 transition-colors duration-300">
                           {item.lang}
                         </span>
-                        <span className="text-sm text-gray-500">{item.level}</span>
+                        <span className="text-sm text-gray-100">{item.level}</span>
                       </div>
                       <div
                         className={`h-2 rounded-full ${isDark ? 'bg-gray-700' : 'bg-gray-200'} overflow-hidden`}

@@ -10,7 +10,6 @@ const About = ({ t, isDark, visibleSections }) => {
     { lang: t.about.langAng, level: t.about.levelAng, progress: 60 },
     { lang: t.about.langItalien, level: t.about.levelItalien, progress: 25 }
   ];
-
   return (
     <section id="about" className={`py-10 ${isDark ? 'bg-gray-800/50' : 'bg-gray-200'}`}>
       <div className="max-w-6xl mx-auto px-4">

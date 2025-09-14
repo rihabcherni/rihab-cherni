@@ -1,56 +1,64 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-    <!-- Title & Description for SEO -->
-    <title>Rihab Cherni - Software Engineer Portfolio</title>
-    <meta name="description" content="Portfolio de Rihab Cherni - Software Engineer spécialisée en sécurité, développement full-stack, et optimisation web." />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="logo.png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="logo.png" />
+  <!-- Title & Description for SEO -->
+  <title>Rihab Cherni - Software Engineer Portfolio</title>
+  <meta name="description"
+    content="Portfolio de Rihab Cherni - Software Engineer spécialisée en sécurité, développement full-stack, et optimisation web." />
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Rihab Cherni - Software Engineer Portfolio" />
-    <meta property="og:description" content="Découvrez mes projets en cybersécurité, développement web et automatisation." />
-    <meta property="og:image" content="logo.png" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rihab-cherni.vercel.app" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="logo.png" />
 
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Rihab Cherni - Software Engineer Portfolio" />
-    <meta name="twitter:description" content="Découvrez mes projets en cybersécurité, développement web et automatisation." />
-    <meta name="twitter:image" content="logo.png" />
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Rihab Cherni - Software Engineer Portfolio" />
+  <meta property="og:description"
+    content="Découvrez mes projets en cybersécurité, développement web et automatisation." />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rihab-cherni.vercel.app" />
 
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rihab Cherni - Software Engineer Portfolio" />
+  <meta name="twitter:description"
+    content="Découvrez mes projets en cybersécurité, développement web et automatisation." />
+  <meta name="twitter:image" content="logo.png" />
 
-    <!-- Fonts & Icons (async loading) -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    </noscript>
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
 
-    <!-- Security headers (si tu utilises Vercel -> headers.json) -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src * data:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src https://cdnjs.cloudflare.com; script-src 'self';" />
-  </head>
+  <!-- Fonts & Icons (async loading) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print"
+    onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </noscript>
 
-  <body>
-    <noscript>
-      <p style="text-align:center; color:red;">⚠️ This website works best with JavaScript enabled.</p>
-    </noscript>
-    <div id="root"></div>
+  <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com;
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+        font-src 'self' https://cdnjs.cloudflare.com;
+        img-src 'self' data: https://www.google-analytics.com;
+        connect-src 'self' https://www.google-analytics.com;
+      ">
 
-    <script type="module" src="/src/main.jsx" defer></script>
-  </body>
+</head>
+
+<body>
+  <noscript>
+    <p style="text-align:center; color:red;">⚠️ This website works best with JavaScript enabled.</p>
+  </noscript>
+  <div id="root"></div>
+
+  <script type="module" src="/src/main.jsx" defer></script>
+</body>
+
 </html>

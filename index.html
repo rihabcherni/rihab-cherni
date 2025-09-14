@@ -9,6 +9,7 @@
   <meta name="description"
     content="Portfolio de Rihab Cherni - Software Engineer spécialisée en sécurité, développement full-stack, et optimisation web." />
 
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="logo.png" />
 
@@ -31,25 +32,39 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
 
-  <!-- CSP optimisé -->
+  <!-- Content Security Policy optimisée -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com;
     style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
-    font-src 'self' https://cdnjs.cloudflare.com;
+    font-src 'self';
     img-src 'self' data: https://www.google-analytics.com;
     connect-src 'self' https://www.google-analytics.com;
   ">
+
+  <!-- Font Awesome -->
   <link id="fa-css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     media="print" />
   <noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </noscript>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <script type="module">
     const faLink = document.getElementById('fa-css');
     faLink.onload = () => faLink.media = 'all';
   </script>
+
+  <!-- Devicon local -->
+  <link rel="stylesheet" href="/assets/devicon/devicon.min.css">
+
+  <!-- Police Devicon locale -->
+  <style>
+    @font-face {
+      font-family: 'Devicon';
+      src: url('/assets/devicon/devicon-CirD-cQx.ttf') format('truetype');
+      font-display: swap;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -59,7 +74,7 @@
 
   <div id="root"></div>
 
-  <!-- Scripts différés pour réduire le blocking -->
+  <!-- Script principal -->
   <script type="module" src="/src/main.jsx" defer></script>
 </body>
 

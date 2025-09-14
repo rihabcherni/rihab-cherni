@@ -8,8 +8,11 @@
   <title>Rihab Cherni - Software Engineer Portfolio</title>
   <meta name="description"
     content="Portfolio de Rihab Cherni - Software Engineer spécialisée en sécurité, développement full-stack, et optimisation web." />
+
   <link rel="icon" type="image/png" href="logo.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="logo.png" />
+
+  <!-- Open Graph -->
   <meta property="og:title" content="Rihab Cherni - Software Engineer Portfolio" />
   <meta property="og:description"
     content="Découvrez mes projets en cybersécurité, développement web et automatisation." />
@@ -23,8 +26,12 @@
   <meta name="twitter:description"
     content="Découvrez mes projets en cybersécurité, développement web et automatisation." />
   <meta name="twitter:image" content="logo.png" />
+
+  <!-- Preconnect & DNS Prefetch -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+  <!-- CSP optimisé -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com;
@@ -42,15 +49,6 @@
     const faLink = document.getElementById('fa-css');
     faLink.onload = () => faLink.media = 'all';
   </script>
-  <link rel="preload" href="/assets/devicon-CirD-cQx.ttf" as="font" type="font/ttf" crossorigin>
-  <style>
-    @font-face {
-      font-family: 'Devicon';
-      src: url('/assets/devicon-CirD-cQx.ttf') format('truetype');
-      font-display: swap; 
-    }
-  </style>
-
 </head>
 
 <body>
@@ -59,6 +57,8 @@
   </noscript>
 
   <div id="root"></div>
+
+  <!-- Scripts différés pour réduire le blocking -->
   <script type="module" src="/src/main.jsx" defer></script>
 </body>
 

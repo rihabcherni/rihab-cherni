@@ -120,9 +120,9 @@ const About = ({ t, isDark, visibleSections }) => {
                           : 'bg-white/60 border-gray-200 hover:bg-white/80'
                       }`}
                     >
-                      <h5 className="font-semibold text-xs group-hover:text-blue-600 transition-colors duration-300">
+                      <h3 className="font-semibold text-xs group-hover:text-blue-600 transition-colors duration-300">
                         {assoc.organization}
-                      </h5>
+                      </h3>
                       <p className="text-xs text-gray-500 dark:text-gray-400 group-hover:text-blue-500 transition-colors duration-300">
                         {assoc.role}
                       </p>

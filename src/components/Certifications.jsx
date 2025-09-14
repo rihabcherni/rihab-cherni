@@ -102,6 +102,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                     <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 z-20 pointer-events-none px-4">
                         <div className="flex justify-between">
                             <motion.button onClick={prevSlide} disabled={!canGoPrev}
+                                aria-label="Chevron"
                                 className={`pointer-events-auto w-14 h-14 rounded-full flex items-center justify-center
                                           shadow-lg backdrop-blur-sm border transition-all duration-300 -ml-7
                                           ${canGoPrev 
@@ -114,6 +115,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                 {isRTL ?<ChevronRight className="h-6 w-6" />:<ChevronLeft className="h-6 w-6" />}
                             </motion.button>
                             <motion.button
+                                aria-label="Chevron"
                                 onClick={nextSlide}
                                 disabled={!canGoNext}
                                 className={`pointer-events-auto w-14 h-14 rounded-full flex items-center justify-center
@@ -277,7 +279,8 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                     </div>
                                                     <div className="flex gap-3">
                                                         <motion.a
-                                                            href={cert.pdfUrl}
+                                                            href={cert.pdfUrl}  
+                                                            aria-label="Cv"
                                                             download={`${cert.title.replace(/\s+/g, '_')}_Certificate.pdf`}
                                                             className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 
                                                                      text-white rounded-lg font-medium flex items-center justify-center 
@@ -300,6 +303,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                         {(cert.link || cert.verifyUrl) && (
                                                             <motion.a
                                                                 href={cert.link || cert.verifyUrl}
+                                                                aria-label="Link certification"
                                                                 target="_blank"
                                                                 rel="noopener noreferrer"
                                                                 className={`px-3 py-2 ${cert.iconColor} bg-gray-100 dark:bg-gray-800 
@@ -332,6 +336,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                     <div className="flex justify-center gap-2 mt-8">
                         {Array.from({ length: totalSlides }).map((_, index) => (
                             <motion.button
+                                aria-label="Slide"
                                 key={index}
                                 onClick={() => goToSlide(index)}
                                 className={`w-3 h-3 rounded-full transition-all duration-300 ${

@@ -147,6 +147,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
               className="flex flex-col sm:flex-row gap-4"
             >
               <motion.button
+                aria-label="cta"
                 onClick={() => scrollToSection('projects')}
                 className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-xl font-semibold flex items-center gap-3 shadow-xl shadow-blue-500/25"
                 whileHover={{
@@ -165,6 +166,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
                 </motion.div>
               </motion.button>
               <motion.a
+                aria-label="CV"
                 href="/cv.pdf"
                 download="Rihab_Cherni_CV.pdf"
                 className={`group px-8 py-4 border-2 rounded-xl font-semibold flex items-center gap-3 transition-all duration-300 ${isDark

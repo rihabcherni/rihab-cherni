@@ -23,6 +23,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
       <a
         key="github"
         href={project.link}
+         aria-label="Voir mon projet GitHub"
         target="_blank"
         rel="noopener noreferrer"
         className="p-2.5 rounded-full bg-white/90 backdrop-blur-sm text-gray-800 hover:bg-white hover:scale-110 hover:rotate-12 hover:text-black transition-all duration-200 shadow-lg"
@@ -35,6 +36,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
       <a
         key="website"
         href={project.linkweb}
+        aria-label="Voir mon projet Link"
         target="_blank"
         rel="noopener noreferrer"
         className="p-2.5 rounded-full bg-white/90 backdrop-blur-sm text-gray-800 hover:bg-white hover:scale-110 hover:rotate-12 hover:text-black transition-all duration-200 shadow-lg"
@@ -164,6 +166,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
           {tp.projectsListe.length > 3 && (
             <div className="mt-4 text-center">
               <motion.button
+                aria-label="Voir plus/moins"
                 onClick={() => setShowAll(!showAll)}
                 className="group px-10 py-2 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-3xl font-semibold shadow-xl shadow-blue-500/25 transition-all duration-300 hover:bg-blue-500"
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)" }}

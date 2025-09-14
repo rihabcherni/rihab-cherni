@@ -137,7 +137,8 @@ const Experience = ({ t, isDark, visibleSections }) => {
                         <motion.div className="flex justify-between items-center mb-4">
                           {exp.link && (
                             <motion.a
-                              href={exp.link}
+                              href={exp.link} 
+                              aria-label="Voir mon projet GitHub"
                               target="_blank"
                               rel="noopener noreferrer"
                               className={`inline-flex items-center gap-1 text-xs font-medium
@@ -290,6 +291,7 @@ const Experience = ({ t, isDark, visibleSections }) => {
                           {exp.link && (
                             <motion.a
                               href={exp.link}
+                               aria-label="Voir mon projet GitHub"
                               target="_blank"
                               rel="noopener noreferrer"
                               className={`inline-flex items-center gap-1 text-xs font-medium
@@ -444,6 +446,7 @@ const Experience = ({ t, isDark, visibleSections }) => {
                             <motion.a
                               href={exp.link}
                               target="_blank"
+                              aria-label="Voir mon projet GitHub"
                               rel="noopener noreferrer"
                               className={`inline-flex items-center gap-1 text-xs font-medium
                                 ${isDark ? 'text-gray-200 hover:text-white' : 'text-gray-700 hover:text-black'} 

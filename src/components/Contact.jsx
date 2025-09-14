@@ -84,6 +84,7 @@ const Contact = ({ t, isDark, visibleSections }) => {
                     <a
                       key={index}
                       href={social.href}
+                      aria-label="Social"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`p-4 rounded-full ${isDark ? social.darkBg : social.lightBg

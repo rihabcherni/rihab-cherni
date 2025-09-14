@@ -55,6 +55,7 @@ const Navbar = ({
           >
             {Object.entries(t.nav).map(([key, value]) => (
               <motion.button
+                aria-label="nav"
                 key={key}
                 onClick={() => scrollToSection(key)}
                 className={`relative transition-all duration-300 transform hover:scale-105 ${activeSection === key
@@ -127,6 +128,7 @@ const Navbar = ({
           <div className="px-4 py-2 space-y-2">
             {Object.entries(t.nav).map(([key, value]) => (
               <motion.button
+               aria-label="nav"
                 key={key}
                 onClick={() => scrollToSection(key)}
                 className={`block w-full text-left py-2 px-3 rounded-md transition-all duration-300 transform hover:scale-105 ${activeSection === key

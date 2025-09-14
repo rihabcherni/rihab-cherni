@@ -150,8 +150,8 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                           className={`px-2 py-1 rounded-full text-xs font-medium transition-all duration-300 cursor-default
                             hover:scale-110 hover:shadow-md
                             ${isDark
-                              ? 'bg-gray-700 text-gray-300 hover:bg-blue-600 hover:text-white'
-                              : 'bg-gray-100 text-gray-600 hover:bg-blue-500 hover:text-white'}`}
+                              ? 'bg-gray-700 text-white hover:bg-blue-600 hover:text-white' // texte blanc sur foncé
+                              : 'bg-gray-100 text-gray-900 hover:bg-blue-500 hover:text-white'}`} // texte foncé sur clair
                         >
                           {tech}
                         </span>

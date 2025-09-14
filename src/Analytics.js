@@ -1,11 +1,8 @@
-// src/Analytics.js
 import { useEffect } from "react";
 import ReactGA from "react-ga4";
 
-const GA_ID = "G-8L8QX5MLTQ"; // ton ID GA
-
+const GA_ID = "G-8L8QX5MLTQ";
 ReactGA.initialize(GA_ID);
-
 const Analytics = ({ activeSection }) => {
   useEffect(() => {
     if (activeSection) {
@@ -15,7 +12,6 @@ const Analytics = ({ activeSection }) => {
       });
     }
   }, [activeSection]);
-
   return null;
 };
 

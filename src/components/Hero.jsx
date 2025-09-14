@@ -165,8 +165,8 @@ const Hero = ({ t , isDark, visibleSections, scrollToSection,isRTL }) => {
                 </motion.div>
               </motion.button> 
               <motion.a
-                href="/cv.pdf" // Assure-toi que cv.pdf est dans le dossier public
-                download="Rihab_Cherni_CV.pdf" // Nom du fichier lors du téléchargement
+                href="/cv.pdf"
+                download="Rihab_Cherni_CV.pdf"
                 className={`group px-8 py-4 border-2 rounded-xl font-semibold flex items-center gap-3 transition-all duration-300 ${
                   isDark
                     ? 'border-gray-700 text-gray-300 hover:bg-gray-800 hover:border-gray-600'

@@ -27,7 +27,7 @@ const BackgroundAnimation = ({ isDark }) => {
           return { ...p, x: newX, y: newY };
         })
       );
-    }, 30); // ~33 fps
+    }, 30); 
     return () => clearInterval(interval);
   }, []);
 

@@ -100,7 +100,6 @@ const Experience = ({ t, isDark, visibleSections }) => {
                       transition: { duration: 0.2 }
                     }}
                   >
-                    {/* Timeline Dot */}
                    <motion.div
                       className="absolute left-1/2 top-1/2 w-12 h-12 flex items-center justify-center 
                                 font-bold text-white text-lg 
@@ -115,7 +114,6 @@ const Experience = ({ t, isDark, visibleSections }) => {
                     >
                       {index + 1}
                     </motion.div>            
-                    {/* Experience Card */}
                     <motion.div
                       className={`relative px-6 py-3 rounded-3xl ${
                         isDark ? 'bg-gray-800/95 backdrop-blur-sm border border-gray-700' : 'bg-white/95 backdrop-blur-sm border border-gray-200'
@@ -133,12 +131,10 @@ const Experience = ({ t, isDark, visibleSections }) => {
                         transition: { duration: 0.3 }
                       }}
                     >
-                      {/* Gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl" />
                       
                       <div className="relative z-10">
                         <motion.div className="flex justify-between items-center mb-4">
-                          {/* GitHub Link (à droite) */}
                           {exp.link && (
                             <motion.a
                               href={exp.link}
@@ -153,7 +149,6 @@ const Experience = ({ t, isDark, visibleSections }) => {
                               <Github className={`h-5 w-5 hover:text-white transition-colors z-50`}/>
                             </motion.a>
                           )}
-                          {/* Period Badge (à gauche) */}
                           <motion.span
                             className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium 
                               bg-gradient-to-r from-blue-400 to-blue-800 text-white
@@ -165,8 +160,6 @@ const Experience = ({ t, isDark, visibleSections }) => {
                             {exp.period}
                           </motion.span>
                         </motion.div>
-                      
-                        {/* Title & Company */}
                         <div className="mb-3">
                           <motion.h3 
                             className="text-[14px] font-bold mb-2 line-clamp-2 leading-tight"

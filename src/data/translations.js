@@ -198,10 +198,11 @@ export const translations = {
       emailTitle: 'Email',
       phoneTitle: 'Téléphone',
       locationTitle: 'Localisation',
-    },
+    }, 
     footer: {
       footer: "© 2025 Rihab Cherni. Tous droits réservés."
     }
+
   },
   en: {
     loading: {
@@ -404,7 +405,7 @@ export const translations = {
       locationTitle: 'Location'
     },
     footer: {
-      footer: "© 2025 Rihab Cherni. All rights reserved." // English
+      footer: "© 2025 Rihab Cherni. All rights reserved."
     }
   },
   ar: {

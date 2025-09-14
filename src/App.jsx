@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 import Contact from './components/Contact';
 import BackgroundAnimation from './components/BackgroundAnimation';
 import Certifications from './components/Certifications';
-import Loading from './components/Loading'; 
+import Loading from './components/Loading';
 import { translations } from './data/translations';
 import { contactItems, skills } from './data/data';
 import Analytics from "./Analytics";
@@ -41,7 +41,7 @@ const App = () => {
   }, [language, isRTL]);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
+    const timer = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -92,25 +92,24 @@ const App = () => {
   };
 
   if (loading) {
-    return <Loading  t={t} isDark={isDark}/>;
+    return <Loading t={t} isDark={isDark} />;
   }
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
-    } ${language === 'ar' ? 'rtl' : 'ltr'}`}>
+    <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
+      } ${language === 'ar' ? 'rtl' : 'ltr'}`}>
       <Analytics activeSection={activeSection} />
       <div className={`${language === 'ar' ? 'flex-row-reverse' : 'flex-row'}`}>
         <Navbar isDark={isDark} setIsDark={setIsDark} language={language} setLanguage={setLanguage}
           isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}
-          activeSection={activeSection} scrollToSection={scrollToSection} translations={translations}/>
-        <Hero t={t} isDark={isDark} visibleSections={visibleSections} scrollToSection={scrollToSection}  isRTL={isRTL}/>
+          activeSection={activeSection} scrollToSection={scrollToSection} translations={translations} />
+        <Hero t={t} isDark={isDark} visibleSections={visibleSections} scrollToSection={scrollToSection} isRTL={isRTL} />
         <About t={t} isDark={isDark} visibleSections={visibleSections} />
         <Experience t={t} isDark={isDark} visibleSections={visibleSections} />
-        <Projects t={t} tp={tp} isDark={isDark} visibleSections={visibleSections} />      
+        <Projects t={t} tp={tp} isDark={isDark} visibleSections={visibleSections} />
         <Skills t={t} skills={skills} isDark={isDark} visibleSections={visibleSections} />
         <Certifications t={t} isDark={isDark} visibleSections={visibleSections} isRTL={isRTL} />
-        <Contact t={t} isDark={isDark} visibleSections={visibleSections} contactItems={contactItems}/>
+        <Contact t={t} isDark={isDark} visibleSections={visibleSections} contactItems={contactItems} />
         <Footer t={t} isDark={isDark} scrollToSection={scrollToSection} />
         <BackgroundAnimation isDark={isDark} />
       </div>

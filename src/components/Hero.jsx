@@ -224,7 +224,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
             animate={visibleSections.has('home') ? "visible" : "hidden"}
             className="relative flex justify-center lg:justify-end lg:col-span-1"
           >
-            <div className="relative w-60 h-60 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-90 lg:h-90 mb-6 sm:mb-0">
+            <div className="relative w-80 h-80 sm:w-80 sm:h-80 md:w-90 md:h-90 lg:w-90 lg:h-90 mb-6 sm:mb-0">
               <motion.div
                 className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-300 via-blue-600 to-blue-900 p-1"
                 whileHover={{ scale: 1.04, rotate: 1.5 }}

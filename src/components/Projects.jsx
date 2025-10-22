@@ -77,12 +77,14 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
               const shouldTruncate = project.description.length > 100;
               return (
                 <motion.div
-                    key={index}
-                    className={`group relative overflow-hidden rounded-2xl transition-transform duration-300
-                      transform hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(99,102,241,0.15)]
-                      ${isDark ? 'bg-gray-800' : 'bg-white'} shadow-lg`}
-                    variants={itemVariants}
-                  >
+                  key={index}
+                  className={`group relative overflow-hidden rounded-2xl transition-transform duration-300 transform
+                    hover:-translate-y-2 
+                    ${isDark 
+                      ? 'hover:shadow-[0_30px_60px_rgba(99,102,241,0.15)] shadow-lg bg-gray-800' 
+                      : 'hover:shadow-[0_30px_60px_rgba(59,130,246,0.2)] shadow-md bg-white'}`}
+                  variants={itemVariants}
+                >
                   <div className="relative h-48 overflow-hidden">
                     <img
                       loading="lazy"

@@ -33,7 +33,7 @@ export const translationsProject = {
         date: '2025',
         type: 'Projet Personnel',
         organisation: 'Moi-même',
-        image: 'projects/portfolio.png',
+        image: 'projects/portfolio-img.png',
         gradient: 'from-blue-300 to-indigo-100',
       },
       {
@@ -174,7 +174,7 @@ export const translationsProject = {
         date: '2025',
         type: 'Personal Project',
         organisation: 'Self',
-        image: 'projects/portfolio.png',
+        image: 'projects/portfolio-img.png',
         gradient: 'from-blue-300 to-indigo-100',
       },
       {
@@ -314,7 +314,7 @@ export const translationsProject = {
         date: '2025',
         type: 'مشروع شخصي',
         organisation: 'مشروع شخصي',
-        image: 'projects/portfolio.png',
+        image: 'projects/portfolio-img.png',
         gradient: 'from-blue-300 to-indigo-100',
       },
       {

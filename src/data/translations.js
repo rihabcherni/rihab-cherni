@@ -15,11 +15,11 @@ export const translations = {
     home: {
       welcome: 'Disponible pour du travail en freelance',
       title: 'Rihab Cherni',
-      subtitle: 'Ingénieure en Informatique & Développeur Full-Stack',
+      subtitle: 'Ingénieure en Informatique, autoentrepreneure & Développeur Full-Stack',
       description: 'Spécialisée en Nouvelles Technologies et Sécurité, passionnée par le développement web, mobile et l\'intelligence artificielle.',
       cta: 'Voir Mon Travail',
       download: 'Télécharger CV',
-      address:'Manouba, Tunisie'
+      address: 'Manouba, Tunisie'
     },
     about: {
       title: 'À Propos de Moi',
@@ -36,8 +36,8 @@ export const translations = {
       levelAng: "Intermédiaire",
       langItalien: "Italien",
       levelItalien: "Débutant",
-      specialization:"Spécialité",
-      club:'Engagement Associatif',
+      specialization: "Spécialité",
+      club: 'Engagement Associatif',
       associations: [
         {
           role: "Chef de Projet",
@@ -55,7 +55,7 @@ export const translations = {
           role: "Membre",
           organization: "Croissant-Rouge Tunisien",
         }
-      ], 
+      ],
       school: [
         {
           "degree": "Diplôme d'ingénieur en génie informatique",
@@ -80,92 +80,70 @@ export const translations = {
     certifications: {
       title: 'Mes Certifications',
       subtitle: 'Formations certifiantes complétées pour approfondir mes compétences techniques et méthodologiques',
-      Skills:'Compétences',
-      pdf:'Télécharger'
+      Skills: 'Compétences',
+      pdf: 'Télécharger'
     },
     experience: {
       title: 'Expérience Professionnelle',
       subtitle: 'Un aperçu de mon parcours et de mes réalisations professionnelles',
       current: 'Actuel',
       present: 'Présent',
-      plus:'Voir plus',
-      moins:'Voir moins',
+      plus: 'Voir plus',
+      moins: 'Voir moins',
       listeExperiences: [
         {
-            title: 'Stage PFE : Développeuse Web Full Stack',
-            company: 'ADDINN Tunisie',
-            location: 'Ariana, Tunisie',
-            period: 'Février - Juin 2025',
-            description:
-              "Application web «AutoTest» pour automatiser les tests fonctionnels, de sécurité et SEO, avec détection de vulnérabilités, rapports, tableau de bord dynamique et notifications en temps réel via WebSocket (Slack, Jira, Gmail).",
-            tech: [
-              'FastAPI',
-              'Angular',
-              'PostgreSQL',
-              'Docker',
-              'GitLab',
-              'WebSockets',
-              'RabbitMQ',
-              'Selenium',
-              'BeautifulSoup',
-              'ZAP',
-              'Jira/Slack API'
-            ],
-            link: 'https://github.com/rihabcherni/pfe-Autotest'
-          },
-          {
-            title: 'Stage Technicien : Développeuse Mobile',
-            company: 'Société Nationale des Chemins de Fer Tunisiens (SNCFT)',
-            location: 'Tunis, Tunisie',
-            period: 'Juillet - Août 2024',
-            description:
-              "Conception et développement d'une application mobile pour la gestion du fret ferroviaire (itinéraires, ressources, suivi des horaires, réclamations, messagerie instantanée via WebSocket).",
-            tech: ['Flutter', 'Node.js', 'Express.js', 'MongoDB', 'WebSockets', 'Trello', 'GitHub'],
-            link: 'https://github.com/rihabcherni/sncft-mobile-app'
-          },
-          {
-            title: 'Stage Ouvrier : Développeuse Web Full Stack MERN',
-            company: 'IPACT Consult Inc.',
-            location: 'Lac 2, Tunis, Tunisie',
-            period: 'Juillet - Août 2023',
-            description:
-              'Développement, tests unitaires et déploiement de l’application de santé "NPWT" pour la gestion des soins par pression négative, incluant la détection des types de soins via un modèle IA. Réalisé en Scrum avec intégration continue via Jenkins et Docker.',
-            tech: [
-              'React.js',
-              'Node.js',
-              'Express.js',
-              'MongoDB',
-              'Bootstrap',
-              'Jira',
-              'Scrum',
-              'Docker',
-              'Jenkins',
-              'FastAPI',
-              'Mocha',
-              'Chai'
-            ],
-            link: 'https://github.com/rihabcherni/stage-npwt'
-          },
-          {
-            title: 'Stage PFE : Développeuse Web Full Stack',
-            company: 'Reschool Education',
-            location: 'Charguia 1, Tunisie',
-            period: 'Février - Juin 2022',
-            description:
-              "Conception et développement de l'application web «RE-School Ecology» pour la gestion et collecte des déchets via des poubelles intelligentes dans les écoles, incluant suivi en temps réel, optimisation des itinéraires et sensibilisation écologique.",
-            tech: ['React.js', 'Laravel', 'MUI', 'MySQL', 'UML', 'PHP', 'Figma', 'Jira'],
-            link: 'https://github.com/rihabcherni/pfe-reSchool-ecology'
-          },
-          {
-            title: "Stage d'été : Développeuse Web Front-end",
-            company: 'DIGIT-U',
-            location: 'Centre Golden Towers, Nord Urbain, Ariana, Tunisie',
-            period: 'Juillet - Août 2021',
-            description:
-              'Développement de l’application web éducative «Alma» pour l’apprentissage en ligne (ressources, suivi de progression, quiz, évaluations, interactions enseignants-élèves). Utilisation de la méthode Scrum avec Jira.',
-            tech: ['React.js', 'MUI', 'HTML', 'CSS', 'Zeplin', 'Jira', 'Scrum', 'Slack', 'Github'],
-            link: 'https://github.com/rihabcherni/alma'
-          }        
+          title: 'Data Annotation',
+          company: 'Freelance',
+          location: 'À distance',
+          period: 'Octobre - Décembre 2025',
+          description: "Annoter et valider des jeux de données destinés à l’entraînement de modèles d’intelligence artificielle (reinforcement learning), en garantissant la qualité, la cohérence et la conformité des données, avec documentation en anglais. Analyser et corriger les incohérences, erreurs et ambiguïtés dans les données et scripts Python associés, évaluer les consignes (prompts) et mécanismes de vérification, détecter les faux positifs et négatifs, identifier les causes d’erreur et collaborer avec l’équipe pour améliorer les processus d’annotation.",
+          tech: ['Data Annotation', 'Python', 'Data Analysis', 'Documentation', 'Attention to Detail', 'Collaboration']
+        },
+        {
+          title: 'Stage PFE : Développeuse Web Full Stack',
+          company: 'ADDINN Tunisie',
+          location: 'Ariana, Tunisie',
+          period: 'Février - Juin 2025',
+          description: "Application web «AutoTest» pour automatiser les tests fonctionnels, de sécurité et SEO, avec détection de vulnérabilités, rapports, tableau de bord dynamique et notifications en temps réel via WebSocket (Slack, Jira, Gmail).",
+          tech: ['FastAPI', 'Angular', 'PostgreSQL', 'Docker', 'GitLab', 'WebSockets', 'RabbitMQ', 'Selenium', 'BeautifulSoup', 'ZAP', 'Jira/Slack API'],
+          link: 'https://github.com/rihabcherni/pfe-Autotest'
+        },
+        {
+          title: 'Stage Technicien : Développeuse Mobile',
+          company: 'Société Nationale des Chemins de Fer Tunisiens (SNCFT)',
+          location: 'Tunis, Tunisie',
+          period: 'Juillet - Août 2024',
+          description: "Conception et développement d'une application mobile pour la gestion du fret ferroviaire (itinéraires, ressources, suivi des horaires, réclamations, messagerie instantanée via WebSocket).",
+          tech: ['Flutter', 'Node.js', 'Express.js', 'MongoDB', 'WebSockets', 'Trello', 'GitHub'],
+          link: 'https://github.com/rihabcherni/sncft-mobile-app'
+        },
+        {
+          title: 'Stage Ouvrier : Développeuse Web Full Stack MERN',
+          company: 'IPACT Consult Inc.',
+          location: 'Lac 2, Tunis, Tunisie',
+          period: 'Juillet - Août 2023',
+          description: 'Développement, tests unitaires et déploiement de l’application de santé "NPWT" pour la gestion des soins par pression négative, incluant la détection des types de soins via un modèle IA. Réalisé en Scrum avec intégration continue via Jenkins et Docker.',
+          tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Bootstrap', 'Jira', 'Scrum', 'Docker', 'Jenkins', 'FastAPI', 'Mocha', 'Chai'],
+          link: 'https://github.com/rihabcherni/stage-npwt'
+        },
+        {
+          title: 'Stage PFE : Développeuse Web Full Stack',
+          company: 'Reschool Education',
+          location: 'Charguia 1, Tunisie',
+          period: 'Février - Juin 2022',
+          description: "Conception et développement de l'application web «RE-School Ecology» pour la gestion et collecte des déchets via des poubelles intelligentes dans les écoles, incluant suivi en temps réel, optimisation des itinéraires et sensibilisation écologique.",
+          tech: ['React.js', 'Laravel', 'MUI', 'MySQL', 'UML', 'PHP', 'Figma', 'Jira'],
+          link: 'https://github.com/rihabcherni/pfe-reSchool-ecology'
+        },
+        {
+          title: "Stage d'été : Développeuse Web Front-end",
+          company: 'DIGIT-U',
+          location: 'Centre Golden Towers, Nord Urbain, Ariana, Tunisie',
+          period: 'Juillet - Août 2021',
+          description: 'Développement de l’application web éducative «Alma» pour l’apprentissage en ligne (ressources, suivi de progression, quiz, évaluations, interactions enseignants-élèves). Utilisation de la méthode Scrum avec Jira.',
+          tech: ['React.js', 'MUI', 'HTML', 'CSS', 'Zeplin', 'Jira', 'Scrum', 'Slack', 'Github'],
+          link: 'https://github.com/rihabcherni/alma'
+        }
       ]
     },
     projects: {
@@ -173,8 +151,8 @@ export const translations = {
       subtitle: 'Travaux pratiques et projets que j\'ai réalisés',
       view: 'Voir Projet',
       tech: 'Technologies',
-      plus:'Voir plus',
-      moins:'Voir moins'
+      plus: 'Voir plus',
+      moins: 'Voir moins'
     },
     skills: {
       title: 'Compétences',
@@ -198,7 +176,7 @@ export const translations = {
       emailTitle: 'Email',
       phoneTitle: 'Téléphone',
       locationTitle: 'Localisation',
-    }, 
+    },
     footer: {
       footer: "© 2025 Rihab Cherni. Tous droits réservés."
     }
@@ -217,14 +195,14 @@ export const translations = {
       certifications: 'Certification',
       contact: 'Contact'
     },
-    home: { 
-      welcome: 'Available for freelance work', 
-      title: 'Rihab Cherni', 
-      subtitle: 'Computer Engineer & Full-Stack Developer', 
-      description: 'Specialized in New Technologies and Security, passionate about web development, mobile development, and artificial intelligence.', 
-      cta: 'View My Work', 
+    home: {
+      welcome: 'Available for freelance work',
+      title: 'Rihab Cherni',
+      subtitle: 'Computer Engineer, Freelancer & Full-Stack Developer',
+      description: 'Specialized in New Technologies and Security, passionate about web development, mobile development, and artificial intelligence.',
+      cta: 'View My Work',
       download: 'Download CV',
-      address:'Manouba, Tunisia'
+      address: 'Manouba, Tunisia'
     },
     about: {
       title: 'About Me',
@@ -241,8 +219,8 @@ export const translations = {
       levelAng: "Intermediate",
       langItalien: "Italian",
       levelItalien: "Beginner",
-      club:'Associative Involvement',
-      specialization:"Specialization",
+      club: 'Associative Involvement',
+      specialization: "Specialization",
       associations: [
         {
           role: "Project Manager",
@@ -260,7 +238,7 @@ export const translations = {
           role: "Member",
           organization: "Tunisian Red Crescent",
         }
-      ], 
+      ],
       school: [
         {
           "degree": "Engineering Degree in Computer Engineering",
@@ -285,37 +263,32 @@ export const translations = {
     certifications: {
       title: 'My Certifications',
       subtitle: 'Completed certification trainings to deepen my technical and methodological skills',
-      Skills:'Skills',
-      pdf:'Download'
+      Skills: 'Skills',
+      pdf: 'Download'
     },
     experience: {
       title: 'Professional Experience',
       subtitle: 'An overview of my career journey and achievements',
       current: 'Current',
       present: 'Present',
-      plus:'Show more',
-      moins:'Show less',
+      plus: 'Show more',
+      moins: 'Show less',
       listeExperiences: [
+        {
+          title: 'Data Annotation',
+          company: 'Freelance',
+          location: 'Remote',
+          period: 'October - December 2025',
+          description: "Annotate and validate datasets for training AI models (reinforcement learning), ensuring data quality, consistency, and compliance, with documentation in English. Analyze and correct inconsistencies, errors, and ambiguities in data and associated Python scripts, evaluate instructions (prompts) and verification mechanisms, detect false positives and negatives, identify error causes, and collaborate with the team to improve annotation processes.",
+          tech: ['Data Annotation', 'Python', 'Data Analysis', 'Documentation', 'Attention to Detail', 'Collaboration']
+        },
         {
           title: 'Final Year Internship: Full Stack Web Developer',
           company: 'ADDINN Tunisia',
           location: 'Ariana, Tunisia',
           period: 'February - June 2025',
-          description:
-            "Web application «AutoTest» to automate functional, security, and SEO tests, with vulnerability detection, reports, dynamic dashboard, and real-time notifications via WebSocket (Slack, Jira, Gmail).",
-          tech: [
-            'FastAPI',
-            'Angular',
-            'PostgreSQL',
-            'Docker',
-            'GitLab',
-            'WebSockets',
-            'RabbitMQ',
-            'Selenium',
-            'BeautifulSoup',
-            'ZAP',
-            'Jira/Slack API'
-          ],
+          description: "Web application «AutoTest» to automate functional, security, and SEO tests, with vulnerability detection, reports, dynamic dashboard, and real-time notifications via WebSocket (Slack, Jira, Gmail).",
+          tech: ['FastAPI', 'Angular', 'PostgreSQL', 'Docker', 'GitLab', 'WebSockets', 'RabbitMQ', 'Selenium', 'BeautifulSoup', 'ZAP', 'Jira/Slack API'],
           link: 'https://github.com/rihabcherni/pfe-Autotest'
         },
         {
@@ -323,8 +296,7 @@ export const translations = {
           company: 'National Tunisian Railway Company (SNCFT)',
           location: 'Tunis, Tunisia',
           period: 'July - August 2024',
-          description:
-            "Design and development of a mobile application for freight management (routes, resources, schedule tracking, complaints, instant messaging via WebSocket).",
+          description: "Design and development of a mobile application for freight management (routes, resources, schedule tracking, complaints, instant messaging via WebSocket).",
           tech: ['Flutter', 'Node.js', 'Express.js', 'MongoDB', 'WebSockets', 'Trello', 'GitHub'],
           link: 'https://github.com/rihabcherni/sncft-mobile-app'
         },
@@ -333,22 +305,8 @@ export const translations = {
           company: 'IPACT Consult Inc.',
           location: 'Lac 2, Tunis, Tunisia',
           period: 'July - August 2023',
-          description:
-            'Development, unit testing, and deployment of the health application "NPWT" for negative pressure wound therapy management, including detection of therapy types using an AI model. Done with Scrum methodology and continuous integration via Jenkins and Docker.',
-          tech: [
-            'React.js',
-            'Node.js',
-            'Express.js',
-            'MongoDB',
-            'Bootstrap',
-            'Jira',
-            'Scrum',
-            'Docker',
-            'Jenkins',
-            'FastAPI',
-            'Mocha',
-            'Chai'
-          ],
+          description: 'Development, unit testing, and deployment of the health application "NPWT" for negative pressure wound therapy management, including detection of therapy types using an AI model. Done with Scrum methodology and continuous integration via Jenkins and Docker.',
+          tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Bootstrap', 'Jira', 'Scrum', 'Docker', 'Jenkins', 'FastAPI', 'Mocha', 'Chai'],
           link: 'https://github.com/rihabcherni/stage-npwt'
         },
         {
@@ -356,8 +314,7 @@ export const translations = {
           company: 'Reschool Education',
           location: 'Charguia 1, Tunisia',
           period: 'February - June 2022',
-          description:
-            "Design and development of the web application «RE-School Ecology» for waste management and collection via smart bins in schools, including real-time tracking, route optimization, and environmental awareness.",
+          description: "Design and development of the web application «RE-School Ecology» for waste management and collection via smart bins in schools, including real-time tracking, route optimization, and environmental awareness.",
           tech: ['React.js', 'Laravel', 'MUI', 'MySQL', 'UML', 'PHP', 'Figma', 'Jira'],
           link: 'https://github.com/rihabcherni/pfe-reSchool-ecology'
         },
@@ -366,8 +323,7 @@ export const translations = {
           company: 'DIGIT-U',
           location: 'Golden Towers Center, Urban North, Ariana, Tunisia',
           period: 'July - August 2021',
-          description:
-            'Development of the educational web application «Alma» for online learning (resources, progress tracking, quizzes, evaluations, teacher-student interactions). Used Scrum methodology with Jira.',
+          description: 'Development of the educational web application «Alma» for online learning (resources, progress tracking, quizzes, evaluations, teacher-student interactions). Used Scrum methodology with Jira.',
           tech: ['React.js', 'MUI', 'HTML', 'CSS', 'Zeplin', 'Jira', 'Scrum', 'Slack', 'Github'],
           link: 'https://github.com/rihabcherni/alma'
         }
@@ -378,8 +334,8 @@ export const translations = {
       subtitle: 'Practical work and projects I have completed',
       view: 'View Project',
       tech: 'Technologies',
-      plus:'Show more',
-      moins:'Show less'
+      plus: 'Show more',
+      moins: 'Show less'
     },
     skills: {
       title: 'Skills',
@@ -424,16 +380,16 @@ export const translations = {
     certifications: {
       title: 'شهاداتي',
       subtitle: 'دورات تدريبية معتمدة أُنجزت لتعزيز مهاراتي التقنية والمنهجية',
-      Skills:'المهارات',
-      pdf:'تحميل'
+      Skills: 'المهارات',
+      pdf: 'تحميل'
     },
     home: {
       welcome: 'متاحة للعمل الحر', title: 'رحاب الشارني',
-      subtitle: 'مهندسة معلوماتية ومطوّرة برمجيات',
+      subtitle: 'مهندسة معلوماتية، مبادرة الذاتية ومطوّرة برمجيات',
       description: 'متخصصة في التقنيات الجديدة والأمن السيبراني، شغوفة بتطوير مواقع الويب والتطبيقات المحمولة والذكاء الاصطناعي.',
       cta: 'اطلع على أعمالي',
       download: 'تحميل السيرة الذاتية',
-      address:'منوبة، تونس'
+      address: 'منوبة، تونس'
     },
     about: {
       title: 'نبذة عني',
@@ -450,8 +406,8 @@ export const translations = {
       levelAng: "متوسط",
       langItalien: "الإيطالية",
       levelItalien: "مبتدئ",
-      club:'الانخراط الجمعياتي',
-      specialization:"التخصص",
+      club: 'الانخراط الجمعياتي',
+      specialization: "التخصص",
       associations: [
         {
           role: "مديرة مشروع",
@@ -496,29 +452,24 @@ export const translations = {
       subtitle: 'نظرة عامة على مسيرتي المهنية وإنجازاتي',
       current: 'حالي',
       present: 'الحاضر',
-      plus:'عرض المزيد',
-      moins:'عرض أقل',
-      listeExperiences:[
+      plus: 'عرض المزيد',
+      moins: 'عرض أقل',
+      listeExperiences: [
+        {
+          title: 'تعليق على البيانات',
+          company: 'عمل حر',
+          location: 'عن بُعد',
+          period: 'أكتوبر - ديسمبر 2025',
+          description: "تعليق والتحقق من مجموعات البيانات المخصصة لتدريب نماذج الذكاء الاصطناعي (التعلم التعزيزي)، مع ضمان جودة البيانات واتساقها والتزامها بالمعايير، مع توثيق التعليقات باللغة الإنجليزية. تحليل وتصحيح التناقضات والأخطاء والملتبسات في البيانات والسكربتات الخاصة بـ Python، تقييم التعليمات (prompts) وآليات التحقق، اكتشاف الإيجابيات والسلبية الخاطئة، تحديد أسباب الأخطاء والتعاون مع الفريق لتحسين عمليات التعليق.",
+          tech: ['تعليق البيانات', 'Python', 'تحليل البيانات', 'التوثيق', 'الانتباه للتفاصيل', 'العمل الجماعي']
+        },
         {
           title: 'تدريب نهاية الدراسة: مطورة ويب Full Stack',
           company: 'ADDINN تونس',
           location: 'أريانة، تونس',
           period: 'فبراير - يونيو 2025',
-          description:
-            "تطبيق ويب «AutoTest» لأتمتة الاختبارات الوظيفية، الأمن وSEO، مع كشف الثغرات، التقارير، لوحة تحكم ديناميكية وإشعارات في الوقت الفعلي عبر WebSocket (Slack، Jira، Gmail).",
-          tech: [
-            'FastAPI',
-            'Angular',
-            'PostgreSQL',
-            'Docker',
-            'GitLab',
-            'WebSockets',
-            'RabbitMQ',
-            'Selenium',
-            'BeautifulSoup',
-            'ZAP',
-            'Jira/Slack API'
-          ],
+          description: "تطبيق ويب «AutoTest» لأتمتة الاختبارات الوظيفية، الأمن وSEO، مع كشف الثغرات، التقارير، لوحة تحكم ديناميكية وإشعارات في الوقت الفعلي عبر WebSocket (Slack، Jira، Gmail).",
+          tech: ['FastAPI', 'Angular', 'PostgreSQL', 'Docker', 'GitLab', 'WebSockets', 'RabbitMQ', 'Selenium', 'BeautifulSoup', 'ZAP', 'Jira/Slack API'],
           link: 'https://github.com/rihabcherni/pfe-Autotest'
         },
         {
@@ -526,8 +477,7 @@ export const translations = {
           company: 'الشركة الوطنية للسكك الحديدية التونسية (SNCFT)',
           location: 'تونس، تونس',
           period: 'يوليو - أغسطس 2024',
-          description:
-            "تصميم وتطوير تطبيق موبايل لإدارة النقل بالشاحنات (المسارات، الموارد، متابعة الجداول، الشكاوى، المراسلة الفورية عبر WebSocket).",
+          description: "تصميم وتطوير تطبيق موبايل لإدارة النقل بالشاحنات (المسارات، الموارد، متابعة الجداول، الشكاوى، المراسلة الفورية عبر WebSocket).",
           tech: ['Flutter', 'Node.js', 'Express.js', 'MongoDB', 'WebSockets', 'Trello', 'GitHub'],
           link: 'https://github.com/rihabcherni/sncft-mobile-app'
         },
@@ -536,22 +486,8 @@ export const translations = {
           company: 'IPACT Consult Inc.',
           location: 'البحيرة 2، تونس، تونس',
           period: 'يوليو - أغسطس 2023',
-          description:
-            'تطوير، اختبار ونشر تطبيق الصحة "NPWT" لإدارة العلاجات بالضغط السلبي، مع كشف أنواع العلاج باستخدام نموذج ذكاء اصطناعي. تم العمل وفق منهجية Scrum مع تكامل مستمر عبر Jenkins وDocker.',
-          tech: [
-            'React.js',
-            'Node.js',
-            'Express.js',
-            'MongoDB',
-            'Bootstrap',
-            'Jira',
-            'Scrum',
-            'Docker',
-            'Jenkins',
-            'FastAPI',
-            'Mocha',
-            'Chai'
-          ],
+          description: 'تطوير، اختبار ونشر تطبيق الصحة "NPWT" لإدارة العلاجات بالضغط السلبي، مع كشف أنواع العلاج باستخدام نموذج ذكاء اصطناعي. تم العمل وفق منهجية Scrum مع تكامل مستمر عبر Jenkins وDocker.',
+          tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Bootstrap', 'Jira', 'Scrum', 'Docker', 'Jenkins', 'FastAPI', 'Mocha', 'Chai'],
           link: 'https://github.com/rihabcherni/stage-npwt'
         },
         {
@@ -559,8 +495,7 @@ export const translations = {
           company: 'Reschool Education',
           location: 'الشرقية 1، تونس',
           period: 'فبراير - يونيو 2022',
-          description:
-            "تصميم وتطوير تطبيق ويب «RE-School Ecology» لإدارة وجمع النفايات عبر صناديق ذكية في المدارس، مع متابعة في الوقت الحقيقي، تحسين المسارات وزيادة الوعي البيئي.",
+          description: "تصميم وتطوير تطبيق ويب «RE-School Ecology» لإدارة وجمع النفايات عبر صناديق ذكية في المدارس، مع متابعة في الوقت الحقيقي، تحسين المسارات وزيادة الوعي البيئي.",
           tech: ['React.js', 'Laravel', 'MUI', 'MySQL', 'UML', 'PHP', 'Figma', 'Jira'],
           link: 'https://github.com/rihabcherni/pfe-reSchool-ecology'
         },
@@ -569,8 +504,7 @@ export const translations = {
           company: 'DIGIT-U',
           location: "مركز جولدن تاورز، أوربان نورث، أريانة، تونس",
           period: 'يوليو - أغسطس 2021',
-          description:
-            'تطوير تطبيق ويب تعليمي «Alma» للتعلم عن بعد (الموارد، متابعة التقدم، الاختبارات، التقييمات، التفاعل بين المعلمين والطلاب). استخدام Scrum مع Jira.',
+          description: 'تطوير تطبيق ويب تعليمي «Alma» للتعلم عن بعد (الموارد، متابعة التقدم، الاختبارات، التقييمات، التفاعل بين المعلمين والطلاب). استخدام Scrum مع Jira.',
           tech: ['React.js', 'MUI', 'HTML', 'CSS', 'Zeplin', 'Jira', 'Scrum', 'Slack', 'Github'],
           link: 'https://github.com/rihabcherni/alma'
         }
@@ -581,8 +515,8 @@ export const translations = {
       subtitle: 'الأعمال العملية والمشاريع التي أنجزتها',
       view: 'عرض المشروع',
       tech: 'التقنيات',
-      plus:'عرض المزيد',
-      moins:'عرض أقل'
+      plus: 'عرض المزيد',
+      moins: 'عرض أقل'
     },
     skills: {
       title: 'المهارات',

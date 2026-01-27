@@ -105,7 +105,7 @@ const App = () => {
           activeSection={activeSection} scrollToSection={scrollToSection} translations={translations} />
         <Hero t={t} isDark={isDark} visibleSections={visibleSections} scrollToSection={scrollToSection} isRTL={isRTL} />
         <About t={t} isDark={isDark} visibleSections={visibleSections} />
-        <Experience t={t} isDark={isDark} visibleSections={visibleSections} />
+        <Experience t={t} isDark={isDark} visibleSections={visibleSections} isRTL={isRTL}/>
         <Projects t={t} tp={tp} isDark={isDark} visibleSections={visibleSections} />
         <Skills t={t} skills={skills} isDark={isDark} visibleSections={visibleSections} />
         <Certifications t={t} isDark={isDark} visibleSections={visibleSections} isRTL={isRTL} />

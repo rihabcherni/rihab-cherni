@@ -62,16 +62,12 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
 
   return (
     <section id="projects" className={`py-8 transition-colors duration-300 ${isDark ? 'bg-gray-800/50' : 'bg-gray-200'}`}>
-      <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-14 mx-auto">
-        <motion.div
-          className="transition-all duration-1000"
-          initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
-          variants={containerVariants}
-        >
+      <div className="px-4 sm:px-6 md:px-8 lg:px-10 xl:px-5 mx-auto">
+        <motion.div className="transition-all duration-1000" initial="hidden"
+          animate={isVisible ? "visible" : "hidden"} variants={containerVariants}>
           <SectionTitle title={t.projects.title} subtitle={t.projects.subtitle} />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {displayedProjects.map((project, index) => {
               const isExpanded = expandedProjects.has(index);
               const shouldTruncate = project.description.length > 100;
@@ -107,10 +103,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                   </div>
 
                   <div className="px-4 py-3">
-                    <h3
-                        className={`text-sm sm:text-base md:text-base lg:text-lg font-bold mb-1 transition-all duration-300 group-hover:translate-x-1
-                          ${isDark ? 'text-white' : 'text-gray-900'}`}
-                      >
+                    <h3 className={`text-[15px] font-bold mb-1 transition-all duration-300 group-hover:translate-x-1 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                         {project.title}
                       </h3>
 
@@ -118,29 +111,23 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                       <div className="flex items-center gap-4 text-xs">
                         {project.type && (
                           <div className={`flex items-center gap-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                            <Briefcase className="w-3 h-3" />
-                            <span>{project.type}</span>
+                            <Briefcase className="w-2.5 h-2.5" />
+                            <span className='text-[11px]'>{project.type}</span>
                           </div>
                         )}
                         {project.organisation && (
                           <div className={`flex items-center gap-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                            <Building2 className="w-3 h-3" />
-                            <span>{project.organisation}</span>
+                            <Building2 className="w-2.5 h-2.5" />
+                            <span className='text-[11px]'>{project.organisation}</span>
                           </div>
                         )}
                       </div>
                     </div>
-
                     <div className={`mb-2 text-sm leading-relaxed transition-colors duration-300
                       ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                      <p>{isExpanded || !shouldTruncate ? project.description : truncateText(project.description)}</p>
+                      <p className='text-[12px]'>{isExpanded || !shouldTruncate ? project.description : truncateText(project.description)}</p>
                       {shouldTruncate && (
-                        <button
-                          aria-label="View btn"
-                          onClick={() => toggleExpanded(index)}
-                          className={`mt-1 text-xs font-semibold hover:underline transition-colors duration-200
-                            ${isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-500'}`}
-                        >
+                        <button aria-label="View btn" onClick={() => toggleExpanded(index)} className={`mt-1 text-xs font-semibold hover:underline transition-colors duration-200 ${isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-500'}`}>
                           {isExpanded ? t.projects.moins : t.projects.plus}
                         </button>
                       )}
@@ -148,14 +135,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
 
                     <div className="flex flex-wrap gap-1">
                       {project.tech.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className={`px-2 py-1 rounded-full text-xs font-medium transition-all duration-300 cursor-default
-                            hover:scale-110 hover:shadow-md
-                            ${isDark
-                              ? 'bg-gray-700 text-white hover:bg-blue-600 hover:text-white' // texte blanc sur foncé
-                              : 'bg-gray-100 text-gray-900 hover:bg-blue-500 hover:text-white'}`} // texte foncé sur clair
-                        >
+                        <span key={techIndex} className={`px-2 py-1 rounded-full text-[10px] font-medium transition-all duration-300 cursor-default hover:scale-110 hover:shadow-md ${isDark ? 'bg-gray-700 text-white hover:bg-blue-600 hover:text-white' : 'bg-gray-100 text-gray-900 hover:bg-blue-500 hover:text-white'}`} >
                           {tech}
                         </span>
                       ))}

@@ -152,7 +152,9 @@ export const translations = {
       view: 'Voir Projet',
       tech: 'Technologies',
       plus: 'Voir plus',
-      moins: 'Voir moins'
+      moins: 'Voir moins',
+      filterAll: "Tous",
+      noResults: "Aucun projet trouvé pour ce filtre"
     },
     skills: {
       title: 'Compétences',
@@ -335,7 +337,9 @@ export const translations = {
       view: 'View Project',
       tech: 'Technologies',
       plus: 'Show more',
-      moins: 'Show less'
+      moins: 'Show less',
+      filterAll: "All",
+      noResults: "No projects found for this filter"
     },
     skills: {
       title: 'Skills',
@@ -516,7 +520,9 @@ export const translations = {
       view: 'عرض المشروع',
       tech: 'التقنيات',
       plus: 'عرض المزيد',
-      moins: 'عرض أقل'
+      moins: 'عرض أقل',
+      filterAll: "الكل",
+      noResults: "لم يتم العثور على مشاريع لهذا الفلتر"
     },
     skills: {
       title: 'المهارات',

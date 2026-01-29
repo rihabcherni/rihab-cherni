@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { Calendar, Github, ExternalLink, User, Building2, Briefcase } from 'lucide-react';
+import { Calendar, Github, ExternalLink, User, Building2, Briefcase, Filter } from 'lucide-react';
 import SectionTitle from './SectionTitle';
 import { motion } from 'framer-motion';
 
 const Projects = ({ t, tp, isDark, visibleSections }) => {
   const [expandedProjects, setExpandedProjects] = useState(new Set());
   const [showAll, setShowAll] = useState(false);
+  const [activeFilter, setActiveFilter] = useState('all');
   const isVisible = visibleSections?.has('projects') ?? true;
 
   const toggleExpanded = (index) => {
@@ -23,7 +24,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
       <a
         key="github"
         href={project.link}
-         aria-label="Voir mon projet GitHub"
+        aria-label="Voir mon projet GitHub"
         target="_blank"
         rel="noopener noreferrer"
         className="p-2.5 rounded-full bg-white/90 backdrop-blur-sm text-gray-800 hover:bg-white hover:scale-110 hover:rotate-12 hover:text-black transition-all duration-200 shadow-lg"
@@ -48,7 +49,15 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
     return links;
   };
 
-  const displayedProjects = showAll ? tp.projectsListe : tp.projectsListe.slice(0, 4);
+  // Get unique project types
+  const projectTypes = ['all', ...new Set(tp.projectsListe.map(p => p.type))];
+
+  // Filter projects based on active filter
+  const filteredProjects = activeFilter === 'all' 
+    ? tp.projectsListe 
+    : tp.projectsListe.filter(project => project.type === activeFilter);
+
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 4);
 
   const containerVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -67,6 +76,33 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
           animate={isVisible ? "visible" : "hidden"} variants={containerVariants}>
           <SectionTitle title={t.projects.title} subtitle={t.projects.subtitle} />
 
+          {/* Filter Buttons */}
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {projectTypes.map((type) => (
+              <motion.button
+                key={type}
+                onClick={() => {
+                  setActiveFilter(type);
+                  setShowAll(false); // Reset showAll when changing filter
+                }}
+                className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 
+                  ${activeFilter === type 
+                    ? (isDark 
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' 
+                      : 'bg-blue-500 text-white shadow-lg shadow-blue-500/30')
+                    : (isDark 
+                      ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' 
+                      : 'bg-white text-gray-700 hover:bg-gray-100')
+                  }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Filter className="w-4 h-4" />
+                {type === 'all' ? (t.projects.filterAll || 'All') : type}
+              </motion.button>
+            ))}
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {displayedProjects.map((project, index) => {
               const isExpanded = expandedProjects.has(index);
@@ -80,6 +116,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                       ? 'hover:shadow-[0_30px_60px_rgba(99,102,241,0.15)] shadow-lg bg-gray-800' 
                       : 'hover:shadow-[0_30px_60px_rgba(59,130,246,0.2)] shadow-md bg-white'}`}
                   variants={itemVariants}
+                  layout
                 >
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -146,7 +183,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
             })}
           </div>
 
-          {tp.projectsListe.length > 3 && (
+          {filteredProjects.length > 4 && (
             <div className="mt-4 text-center">
               <motion.button
                 aria-label="Voir plus/moins"
@@ -158,6 +195,12 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
               >
                 {showAll ? t.projects.moins : t.projects.plus}
               </motion.button>
+            </div>
+          )}
+
+          {filteredProjects.length === 0 && (
+            <div className={`text-center py-12 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+              <p className="text-lg">{t.projects.noResults || 'Aucun projet trouvé pour ce filtre'}</p>
             </div>
           )}
         </motion.div>

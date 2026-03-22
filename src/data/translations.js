@@ -97,7 +97,7 @@ export const translations = {
           location: 'À distance',
           period: 'Octobre - Décembre 2025',
           description: "Annoter et valider des jeux de données destinés à l’entraînement de modèles d’intelligence artificielle (reinforcement learning), en garantissant la qualité, la cohérence et la conformité des données, avec documentation en anglais. Analyser et corriger les incohérences, erreurs et ambiguïtés dans les données et scripts Python associés, évaluer les consignes (prompts) et mécanismes de vérification, détecter les faux positifs et négatifs, identifier les causes d’erreur et collaborer avec l’équipe pour améliorer les processus d’annotation.",
-          tech: ['Data Annotation', 'Python', 'Data Analysis', 'Documentation', 'Attention to Detail', 'Collaboration']
+          tech: ['Python', 'Data Analysis', 'Documentation', 'Collaboration', 'Attention to Detail']
         },
         {
           title: 'Stage PFE : Développeuse Web Full Stack',
@@ -282,7 +282,7 @@ export const translations = {
           location: 'Remote',
           period: 'October - December 2025',
           description: "Annotate and validate datasets for training AI models (reinforcement learning), ensuring data quality, consistency, and compliance, with documentation in English. Analyze and correct inconsistencies, errors, and ambiguities in data and associated Python scripts, evaluate instructions (prompts) and verification mechanisms, detect false positives and negatives, identify error causes, and collaborate with the team to improve annotation processes.",
-          tech: ['Data Annotation', 'Python', 'Data Analysis', 'Documentation', 'Attention to Detail', 'Collaboration']
+          tech: ['Python', 'Data Analysis', 'Documentation', 'Collaboration', 'Attention to Detail']
         },
         {
           title: 'Final Year Internship: Full Stack Web Developer',
@@ -465,7 +465,7 @@ export const translations = {
           location: 'عن بُعد',
           period: 'أكتوبر - ديسمبر 2025',
           description: "تعليق والتحقق من مجموعات البيانات المخصصة لتدريب نماذج الذكاء الاصطناعي (التعلم التعزيزي)، مع ضمان جودة البيانات واتساقها والتزامها بالمعايير، مع توثيق التعليقات باللغة الإنجليزية. تحليل وتصحيح التناقضات والأخطاء والملتبسات في البيانات والسكربتات الخاصة بـ Python، تقييم التعليمات (prompts) وآليات التحقق، اكتشاف الإيجابيات والسلبية الخاطئة، تحديد أسباب الأخطاء والتعاون مع الفريق لتحسين عمليات التعليق.",
-          tech: ['تعليق البيانات', 'Python', 'تحليل البيانات', 'التوثيق', 'الانتباه للتفاصيل', 'العمل الجماعي']
+          tech: ['Python', 'تحليل البيانات', 'العمل الجماعي', 'التوثيق', 'الانتباه للتفاصيل']
         },
         {
           title: 'تدريب نهاية الدراسة: مطورة ويب Full Stack',

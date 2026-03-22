@@ -23,7 +23,11 @@ const About = ({ t, isDark, visibleSections }) => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Education */}
             <div className="space-y-6">
-              <p className="text-[16px] leading-relaxed mb-4 text-gray-200 dark:text-gray-300">
+              <p
+                className={`text-[16px] leading-relaxed mb-4 ${
+                  isDark ? 'text-gray-200' : 'text-gray-800'
+                }`}
+              >
                 {t.about.description}
               </p>
 

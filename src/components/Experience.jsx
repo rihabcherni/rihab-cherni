@@ -5,7 +5,9 @@ import SectionTitle from './SectionTitle';
 
 const Experience = ({ t, isDark, visibleSections, isRTL }) => {
   const [expandedCards, setExpandedCards] = useState({});
-  const toggleExpanded = (index) => { setExpandedCards(prev => ({ ...prev, [index]: !prev[index] })); };
+  const toggleExpanded = (index) => {
+    setExpandedCards((prev) => ({ ...prev, [index]: !prev[index] }));
+  };
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
@@ -83,16 +85,18 @@ const Experience = ({ t, isDark, visibleSections, isRTL }) => {
                         </div>
                         <div>
                           <div className="flex flex-wrap gap-1">
-                            {exp.tech.slice(0, expandedCards[index] ? exp.tech.length : 5).map((tech, techIndex) => (
-                              <motion.span key={techIndex} className={`px-2 py-1 rounded-full text-[10px] font-medium ${isDark ? 'bg-gray-700 text-gray-300 hover:bg-blue-600 hover:text-white' : 'bg-gray-100 text-gray-700 hover:bg-blue-500 hover:text-white'} transition-all duration-200 cursor-default`} whileHover={{ scale: 1.05, y: -1 }} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: techIndex * 0.05, duration: 0.3 }}>
+                            {exp.tech.map((tech, techIndex) => (
+                              <motion.span
+                                key={techIndex}
+                                className={`px-2 py-1 rounded-full text-[10px] font-medium ${isDark ? 'bg-gray-700 text-gray-300 hover:bg-blue-600 hover:text-white' : 'bg-gray-100 text-gray-700 hover:bg-blue-500 hover:text-white'} transition-all duration-200 cursor-default`}
+                                whileHover={{ scale: 1.05, y: -1 }}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: techIndex * 0.05, duration: 0.3 }}
+                              >
                                 {tech}
                               </motion.span>
                             ))}
-                            {exp.tech.length > 3 && !expandedCards[index] && (
-                              <button aria-label="View btn" onClick={() => toggleExpanded(index)} className={`px-2 py-1 rounded-full text-xs font-medium ${isDark ? 'bg-gray-700 text-gray-400 hover:bg-gray-600' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'} transition-colors`}>
-                                +{exp.tech.length - 3}
-                              </button>
-                            )}
                           </div>
                         </div>
                       </div>
@@ -109,8 +113,9 @@ const Experience = ({ t, isDark, visibleSections, isRTL }) => {
           {/* Tablet Timeline - Vertical Grid */}
           <div className="hidden md:block xl:hidden relative mt-12">
             <div className="grid grid-cols-2 gap-8">
-              {t.experience.listeExperiences.map((exp, index) => (
-                <motion.div key={index} variants={itemVariants} className="relative group" whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}>
+              {t.experience.listeExperiences.map((exp, index) => {
+                return (
+                  <motion.div key={index} variants={itemVariants} className="relative group" whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}>
                   <motion.div className={`relative p-6 rounded-2xl ${isDark ? 'bg-gray-800/95 backdrop-blur-sm border border-gray-700' : 'bg-white/95 backdrop-blur-sm border border-gray-200'} shadow-xl hover:shadow-2xl transition-all duration-300`}>
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl" />
                     <div className="relative z-10">
@@ -142,36 +147,37 @@ const Experience = ({ t, isDark, visibleSections, isRTL }) => {
                         )}
                       </div>
                       <div>
-                        <div className="flex flex-wrap gap-2">
-                          {exp.tech.slice(0, expandedCards[index] ? exp.tech.length : 6).map((tech, techIndex) => (
-                            <motion.span key={techIndex} whileHover={{ scale: 1.05, y: -1 }} className={`px-3 py-1 rounded-full text-xs font-medium ${isDark ? 'bg-gray-700 text-gray-300 hover:bg-blue-600 hover:text-white' : 'bg-gray-100 text-gray-700 hover:bg-blue-500 hover:text-white'} transition-all duration-200 cursor-default`}>
+                        <div className="flex flex-wrap gap-1.5">
+                          {exp.tech.map((tech, techIndex) => (
+                            <motion.span
+                              key={`tablet-primary-${techIndex}`}
+                              whileHover={{ scale: 1.05, y: -1 }}
+                              className={`px-2 py-1 rounded-full text-xs font-medium ${isDark ? 'bg-gray-700 text-gray-300 hover:bg-blue-600 hover:text-white' : 'bg-gray-100 text-gray-700 hover:bg-blue-500 hover:text-white'} transition-all duration-200 cursor-default`}
+                            >
                               {tech}
                             </motion.span>
                           ))}
-                          {exp.tech.length > 6 && !expandedCards[index] && (
-                            <button aria-label="View btn" onClick={() => toggleExpanded(index)} className={`px-3 py-1 rounded-full text-xs font-medium ${isDark ? 'bg-gray-700 text-gray-400 hover:bg-gray-600' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'} transition-colors`}>
-                              +{exp.tech.length - 6}
-                            </button>
-                          )}
                         </div>
                       </div>
                     </div>
                   </motion.div>
                 </motion.div>
-              ))}
+                );
+              })}
             </div>
           </div>
           <div className="block md:hidden relative mt-8">
             <motion.div className={`absolute  ${isRTL ? 'right-2' : 'left-2'} top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full origin-top`} variants={lineVariants} style={{ zIndex: 1 }} />
             <div className={`space-y-8 ${isRTL ? 'pr-10 text-right' : 'pl-10 text-left'}`}>
-              {t.experience.listeExperiences.map((exp, index) => (
-                <motion.div key={index} variants={itemVariants} className="relative group">
-                  <motion.div className={`absolute ${isRTL ? '-right-[4rem]' : '-left-[2rem]'} top-4 w-9 h-9 flex items-center justify-center font-bold text-white text-lg  bg-gradient-to-r from-blue-500 to-blue-800 rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-lg border-4 border-white dark:border-gray-900 z-50`} whileHover={{ scale: 1.3 }} initial={{ opacity: 0, scale: 0.5, y: 50 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
+              {t.experience.listeExperiences.map((exp, index) => {
+                return (
+                  <motion.div key={index} variants={itemVariants} className="relative group">
+                    <motion.div className={`absolute ${isRTL ? '-right-[4rem]' : '-left-[2rem]'} top-4 w-9 h-9 flex items-center justify-center font-bold text-white text-lg  bg-gradient-to-r from-blue-500 to-blue-800 rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-lg border-4 border-white dark:border-gray-900 z-50`} whileHover={{ scale: 1.3 }} initial={{ opacity: 0, scale: 0.5, y: 50 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
                     {index + 1}
                   </motion.div>
-                  <motion.div className={`absolute ${isRTL ? '-right-12' : '-left-12'} top-5 w-6 h-px ${isDark ? 'bg-gray-600' : 'bg-gray-300'}`}
+                    <motion.div className={`absolute ${isRTL ? '-right-12' : '-left-12'} top-5 w-6 h-px ${isDark ? 'bg-gray-600' : 'bg-gray-300'}`}
                     initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }} />
-                  <motion.div className={`relative p-5 rounded-2xl w-full ${isDark ? 'bg-gray-800/95 backdrop-blur-sm border border-gray-700' : 'bg-white/95 backdrop-blur-sm border border-gray-200'} shadow-xl hover:shadow-2xl transition-all duration-300`} whileHover={{ x: isRTL ? -3 : 3, transition: { duration: 0.3 } }}>
+                    <motion.div className={`relative p-5 rounded-2xl w-full ${isDark ? 'bg-gray-800/95 backdrop-blur-sm border border-gray-700' : 'bg-white/95 backdrop-blur-sm border border-gray-200'} shadow-xl hover:shadow-2xl transition-all duration-300`} whileHover={{ x: isRTL ? -3 : 3, transition: { duration: 0.3 } }}>
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl" />
                     <div className="relative z-10">
                       <motion.div className="flex justify-between items-center mb-4">
@@ -207,22 +213,22 @@ const Experience = ({ t, isDark, visibleSections, isRTL }) => {
                       </div>
                       <div>
                         <div className="flex flex-wrap gap-1.5">
-                          {exp.tech.slice(0, expandedCards[index] ? exp.tech.length : 4).map((tech, techIndex) => (
-                            <motion.span key={techIndex} className={`px-2 py-1 rounded-full text-xs font-medium ${isDark ? 'bg-gray-700 text-gray-300 hover:bg-blue-600 hover:text-white' : 'bg-gray-100 text-gray-700 hover:bg-blue-500 hover:text-white'} transition-all duration-200 cursor-default`} whileHover={{ scale: 1.05, y: -1 }}>
+                          {exp.tech.map((tech, techIndex) => (
+                            <motion.span
+                              key={`mobile-primary-${techIndex}`}
+                              className={`px-2 py-1 rounded-full text-xs font-medium ${isDark ? 'bg-gray-700 text-gray-300 hover:bg-blue-600 hover:text-white' : 'bg-gray-100 text-gray-700 hover:bg-blue-500 hover:text-white'} transition-all duration-200 cursor-default`}
+                              whileHover={{ scale: 1.05, y: -1 }}
+                            >
                               {tech}
                             </motion.span>
                           ))}
-                          {exp.tech.length > 4 && !expandedCards[index] && (
-                            <button aria-label="View btn" onClick={() => toggleExpanded(index)} className={`px-2 py-1 rounded-full text-xs font-medium ${isDark ? 'bg-gray-700 text-gray-400 hover:bg-gray-600' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'} transition-colors`}>
-                              +{exp.tech.length - 4}
-                            </button>
-                          )}
                         </div>
                       </div>
                     </div>
                   </motion.div>
                 </motion.div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </motion.div>

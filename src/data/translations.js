@@ -180,7 +180,7 @@ export const translations = {
       locationTitle: 'Localisation',
     },
     footer: {
-      footer: "© 2025 Rihab Cherni. Tous droits réservés."
+      footer: "© {year} Rihab Cherni. Tous droits réservés."
     }
 
   },
@@ -365,7 +365,7 @@ export const translations = {
       locationTitle: 'Location'
     },
     footer: {
-      footer: "© 2025 Rihab Cherni. All rights reserved."
+      footer: "© {year} Rihab Cherni. All rights reserved."
     }
   },
   ar: {
@@ -548,7 +548,7 @@ export const translations = {
       locationTitle: 'الموقع'
     },
     footer: {
-      footer: "© 2025 رحاب الشارني. جميع الحقوق محفوظة."
+      footer: "© {year} رحاب الشارني. جميع الحقوق محفوظة."
     }
   }
 };

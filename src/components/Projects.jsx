@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Calendar, Github, ExternalLink, User, Building2, Briefcase, Filter, Trophy, GraduationCap, SlidersHorizontal, Info, Tag, X } from 'lucide-react';
 import SectionTitle from './SectionTitle';
 import { motion } from 'framer-motion';
@@ -6,23 +6,17 @@ import { motion } from 'framer-motion';
 const Projects = ({ t, tp, isDark, visibleSections }) => {
   const [expandedProjects, setExpandedProjects] = useState(new Set());
   const [showAll, setShowAll] = useState(false);
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilterKey, setActiveFilterKey] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
   const isVisible = visibleSections?.has('projects') ?? true;
-  const prevProjectTypesRef = useRef(null);
-
   useEffect(() => {
-    const currentTypes = ['all', ...new Set(tp.projectsListe.map(p => p.type))];
-    const prevTypes = prevProjectTypesRef.current;
-    if (prevTypes) {
-      const prevIndex = prevTypes.indexOf(activeFilter);
-      const nextFilter = prevIndex >= 0 && currentTypes[prevIndex] ? currentTypes[prevIndex] : 'all';
-      setActiveFilter(nextFilter);
+    const keys = getProjectTypeKeys();
+    if (!keys.includes(activeFilterKey)) {
+      setActiveFilterKey('all');
     }
-    prevProjectTypesRef.current = currentTypes;
     setShowAll(false);
     setExpandedProjects(new Set());
-  }, [tp, activeFilter]);
+  }, [tp]);
 
   const toggleExpanded = (index) => {
     const newExpanded = new Set(expandedProjects);
@@ -33,19 +27,34 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
 
   const truncateText = (text, maxLength = 70) => text.length <= maxLength ? text : text.substring(0, maxLength) + '...';
 
-  const getFilterIcon = (type) => {
-    if (type === 'all') return SlidersHorizontal;
+  const getTypeKey = (type) => {
+    if (type === 'all') return 'all';
     const tLower = String(type).toLowerCase();
-    if (tLower.includes('competition') || tLower.includes('compétition')) return Trophy;
-    if (tLower.includes('academic') || tLower.includes('acad')) return GraduationCap;
-    if (tLower.includes('freelance')) return Briefcase;
-    if (tLower.includes('personal') || tLower.includes('personnel')) return User;
+    if (tLower.includes('competition') || tLower.includes('compétition') || tLower.includes('مسابقة')) return 'competition';
+    if (tLower.includes('personal') || tLower.includes('personnel') || tLower.includes('شخصي')) return 'personal';
+    if (tLower.includes('freelance') || tLower.includes('حر')) return 'freelance';
+    if (tLower.includes('academic') || tLower.includes('acad') || tLower.includes('أكاديمي')) return 'academic';
+    if (tLower.includes('competence') || tLower.includes('compétence')) return 'competence';
+    return 'other';
+  };
+
+  const getFilterIconByKey = (key) => {
+    if (key === 'all') return SlidersHorizontal;
+    if (key === 'competition') return Trophy;
+    if (key === 'academic') return GraduationCap;
+    if (key === 'freelance') return Briefcase;
+    if (key === 'personal') return User;
     return Filter;
   };
 
-  const getTypeCount = (type) => {
-    if (type === 'all') return tp.projectsListe.length;
-    return tp.projectsListe.filter((p) => p.type === type).length;
+  const getProjectTypeKeys = () => {
+    const keys = new Set(tp.projectsListe.map((p) => getTypeKey(p.type)));
+    return ['all', ...Array.from(keys).filter((k) => k !== 'all')];
+  };
+
+  const getTypeCountByKey = (key) => {
+    if (key === 'all') return tp.projectsListe.length;
+    return tp.projectsListe.filter((p) => getTypeKey(p.type) === key).length;
   };
 
   const getDateValue = (date) => {
@@ -122,13 +131,13 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
     return links;
   };
 
-  // Get unique project types
-  const projectTypes = ['all', ...new Set(tp.projectsListe.map(p => p.type))];
+  // Get unique project type keys
+  const projectTypeKeys = getProjectTypeKeys();
 
   // Filter projects based on active filter
-  const filteredProjects = activeFilter === 'all'
+  const filteredProjects = activeFilterKey === 'all'
     ? tp.projectsListe
-    : tp.projectsListe.filter(project => project.type === activeFilter);
+    : tp.projectsListe.filter(project => getTypeKey(project.type) === activeFilterKey);
 
   const sortedProjects = [...filteredProjects].sort((a, b) => getDateValue(b.date) - getDateValue(a.date));
   const displayedProjects = showAll ? sortedProjects : sortedProjects.slice(0, 4);
@@ -187,12 +196,15 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                           {selectedProject.date}
                         </span>
                       )}
-                      {selectedProject.type && (
-                        <span className={`px-3 py-1 rounded-full inline-flex items-center gap-1.5 ${isDark ? 'bg-blue-500/20 text-blue-200' : 'bg-blue-100 text-blue-800'}`}>
-                          <Tag className="h-3 w-3" />
-                          {selectedProject.type}
-                        </span>
-                      )}
+                    {selectedProject.type && (
+                      <span className={`px-3 py-1 rounded-full inline-flex items-center gap-1.5 ${isDark ? 'bg-blue-500/20 text-blue-200' : 'bg-blue-100 text-blue-800'}`}>
+                        {(() => {
+                          const TypeIcon = getFilterIconByKey(getTypeKey(selectedProject.type));
+                          return <TypeIcon className="h-3 w-3" />;
+                        })()}
+                        {selectedProject.type}
+                      </span>
+                    )}
                     </div>
                     <p className={`text-sm leading-relaxed ${isDark ? 'text-gray-200' : 'text-gray-700'}`}>
                       {selectedProject.description}
@@ -230,33 +242,33 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
 
           {/* Filter Buttons */}
           <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {projectTypes.map((type) => (
+            {projectTypeKeys.map((key) => (
               <motion.button
-                key={type}
+                key={key}
                 onClick={() => {
-                  setActiveFilter(type);
+                  setActiveFilterKey(key);
                   setShowAll(false); // Reset showAll when changing filter
                 }}
                 className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 
-                  ${activeFilter === type
-                    ? (isDark
-                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
+                  ${activeFilterKey === key 
+                    ? (isDark 
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' 
                       : 'bg-blue-500 text-white shadow-lg shadow-blue-500/30')
-                    : (isDark
-                      ? 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                    : (isDark 
+                      ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' 
                       : 'bg-white text-gray-700 hover:bg-gray-100')
                   }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {(() => {
-                  const Icon = getFilterIcon(type);
+                  const Icon = getFilterIconByKey(key);
                   return <Icon className="w-4 h-4" />;
                 })()}
-                {type === 'all' ? (t.projects.filterAll || 'All') : type}
-                {activeFilter === type && (
+                {key === 'all' ? (t.projects.filterAll || 'All') : (t.projects.filters?.[key] || key)}
+                {activeFilterKey === key && (
                   <span className={`ml-1 px-2 py-0.5 rounded-full text-[10px] font-bold ${isDark ? 'bg-white/20 text-white' : 'bg-black/10 text-gray-900'}`}>
-                    {getTypeCount(type)}
+                    {getTypeCountByKey(key)}
                   </span>
                 )}
               </motion.button>

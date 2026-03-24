@@ -154,6 +154,14 @@ export const translations = {
       plus: 'Voir plus',
       moins: 'Voir moins',
       live: 'Démo',
+      filters: {
+        competition: 'Projet Compétition',
+        personal: 'Projet Personnel',
+        academic: 'Projet académique',
+        freelance: 'Projet Freelance',
+        competence: 'Projet Compétence',
+        other: 'Autres'
+      },
       filterAll: "Tous",
       noResults: "Aucun projet trouvé pour ce filtre"
     },
@@ -340,6 +348,14 @@ export const translations = {
       plus: 'Show more',
       moins: 'Show less',
       live: 'Demo',
+      filters: {
+        competition: 'Competition Project',
+        personal: 'Personal Project',
+        academic: 'Academic Project',
+        freelance: 'Freelance Project',
+        competence: 'Competence Project',
+        other: 'Other'
+      },
       filterAll: "All",
       noResults: "No projects found for this filter"
     },
@@ -524,6 +540,14 @@ export const translations = {
       plus: 'عرض المزيد',
       moins: 'عرض أقل',
       live: 'عرض مباشر',
+      filters: {
+        competition: 'مشروع مسابقة',
+        personal: 'مشروع شخصي',
+        academic: 'مشروع أكاديمي',
+        freelance: 'مشروع حر',
+        competence: 'مشروع كفاءة',
+        other: 'أخرى'
+      },
       filterAll: "الكل",
       noResults: "لم يتم العثور على مشاريع لهذا الفلتر"
     },

@@ -29,25 +29,27 @@ const Experience = ({ t, isDark, visibleSections, isRTL }) => {
     return text.substring(0, maxLength) + '...';
   };
   return (
-    <section id="experience" className="px-3 py-10" dir={isRTL ? 'rtl' : 'ltr'}>
+    <section id="experience" className="px-5 md:px-12 py-10" dir={isRTL ? 'rtl' : 'ltr'}>
       <div className="max-w-7xl mx-auto px-1">
         <motion.div initial="hidden" animate={visibleSections.has('experience') ? 'visible' : 'hidden'} variants={containerVariants}>
           <SectionTitle title={t.experience.title} subtitle={t.experience.subtitle} />
           <div className="hidden xl:block relative mt-8 px-20">
-            <motion.div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 to-blue-800 rounded-full transform -translate-y-1/2 origin-left" variants={horizontalLineVariants} style={{ zIndex: 1 }} />
+            <motion.div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 to-blue-800 rounded-full transform -translate-y-1/2 origin-left z-[5]" variants={horizontalLineVariants} />
             <div className="flex items-center justify-between px-3 relative">
               {t.experience.listeExperiences.map((exp, index) => {
                 const isEven = index % 2 === 0;
                 return (
-                  <motion.div key={index} variants={itemVariants} className="relative flex-1 min-w-0 group px-1" style={{ marginLeft: isRTL ? isEven ? '-130px' : '0px' : isEven ? '0px' : '-130px', marginRight: isRTL ? isEven ? '0px' : '-130px' : isEven ? '-130px' : '0px', maxWidth: `${100 / t.experience.listeExperiences.length}%` }} whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}>
-                    <motion.div className="absolute left-1/2 top-1/2 w-12 h-12 flex items-center justify-center font-bold text-white text-lg bg-gradient-to-r from-blue-500 to-blue-800 rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-lg border-4 border-white dark:border-gray-900 z-50"
+                  <motion.div key={index} variants={itemVariants} className="relative flex-1 min-w-0 group px-1" style={{ marginLeft: isRTL ? isEven ? '-130px' : '0px' : isEven ? '0px' : '-130px', marginRight: isRTL ? isEven ? '0px' : '-130px' : isEven ? '-130px' : '0px', maxWidth: `${100 / t.experience.listeExperiences.length}%` }} >
+                    <motion.div className="absolute left-1/2 top-1/2 w-12 h-12 flex items-center justify-center font-bold text-white text-lg bg-gradient-to-r from-blue-500 to-blue-800 rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-lg border-4 border-white dark:border-gray-900 z-[70]"
                       style={{ marginLeft: !isRTL ? isEven ? '0px' : '130px' : isEven ? '130px' : '0px', marginRight: isRTL ? isEven ? '130px' : '0px' : isEven ? '0px' : '130px' }} whileHover={{ scale: 1.3 }} initial={{ opacity: 0, scale: 0.5, y: 50 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
                       {index + 1}
                     </motion.div>
                     <motion.div
                       className={`relative px-2.5 py-3 rounded-3xl ${isDark ? 'bg-gray-800/95 backdrop-blur-sm border border-gray-700' : 'bg-white/95 backdrop-blur-sm border border-gray-200'} shadow-xl hover:shadow-2xl transition-all duration-300 ${isEven ? 'mb-8' : 'mt-8'}`}
                       style={{ marginTop: isEven ? 0 : '22.5rem', marginBottom: isEven ? '22.5rem' : 0, marginLeft: '-7rem', marginRight: '-7rem' }}
-                      whileHover={{ y: isEven ? -3 : 3, transition: { duration: 0.3 } }}>
+                      whileHover={{ y: isEven ? -6 : 6, scale: 1.02, rotate: isEven ? -0.3 : 0.3 }}
+                      transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                    >
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl" />
                       <div className="relative z-10">
                         <motion.div className="flex justify-between items-center mb-4">
@@ -103,7 +105,7 @@ const Experience = ({ t, isDark, visibleSections, isRTL }) => {
                     </motion.div>
                     <motion.div className={`absolute left-1/2 w-px ${isEven ? 'bottom-1/2' : 'top-1/2'} ${isDark ? 'bg-gray-600' : 'bg-gray-300'} transform -translate-x-1/2`}
                       initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
-                      style={{marginLeft: !isRTL? isEven  ? '0px'  : '130px': isEven  ? '130px'  : '0px', marginRight: isRTL? isEven  ? '130px'  : '0px': isEven  ? '0px'  : '130px', [isEven ? 'bottom' : 'top']: '50%', transformOrigin: isEven ? 'bottom' : 'top', height: expandedCards[index] ? '2rem' : '4rem',}} />
+                      style={{ marginLeft: !isRTL ? isEven ? '0px' : '130px' : isEven ? '130px' : '0px', marginRight: isRTL ? isEven ? '130px' : '0px' : isEven ? '0px' : '130px', [isEven ? 'bottom' : 'top']: '50%', transformOrigin: isEven ? 'bottom' : 'top', height: expandedCards[index] ? '2rem' : '4rem', }} />
                   </motion.div>
 
                 );
@@ -115,53 +117,57 @@ const Experience = ({ t, isDark, visibleSections, isRTL }) => {
             <div className="grid grid-cols-2 gap-8">
               {t.experience.listeExperiences.map((exp, index) => {
                 return (
-                  <motion.div key={index} variants={itemVariants} className="relative group" whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}>
-                  <motion.div className={`relative p-6 rounded-2xl ${isDark ? 'bg-gray-800/95 backdrop-blur-sm border border-gray-700' : 'bg-white/95 backdrop-blur-sm border border-gray-200'} shadow-xl hover:shadow-2xl transition-all duration-300`}>
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl" />
-                    <div className="relative z-10">
-                      <motion.div className="flex justify-between items-center mb-4">
-                        {exp.link && (
-                          <motion.a href={exp.link} aria-label="Voir mon projet GitHub" target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1 text-xs font-medium ${isDark ? 'text-gray-200 hover:text-white' : 'text-gray-700 hover:text-black'} transition-colors`} whileHover={{ scale: 1.1, rotate: 3 }} transition={{ duration: 0.2 }}>
-                            <Github className={`h-5 w-5 hover:text-white transition-colors z-50`} />
-                          </motion.a>
-                        )}
-                        <motion.span className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-blue-400 to-blue-800 text-white`} whileHover={{ scale: 1.05, rotate: 1 }} transition={{ duration: 0.2 }}>
-                          <Calendar className="w-3 h-3" />
-                          {exp.period}
-                        </motion.span>
-                      </motion.div>
-                      <div className="mb-3">
-                        <h3 className="text-lg font-bold mb-2">{exp.title}</h3>
-                        <p className="text-blue-500 font-semibold text-sm mb-2">{exp.company}</p>
-                        <div className="flex items-center gap-1 text-sm text-gray-500">
-                          <MapPin className="w-4 h-4" />
-                          <span>{exp.location}</span>
+                  <motion.div key={index} variants={itemVariants} className="relative group">
+                    <motion.div
+                      className={`relative p-6 rounded-2xl ${isDark ? 'bg-gray-800/95 backdrop-blur-sm border border-gray-700' : 'bg-white/95 backdrop-blur-sm border border-gray-200'} shadow-xl hover:shadow-2xl transition-all duration-300`}
+                      whileHover={{ y: -6, scale: 1.02, rotate: -0.3 }}
+                      transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl" />
+                      <div className="relative z-10">
+                        <motion.div className="flex justify-between items-center mb-4">
+                          {exp.link && (
+                            <motion.a href={exp.link} aria-label="Voir mon projet GitHub" target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1 text-xs font-medium ${isDark ? 'text-gray-200 hover:text-white' : 'text-gray-700 hover:text-black'} transition-colors`} whileHover={{ scale: 1.1, rotate: 3 }} transition={{ duration: 0.2 }}>
+                              <Github className={`h-5 w-5 hover:text-white transition-colors z-50`} />
+                            </motion.a>
+                          )}
+                          <motion.span className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-blue-400 to-blue-800 text-white`} whileHover={{ scale: 1.05, rotate: 1 }} transition={{ duration: 0.2 }}>
+                            <Calendar className="w-3 h-3" />
+                            {exp.period}
+                          </motion.span>
+                        </motion.div>
+                        <div className="mb-3">
+                          <h3 className="text-lg font-bold mb-2">{exp.title}</h3>
+                          <p className="text-blue-500 font-semibold text-sm mb-2">{exp.company}</p>
+                          <div className="flex items-center gap-1 text-sm text-gray-500">
+                            <MapPin className="w-4 h-4" />
+                            <span>{exp.location}</span>
+                          </div>
+                        </div>
+                        <div className="mb-3">
+                          <p className={`text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}> {expandedCards[index] ? exp.description : truncateText(exp.description, 150)}</p>
+                          {exp.description.length > 150 && (
+                            <button aria-label="View btn" onClick={() => toggleExpanded(index)} className="text-blue-500 hover:text-blue-600 text-sm mt-2 flex items-center gap-1 transition-colors">
+                              {expandedCards[index] ? (<>Voir moins <ChevronUp className="w-4 h-4" /></>) : (<>Voir plus <ChevronDown className="w-4 h-4" /></>)}
+                            </button>
+                          )}
+                        </div>
+                        <div>
+                          <div className="flex flex-wrap gap-1.5">
+                            {exp.tech.map((tech, techIndex) => (
+                              <motion.span
+                                key={`tablet-primary-${techIndex}`}
+                                whileHover={{ scale: 1.05, y: -1 }}
+                                className={`px-2 py-1 rounded-full text-xs font-medium ${isDark ? 'bg-gray-700 text-gray-300 hover:bg-blue-600 hover:text-white' : 'bg-gray-100 text-gray-700 hover:bg-blue-500 hover:text-white'} transition-all duration-200 cursor-default`}
+                              >
+                                {tech}
+                              </motion.span>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                      <div className="mb-3">
-                        <p className={`text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}> {expandedCards[index] ? exp.description : truncateText(exp.description, 150)}</p>
-                        {exp.description.length > 150 && (
-                          <button aria-label="View btn" onClick={() => toggleExpanded(index)} className="text-blue-500 hover:text-blue-600 text-sm mt-2 flex items-center gap-1 transition-colors">
-                            {expandedCards[index] ? (<>Voir moins <ChevronUp className="w-4 h-4" /></>) : (<>Voir plus <ChevronDown className="w-4 h-4" /></>)}
-                          </button>
-                        )}
-                      </div>
-                      <div>
-                        <div className="flex flex-wrap gap-1.5">
-                          {exp.tech.map((tech, techIndex) => (
-                            <motion.span
-                              key={`tablet-primary-${techIndex}`}
-                              whileHover={{ scale: 1.05, y: -1 }}
-                              className={`px-2 py-1 rounded-full text-xs font-medium ${isDark ? 'bg-gray-700 text-gray-300 hover:bg-blue-600 hover:text-white' : 'bg-gray-100 text-gray-700 hover:bg-blue-500 hover:text-white'} transition-all duration-200 cursor-default`}
-                            >
-                              {tech}
-                            </motion.span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+                    </motion.div>
                   </motion.div>
-                </motion.div>
                 );
               })}
             </div>
@@ -173,60 +179,64 @@ const Experience = ({ t, isDark, visibleSections, isRTL }) => {
                 return (
                   <motion.div key={index} variants={itemVariants} className="relative group">
                     <motion.div className={`absolute ${isRTL ? '-right-[4rem]' : '-left-[2rem]'} top-4 w-9 h-9 flex items-center justify-center font-bold text-white text-lg  bg-gradient-to-r from-blue-500 to-blue-800 rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-lg border-4 border-white dark:border-gray-900 z-50`} whileHover={{ scale: 1.3 }} initial={{ opacity: 0, scale: 0.5, y: 50 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
-                    {index + 1}
-                  </motion.div>
+                      {index + 1}
+                    </motion.div>
                     <motion.div className={`absolute ${isRTL ? '-right-12' : '-left-12'} top-5 w-6 h-px ${isDark ? 'bg-gray-600' : 'bg-gray-300'}`}
-                    initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }} />
-                    <motion.div className={`relative p-5 rounded-2xl w-full ${isDark ? 'bg-gray-800/95 backdrop-blur-sm border border-gray-700' : 'bg-white/95 backdrop-blur-sm border border-gray-200'} shadow-xl hover:shadow-2xl transition-all duration-300`} whileHover={{ x: isRTL ? -3 : 3, transition: { duration: 0.3 } }}>
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl" />
-                    <div className="relative z-10">
-                      <motion.div className="flex justify-between items-center mb-4">
-                        {exp.link && (
-                          <motion.a href={exp.link} target="_blank" aria-label="Voir mon projet GitHub" rel="noopener noreferrer"
-                            className={`inline-flex items-center gap-1 text-xs font-medium ${isDark ? 'text-gray-200 hover:text-white' : 'text-gray-700 hover:text-black'}  transition-colors`} whileHover={{ scale: 1.1, rotate: 3 }} transition={{ duration: 0.2 }}>
-                            <Github className={`h-5 w-5 hover:text-white transition-colors z-50`} />
-                          </motion.a>
-                        )}
-                        <motion.span className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-blue-400 to-blue-800 text-white`}
-                          whileHover={{ scale: 1.05, rotate: 1 }} transition={{ duration: 0.2 }}>
-                          <Calendar className="w-3 h-3" />
-                          {exp.period}
-                        </motion.span>
-                      </motion.div>
-                      <div className="mb-3">
-                        <h3 className="text-base font-bold mb-1.5">{exp.title}</h3>
-                        <p className="text-blue-500 font-semibold text-sm mb-1.5">{exp.company}</p>
-                        <div className="flex items-center gap-1 text-xs text-gray-500">
-                          <MapPin className="w-3 h-3" />
-                          <span>{exp.location}</span>
+                      initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }} />
+                    <motion.div
+                      className={`relative p-5 rounded-2xl w-full ${isDark ? 'bg-gray-800/95 backdrop-blur-sm border border-gray-700' : 'bg-white/95 backdrop-blur-sm border border-gray-200'} shadow-xl hover:shadow-2xl transition-all duration-300`}
+                      whileHover={{ x: isRTL ? -6 : 6, scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl" />
+                      <div className="relative z-10">
+                        <motion.div className="flex justify-between items-center mb-4">
+                          {exp.link && (
+                            <motion.a href={exp.link} target="_blank" aria-label="Voir mon projet GitHub" rel="noopener noreferrer"
+                              className={`inline-flex items-center gap-1 text-xs font-medium ${isDark ? 'text-gray-200 hover:text-white' : 'text-gray-700 hover:text-black'}  transition-colors`} whileHover={{ scale: 1.1, rotate: 3 }} transition={{ duration: 0.2 }}>
+                              <Github className={`h-5 w-5 hover:text-white transition-colors z-50`} />
+                            </motion.a>
+                          )}
+                          <motion.span className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-blue-400 to-blue-800 text-white`}
+                            whileHover={{ scale: 1.05, rotate: 1 }} transition={{ duration: 0.2 }}>
+                            <Calendar className="w-3 h-3" />
+                            {exp.period}
+                          </motion.span>
+                        </motion.div>
+                        <div className="mb-3">
+                          <h3 className="text-base font-bold mb-1.5">{exp.title}</h3>
+                          <p className="text-blue-500 font-semibold text-sm mb-1.5">{exp.company}</p>
+                          <div className="flex items-center gap-1 text-xs text-gray-500">
+                            <MapPin className="w-3 h-3" />
+                            <span>{exp.location}</span>
+                          </div>
+                        </div>
+                        <div className="mb-3">
+                          <p className={`text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                            {expandedCards[index] ? exp.description : truncateText(exp.description, 120)}
+                          </p>
+                          {exp.description.length > 120 && (
+                            <button aria-label="View btn" onClick={() => toggleExpanded(index)} className="text-blue-500 hover:text-blue-600 text-sm mt-2 flex items-center gap-1 transition-colors">
+                              {expandedCards[index] ? (<>Voir moins <ChevronUp className="w-4 h-4" /></>) : (<>Voir plus <ChevronDown className="w-4 h-4" /></>)}
+                            </button>
+                          )}
+                        </div>
+                        <div>
+                          <div className="flex flex-wrap gap-1.5">
+                            {exp.tech.map((tech, techIndex) => (
+                              <motion.span
+                                key={`mobile-primary-${techIndex}`}
+                                className={`px-2 py-1 rounded-full text-xs font-medium ${isDark ? 'bg-gray-700 text-gray-300 hover:bg-blue-600 hover:text-white' : 'bg-gray-100 text-gray-700 hover:bg-blue-500 hover:text-white'} transition-all duration-200 cursor-default`}
+                                whileHover={{ scale: 1.05, y: -1 }}
+                              >
+                                {tech}
+                              </motion.span>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                      <div className="mb-3">
-                        <p className={`text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                          {expandedCards[index] ? exp.description : truncateText(exp.description, 120)}
-                        </p>
-                        {exp.description.length > 120 && (
-                          <button aria-label="View btn" onClick={() => toggleExpanded(index)} className="text-blue-500 hover:text-blue-600 text-sm mt-2 flex items-center gap-1 transition-colors">
-                            {expandedCards[index] ? (<>Voir moins <ChevronUp className="w-4 h-4" /></>) : (<>Voir plus <ChevronDown className="w-4 h-4" /></>)}
-                          </button>
-                        )}
-                      </div>
-                      <div>
-                        <div className="flex flex-wrap gap-1.5">
-                          {exp.tech.map((tech, techIndex) => (
-                            <motion.span
-                              key={`mobile-primary-${techIndex}`}
-                              className={`px-2 py-1 rounded-full text-xs font-medium ${isDark ? 'bg-gray-700 text-gray-300 hover:bg-blue-600 hover:text-white' : 'bg-gray-100 text-gray-700 hover:bg-blue-500 hover:text-white'} transition-all duration-200 cursor-default`}
-                              whileHover={{ scale: 1.05, y: -1 }}
-                            >
-                              {tech}
-                            </motion.span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+                    </motion.div>
                   </motion.div>
-                </motion.div>
                 );
               })}
             </div>

@@ -40,17 +40,6 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
     }
   };
 
-  const floatingVariants = {
-    animate: {
-      y: [-10, 10, -10],
-      transition: {
-        duration: 6,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
-
   const sparkleVariants = {
     animate: {
       scale: [1, 1.2, 1],
@@ -63,7 +52,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
     }
   };
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 lg:px-8 pt-20 relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center px-5 md:px-12 lg:px-12 py-20 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
           variants={sparkleVariants}
@@ -94,7 +83,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
           <motion.div variants={containerVariants} initial="hidden" animate={visibleSections.has('home') ? "visible" : "hidden"} className="space-y-8 lg:col-span-2">
             <motion.div variants={itemVariants} className="space-y-2">
               <motion.span
-                className="inline-flex items-center gap-2 px-4 py-2 
+                className="inline-flex items-center gap-2 px-4 py-2 mt-6 
                           bg-gradient-to-r from-blue-50/20 via-transparent to-blue-100/20 
                           dark:from-blue-900/20 dark:via-transparent dark:to-blue-800/20 
                           rounded-2xl text-sm font-medium text-blue-600 dark:text-blue-400 

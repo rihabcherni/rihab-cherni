@@ -46,8 +46,23 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
+  useEffect(() => {
+    if (loading) return;
+    const savedScroll = sessionStorage.getItem('scrollY');
+    if (savedScroll) {
+      window.scrollTo(0, parseInt(savedScroll, 10));
+    }
+  }, [loading]);
+
+  useEffect(() => {
     if (loading) return;
     const handleScroll = () => {
+      sessionStorage.setItem('scrollY', String(window.scrollY));
       const sections = ['home', 'about', 'experience', 'projects', 'skills', 'certifications', 'contact'];
       const scrollY = window.scrollY;
       sections.forEach(section => {

@@ -19,7 +19,7 @@ const Contact = ({ t, isDark, visibleSections }) => {
   };
   return (
     <section id="contact" className='py-10 overflow-x-hidden'>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 md:px-12 lg:px-12">
         {modal.open && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
             <div className={`w-full max-w-md rounded-2xl p-6 shadow-2xl ${isDark ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}>

@@ -16,7 +16,7 @@ const categoryIcons = {
 const Skills = ({ t, skills, isDark, visibleSections }) => {
   return (
     <section id="skills" className="py-10">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-5 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={visibleSections.has('skills') ? { opacity: 1, y: 0 } : {}}

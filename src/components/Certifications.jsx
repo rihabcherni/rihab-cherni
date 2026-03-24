@@ -79,7 +79,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
     };
 
     return (
-        <section id="certifications" className={`py-10 px-4 lg:px-8 relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-gray-800/50' : 'bg-gray-200'}`}>
+        <section id="certifications" className={`py-10 px-5 md:px-12 lg:px-12 relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-gray-800/50' : 'bg-gray-200'}`}>
             <div className="absolute inset-0 pointer-events-none">
                 <motion.div variants={sparkleVariants} animate="animate" className="absolute top-32 left-16 w-6 h-6 text-blue-400 opacity-30">
                     <Sparkles />

@@ -12,7 +12,7 @@ const About = ({ t, isDark, visibleSections }) => {
   ];
   return (
     <section id="about" className={`py-10 ${isDark ? 'bg-gray-800/50' : 'bg-gray-200'}`}>
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-5 md:px-12">
         <div
           className={`transition-all duration-1000 ${
             visibleSections.has('about') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'

@@ -153,6 +153,7 @@ export const translations = {
       tech: 'Technologies',
       plus: 'Voir plus',
       moins: 'Voir moins',
+      live: 'Démo',
       filterAll: "Tous",
       noResults: "Aucun projet trouvé pour ce filtre"
     },
@@ -338,6 +339,7 @@ export const translations = {
       tech: 'Technologies',
       plus: 'Show more',
       moins: 'Show less',
+      live: 'Demo',
       filterAll: "All",
       noResults: "No projects found for this filter"
     },
@@ -521,6 +523,7 @@ export const translations = {
       tech: 'التقنيات',
       plus: 'عرض المزيد',
       moins: 'عرض أقل',
+      live: 'عرض مباشر',
       filterAll: "الكل",
       noResults: "لم يتم العثور على مشاريع لهذا الفلتر"
     },

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Calendar, Github, ExternalLink, User, Building2, Briefcase, Filter, Trophy, GraduationCap, SlidersHorizontal, Info, Tag } from 'lucide-react';
+import { Calendar, Github, ExternalLink, User, Building2, Briefcase, Filter, Trophy, GraduationCap, SlidersHorizontal, Info, Tag, X } from 'lucide-react';
 import SectionTitle from './SectionTitle';
 import { motion } from 'framer-motion';
 
@@ -126,8 +126,8 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
   const projectTypes = ['all', ...new Set(tp.projectsListe.map(p => p.type))];
 
   // Filter projects based on active filter
-  const filteredProjects = activeFilter === 'all' 
-    ? tp.projectsListe 
+  const filteredProjects = activeFilter === 'all'
+    ? tp.projectsListe
     : tp.projectsListe.filter(project => project.type === activeFilter);
 
   const sortedProjects = [...filteredProjects].sort((a, b) => getDateValue(b.date) - getDateValue(a.date));
@@ -149,15 +149,15 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
         {selectedProject && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4" onClick={() => setSelectedProject(null)}>
             <div
-              className={`w-full max-w-4xl rounded-2xl p-6 shadow-2xl ${isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}
+              className={`w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden ${isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className={`flex items-start justify-between gap-4 mb-4 rounded-xl p-3 ${isDark ? 'bg-gray-800/80' : 'bg-gray-100'}`}>
+              <div className={`flex items-start justify-between gap-4 px-8 py-6 ${isDark ? 'bg-gray-800/80' : 'bg-gray-100'}`}>
                 <div>
                   <h3 className="text-xl font-bold">{selectedProject.title}</h3>
                   {selectedProject.organisation && (
-                    <p className={`text-sm mt-1 flex items-center gap-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                      <Building2 className="h-4 w-4" />
+                    <p className={`text-sm mt-2 flex items-center gap-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                      <Building2 className="h-5 w-5" />
                       {selectedProject.organisation}
                     </p>
                   )}
@@ -165,57 +165,59 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                 <button
                   aria-label="Close"
                   onClick={() => setSelectedProject(null)}
-                  className={`rounded-full p-2 transition-colors ${isDark ? 'hover:bg-gray-800' : 'hover:bg-gray-100'}`}
+                  className={`rounded-full p-2 transition-colors bg-red-500 ${isDark ? 'hover:bg-red-700' : 'hover:bg-red-600'}`}
                 >
-                  ✕
+                  <X className="h-5 w-5 text-white"/>
                 </button>
               </div>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  {selectedProject.image && (
-                    <div className="overflow-hidden rounded-xl">
-                      <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-64 md:h-full object-cover" />
+              <div className="p-8">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    {selectedProject.image && (
+                      <div className="overflow-hidden rounded-xl">
+                        <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-64 md:h-full object-cover" />
+                      </div>
+                    )}
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap gap-2 mb-4 text-xs">
+                      {selectedProject.date && (
+                        <span className={`px-3 py-1 rounded-full inline-flex items-center gap-1.5 ${isDark ? 'bg-gray-800 text-gray-200' : 'bg-gray-100 text-gray-700'}`}>
+                          <Calendar className="h-3 w-3" />
+                          {selectedProject.date}
+                        </span>
+                      )}
+                      {selectedProject.type && (
+                        <span className={`px-3 py-1 rounded-full inline-flex items-center gap-1.5 ${isDark ? 'bg-blue-500/20 text-blue-200' : 'bg-blue-100 text-blue-800'}`}>
+                          <Tag className="h-3 w-3" />
+                          {selectedProject.type}
+                        </span>
+                      )}
                     </div>
-                  )}
-                </div>
-                <div>
-                  <div className="flex flex-wrap gap-2 mb-4 text-xs">
-                    {selectedProject.date && (
-                      <span className={`px-3 py-1 rounded-full inline-flex items-center gap-1.5 ${isDark ? 'bg-gray-800 text-gray-200' : 'bg-gray-100 text-gray-700'}`}>
-                        <Calendar className="h-3 w-3" />
-                        {selectedProject.date}
-                      </span>
-                    )}
-                    {selectedProject.type && (
-                      <span className={`px-3 py-1 rounded-full inline-flex items-center gap-1.5 ${isDark ? 'bg-blue-500/20 text-blue-200' : 'bg-blue-100 text-blue-800'}`}>
-                        <Tag className="h-3 w-3" />
-                        {selectedProject.type}
-                      </span>
-                    )}
-                  </div>
-                  <p className={`text-sm leading-relaxed ${isDark ? 'text-gray-200' : 'text-gray-700'}`}>
-                    {selectedProject.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {selectedProject.tech?.map((tech, idx) => (
-                      <span key={idx} className={`px-2 py-1 rounded-full text-[11px] font-medium ${isDark ? 'bg-gray-800 text-gray-200' : 'bg-gray-100 text-gray-700'}`}>
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex gap-3 mt-5">
-                    {selectedProject.link && (
-                      <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className={`px-4 py-2 rounded-lg text-sm font-semibold inline-flex items-center gap-2 ${isDark ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'}`}>
-                        <Github className="h-4 w-4" />
-                        GitHub
-                      </a>
-                    )}
+                    <p className={`text-sm leading-relaxed ${isDark ? 'text-gray-200' : 'text-gray-700'}`}>
+                      {selectedProject.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {selectedProject.tech?.map((tech, idx) => (
+                        <span key={idx} className={`px-2 py-1 rounded-full text-[11px] font-medium ${isDark ? 'bg-gray-800 text-gray-200' : 'bg-gray-100 text-gray-700'}`}>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex gap-3 mt-5">
+                      {selectedProject.link && (
+                        <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className={`px-4 py-2 rounded-lg text-sm font-semibold inline-flex items-center gap-2 ${isDark ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'}`}>
+                          <Github className="h-4 w-4" />
+                          GitHub
+                        </a>
+                      )}
                     {selectedProject.linkweb && (
                       <a href={selectedProject.linkweb} target="_blank" rel="noopener noreferrer" className={`px-4 py-2 rounded-lg text-sm font-semibold inline-flex items-center gap-2 ${isDark ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-blue-600 hover:bg-blue-500 text-white'}`}>
                         <ExternalLink className="h-4 w-4" />
-                        Live
+                        {t.projects.live || 'Demo'}
                       </a>
                     )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -236,12 +238,12 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                   setShowAll(false); // Reset showAll when changing filter
                 }}
                 className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 
-                  ${activeFilter === type 
-                    ? (isDark 
-                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' 
+                  ${activeFilter === type
+                    ? (isDark
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
                       : 'bg-blue-500 text-white shadow-lg shadow-blue-500/30')
-                    : (isDark 
-                      ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' 
+                    : (isDark
+                      ? 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                       : 'bg-white text-gray-700 hover:bg-gray-100')
                   }`}
                 whileHover={{ scale: 1.05 }}
@@ -270,8 +272,8 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                   key={index}
                   className={`group relative overflow-hidden rounded-2xl transition-transform duration-300 transform
                     hover:-translate-y-2 
-                    ${isDark 
-                      ? 'hover:shadow-[0_30px_60px_rgba(99,102,241,0.15)] shadow-lg bg-gray-800' 
+                    ${isDark
+                      ? 'hover:shadow-[0_30px_60px_rgba(99,102,241,0.15)] shadow-lg bg-gray-800'
                       : 'hover:shadow-[0_30px_60px_rgba(59,130,246,0.2)] shadow-md bg-white'}`}
                   variants={itemVariants}
                   layout

@@ -52,7 +52,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
     }
   };
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-5 md:px-12 lg:px-12 py-20 relative overflow-hidden">
+    <section id="home" className="min-h-[85vh] sm:min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 pt-14 pb-4 sm:py-18 md:pb-10 md:pt-20 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
           variants={sparkleVariants}
@@ -79,8 +79,8 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
         </motion.div>
       </div>
       <div className="max-w-6xl mx-auto w-full">
-        <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 items-center">
-          <motion.div variants={containerVariants} initial="hidden" animate={visibleSections.has('home') ? "visible" : "hidden"} className="space-y-8 lg:col-span-2">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 md:gap-12 lg:gap-16 items-center">
+          <motion.div variants={containerVariants} initial="hidden" animate={visibleSections.has('home') ? "visible" : "hidden"} className="space-y-7 md:space-y-8 lg:col-span-2 text-center lg:text-left">
             <motion.div variants={itemVariants} className="space-y-2">
               <motion.span
                 className="inline-flex items-center gap-2 px-4 py-2 mt-6 
@@ -102,7 +102,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
               </motion.span>
             </motion.div>
             <motion.div variants={itemVariants} className="space-y-4">
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 <motion.span
                   className="bg-gradient-to-r from-gray-600 via-blue-800 to-blue-800 dark:from-white dark:via-blue-200 dark:to-blue-200 bg-clip-text text-transparent"
                   whileHover={{ scale: 1.02 }}
@@ -113,7 +113,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
               </h1>
 
               <motion.div
-                className="text-2xl lg:text-3xl font-semibold text-gray-600 dark:text-gray-300"
+                className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-600 dark:text-gray-300"
                 variants={itemVariants}
               >
                 <motion.span
@@ -127,18 +127,18 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
             </motion.div>
             <motion.p
               variants={itemVariants}
-              className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl"
+              className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl mx-auto md:mx-0"
             >
               {t.home.description}
             </motion.p>
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-full md:w-full items-center justify-center lg:justify-start"
             >
               <motion.button
                 aria-label="cta"
                 onClick={() => scrollToSection('projects')}
-                className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-xl font-semibold flex items-center gap-3 shadow-xl shadow-blue-500/25"
+                className="group w-[90%] max-w-xs sm:w-auto md:w-auto justify-center px-7 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-xl font-semibold flex items-center gap-3 shadow-xl shadow-blue-500/25"
                 whileHover={{
                   scale: 1.05,
                   boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)"
@@ -158,7 +158,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
                 aria-label="CV"
                 href="/cv.pdf"
                 download="Rihab_Cherni_CV.pdf"
-                className={`group px-8 py-4 border-2 rounded-xl font-semibold flex items-center gap-3 transition-all duration-300 ${isDark
+                className={`group w-[90%] max-w-xs sm:w-auto md:w-auto justify-center px-7 sm:px-8 py-3.5 sm:py-4 border-2 rounded-xl font-semibold flex items-center gap-3 transition-all duration-300 ${isDark
                     ? 'border-gray-700 text-gray-300 hover:bg-gray-800 hover:border-gray-600'
                     : 'border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400'
                   }`}
@@ -180,7 +180,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
             </motion.div>
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-6 pt-4"
+              className="flex flex-wrap gap-4 sm:gap-5 pt-2 justify-center lg:justify-start"
             >
               {[
                 { icon: Mail, text: "cherni.rihab23@gmail.com", color: "blue" },
@@ -215,7 +215,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
             animate={visibleSections.has('home') ? "visible" : "hidden"}
             className="relative flex justify-center lg:justify-end lg:col-span-1"
           >
-            <div className="relative w-96 h-80 sm:w-96 sm:h-80 md:w-[24rem] md:h-[20rem] lg:w-[26rem] lg:h-[22rem] mb-6 sm:mb-0">
+            <div className="relative w-60 sm:w-80 md:w-[20rem] lg:w-[26rem] xl:w-[28rem] aspect-square mb-6 sm:mb-0 mx-auto md:mx-0">
               <motion.div
                 className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-300 via-blue-600 to-blue-900 p-4"
                 whileHover={{ scale: 1.04, rotate: 1.5 }}
@@ -237,7 +237,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
               ].map((item, i) => (
                 <motion.div
                   key={i}
-                  className={`absolute flex items-center justify-center w-14 h-14 rounded-full ${item.bgColor} ${item.borderColor} border-4 shadow-lg ${item.color}`}
+                  className={`absolute flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 rounded-full ${item.bgColor} ${item.borderColor} border-2 sm:border-4 shadow-lg ${item.color}`}
                   style={{
                     top: item.top,
                     left: item.left,
@@ -259,7 +259,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
                     boxShadow: "0 10px 25px rgba(0,0,0,0.15)"
                   }}
                 >
-                  <item.icon className="h-6 w-6" />
+                  <item.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                 </motion.div>
               ))}
             </div>

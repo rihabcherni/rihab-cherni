@@ -131,10 +131,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
     return links;
   };
 
-  // Get unique project type keys
   const projectTypeKeys = getProjectTypeKeys();
-
-  // Filter projects based on active filter
   const filteredProjects = activeFilterKey === 'all'
     ? tp.projectsListe
     : tp.projectsListe.filter(project => getTypeKey(project.type) === activeFilterKey);
@@ -239,17 +236,15 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
         <motion.div className="transition-all duration-1000" initial="hidden"
           animate={isVisible ? "visible" : "hidden"} variants={containerVariants}>
           <SectionTitle title={t.projects.title} subtitle={t.projects.subtitle} />
-
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
             {projectTypeKeys.map((key) => (
               <motion.button
                 key={key}
                 onClick={() => {
                   setActiveFilterKey(key);
-                  setShowAll(false); // Reset showAll when changing filter
+                  setShowAll(false); 
                 }}
-                className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 
+                className={`px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 whitespace-nowrap 
                   ${activeFilterKey === key 
                     ? (isDark 
                       ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' 
@@ -263,11 +258,11 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
               >
                 {(() => {
                   const Icon = getFilterIconByKey(key);
-                  return <Icon className="w-4 h-4" />;
+                  return <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />;
                 })()}
                 {key === 'all' ? (t.projects.filterAll || 'All') : (t.projects.filters?.[key] || key)}
                 {activeFilterKey === key && (
-                  <span className={`ml-1 px-2 py-0.5 rounded-full text-[10px] font-bold ${isDark ? 'bg-white/20 text-white' : 'bg-black/10 text-gray-900'}`}>
+                  <span className={`ml-1 px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold ${isDark ? 'bg-white/20 text-white' : 'bg-black/10 text-gray-900'}`}>
                     {getTypeCountByKey(key)}
                   </span>
                 )}

@@ -58,13 +58,14 @@ const Navbar = ({
                 aria-label="nav"
                 key={key}
                 onClick={() => scrollToSection(key)}
-                className={`relative transition-colors duration-75 ease-out ${activeSection === key
-                    ? `text-blue-800 font-bold px-3 py-1 rounded-full shadow-sm ${isDark ? 'bg-blue-500/20 text-blue-200' : 'bg-blue-100/70'}`
+                className={`relative transition-colors duration-75 ease-out 
+                  ${activeSection === key
+                    ? `font-bold px-3 py-1 rounded-full shadow-sm ${isDark ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-100/70 text-blue-800'}`
                     : isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
                   }`}
               >
                 {value}
-                
+
               </motion.button>
             ))}
           </motion.div>
@@ -143,12 +144,12 @@ const Navbar = ({
             </div>
             {Object.entries(t.nav).map(([key, value]) => (
               <motion.button
-               aria-label="nav"
+                aria-label="nav"
                 key={key}
                 onClick={() => { scrollToSection(key); setIsMenuOpen(false); }}
                 className={`block w-full text-left py-2 px-3 rounded-md transition-all duration-300 transform hover:scale-105 ${activeSection === key
-                    ? 'bg-blue-500 text-white'
-                    : isDark ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-600 hover:bg-gray-100'
+                  ? 'bg-blue-500 text-white'
+                  : isDark ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-600 hover:bg-gray-100'
                   }`}
                 initial={{ opacity: 0, y: -10 }}
                 whileInView={{ opacity: 1, y: 0, transition: { duration: 0.3 } }}

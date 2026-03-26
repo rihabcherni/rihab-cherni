@@ -79,7 +79,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
     };
 
     return (
-        <section id="certifications" className={`py-10 px-5 md:px-12 lg:px-12 relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-gray-800/50' : 'bg-gray-200'}`}>
+        <section id="certifications" className={`py-10 px-4 sm:px-5 md:px-12 lg:px-12 relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-gray-800/50' : 'bg-gray-200'}`}>
             <div className="absolute inset-0 pointer-events-none">
                 <motion.div variants={sparkleVariants} animate="animate" className="absolute top-32 left-16 w-6 h-6 text-blue-400 opacity-30">
                     <Sparkles />
@@ -99,12 +99,12 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                     <SectionTitle title={t.certifications.title} subtitle={t.certifications.subtitle} />
                 </motion.div>
                 <motion.div variants={containerVariants} initial="hidden" animate={visibleSections.has('certifications') ? "visible" : "hidden"} className="relative">
-                    <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 z-20 pointer-events-none px-4">
+                    <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 z-20 pointer-events-none px-2 sm:px-4">
                         <div className="flex justify-between">
                             <motion.button onClick={prevSlide} disabled={!canGoPrev}
                                 aria-label="Chevron"
-                                className={`pointer-events-auto w-14 h-14 rounded-full flex items-center justify-center
-                                          shadow-lg backdrop-blur-sm border transition-all duration-300 -ml-7
+                                className={`pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center
+                                          shadow-lg backdrop-blur-sm border transition-all duration-300 -ml-3 sm:-ml-5 lg:-ml-7
                                           ${canGoPrev 
                                             ? 'bg-white/95 dark:bg-gray-800/95 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 hover:shadow-xl' 
                                             : 'bg-gray-100/50 dark:bg-gray-900/50 border-gray-300/50 dark:border-gray-700/50 text-gray-400 dark:text-gray-600 cursor-not-allowed'
@@ -112,14 +112,14 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                 whileHover={canGoPrev ? { scale: 1.1, x: -2 } : {}}
                                 whileTap={canGoPrev ? { scale: 0.9 } : {}}
                             >
-                                {isRTL ?<ChevronRight className="h-6 w-6" />:<ChevronLeft className="h-6 w-6" />}
+                                {isRTL ?<ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />:<ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />}
                             </motion.button>
                             <motion.button
                                 aria-label="Chevron"
                                 onClick={nextSlide}
                                 disabled={!canGoNext}
-                                className={`pointer-events-auto w-14 h-14 rounded-full flex items-center justify-center
-                                          shadow-lg backdrop-blur-sm border transition-all duration-300 -mr-7
+                                className={`pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center
+                                          shadow-lg backdrop-blur-sm border transition-all duration-300 -mr-3 sm:-mr-5 lg:-mr-7
                                           ${canGoNext 
                                             ? 'bg-white/95 dark:bg-gray-800/95 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 hover:shadow-xl' 
                                             : 'bg-gray-100/50 dark:bg-gray-900/50 border-gray-300/50 dark:border-gray-700/50 text-gray-400 dark:text-gray-600 cursor-not-allowed'
@@ -127,13 +127,13 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                 whileHover={canGoNext ? { scale: 1.1, x: 2 } : {}}
                                 whileTap={canGoNext ? { scale: 0.9 } : {}}
                             >
-                                {isRTL ?<ChevronLeft className="h-6 w-6" />:<ChevronRight className="h-6 w-6" />}
+                                {isRTL ?<ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />:<ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />}
                             </motion.button>
                         </div>
                     </div>
-                    <div className="overflow-hidden rounded-2xl mx-8">
+                    <div className="overflow-hidden rounded-2xl mx-4 sm:mx-6 lg:mx-8">
                         <motion.div
-                            className="flex transition-transform duration-500 ease-out gap-6"
+                            className="flex transition-transform duration-500 ease-out gap-4 sm:gap-6"
                             style={{ 
                                 transform: `translateX(${isRTL ? currentIndex * (100 / totalSlides) : -currentIndex * (100 / totalSlides)}%)`,
                                 width: `${totalSlides * 100}%`
@@ -142,7 +142,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                             {Array.from({ length: totalSlides }).map((_, slideIndex) => (
                                 <div 
                                     key={slideIndex}
-                                    className="flex gap-6 min-w-0"
+                                    className="flex gap-4 sm:gap-6 min-w-0"
                                     style={{ width: `${100 / totalSlides}%` }}
                                 >
                                     {certifications
@@ -156,9 +156,9 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                             transition={{ duration: 0.3 }}
                                         >
                                             <div className={`group relative overflow-hidden rounded-2xl ${cert.bgColor} ${cert.borderColor} border-2 shadow-xl hover:shadow-2xl transition-all duration-300 h-full flex flex-col`}>
-                                                <div className="absolute top-4 left-4 z-10">
+                                                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
                                                     <motion.span
-                                                        className={`inline-block px-3 py-1 text-xs font-medium rounded-full 
+                                                        className={`inline-block px-2.5 py-1 text-[10px] sm:text-xs font-medium rounded-full 
                                                                   bg-white/90 dark:bg-gray-800/90 
                                                                   ${cert.iconColor} backdrop-blur-sm 
                                                                   shadow-md border border-white/50 dark:border-gray-700/50`}
@@ -167,18 +167,18 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                         {cert.domain}
                                                     </motion.span>
                                                 </div>
-                                                <div className="absolute top-4 right-4 z-10">
+                                                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10">
                                                     
                                                      <motion.span
                                                         className="px-2 py-1 font-bold 
-                                                                 bg-black/20 text-white rounded-full backdrop-blur-sm flex items-center gap-2 text-xs mb-3"
+                                                                 bg-black/20 text-white rounded-full backdrop-blur-sm flex items-center gap-2 text-[10px] sm:text-xs mb-3"
                                                             whileHover={{ x: 3 }}
                                                         >
                                                             <Calendar className="h-3 w-3" />
                                                             {cert.date}
                                                         </motion.span>
                                                 </div>
-                                                <div className="relative h-48 overflow-hidden">
+                                                <div className="relative h-40 sm:h-48 overflow-hidden">
                                                     {cert.image ? (
                                                         <motion.div
                                                             className="absolute inset-0"
@@ -202,7 +202,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                     )}
                                                     <div className="absolute inset-0 flex items-center justify-center">
                                                         <motion.div
-                                                            className={`w-16 h-16 ${cert.image ? 'bg-black/500' : 'bg-white/20'} rounded-full flex items-center justify-center backdrop-blur-sm`}
+                                                            className={`w-12 h-12 sm:w-16 sm:h-16 ${cert.image ? 'bg-black/500' : 'bg-white/20'} rounded-full flex items-center justify-center backdrop-blur-sm`}
                                                             animate={{
                                                                 rotate: [0, 20, -20, 0],
                                                                 scale: [1, 1.15, 1]
@@ -213,7 +213,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                                 delay: (slideIndex * cardsPerSlide + certIndex) * 0.5
                                                             }}
                                                         >
-                                                            <Award className="h-8 w-8 text-white" />
+                                                            <Award className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                                                         </motion.div>
                                                     </div>
                                                     <motion.div
@@ -229,14 +229,14 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                         }}
                                                     />
                                                 </div>
-                                                <div className={`px-6 py-3 space-y-4 bg-gradient-to-r ${cert.color} flex-1 flex flex-col`}>
+                                                <div className={`px-4 sm:px-6 py-3 space-y-3 sm:space-y-4 bg-gradient-to-r ${cert.color} flex-1 flex flex-col`}>
                                                     <div className="flex-1">
-                                                        <h3 className="text-[14px] font-bold text-gray-800 dark:text-white
+                                                        <h3 className="text-[13px] sm:text-[14px] font-bold text-gray-800 dark:text-white
                                                                      group-hover:text-gray-900 dark:group-hover:text-gray-100 
                                                                      transition-colors line-clamp-2 min-h-[2rem]">
                                                             {cert.title}
                                                         </h3>
-                                                        <p className="text-gray-600 dark:text-gray-400 font-medium text-sm mb-3">
+                                                        <p className="text-gray-600 dark:text-gray-400 font-medium text-xs sm:text-sm mb-3">
                                                             {cert.organization}
                                                         </p>
                                                        
@@ -244,7 +244,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                             <div>
                                                                 <motion.div className="flex items-center gap-1 mb-1">
                                                                     <Tag className="h-3 w-3 text-gray-500 dark:text-gray-400" />
-                                                                    <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
+                                                                    <span className="text-[10px] sm:text-xs font-medium text-gray-500 dark:text-gray-400">
                                                                         {t.certifications.Skills}
                                                                     </span>
                                                                 </motion.div>
@@ -252,7 +252,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                                     {cert.skills.slice(0, 3).map((skill, skillIndex) => (
                                                                         <motion.span
                                                                             key={skillIndex}
-                                                                            className={`px-2 pt-1 text-xs rounded-md 
+                                                                            className={`px-2 pt-1 text-[10px] sm:text-xs rounded-md 
                                                                                       ${cert.iconColor} bg-white/50 dark:bg-gray-800/50 
                                                                                       font-medium backdrop-blur-sm`}
                                                                             whileHover={{ scale: 1.05 }}
@@ -265,7 +265,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                                     ))}
                                                                     {cert.skills.length > 3 && (
                                                                         <motion.span
-                                                                            className="px-2 py-1 text-xs rounded-md 
+                                                                            className="px-2 py-1 text-[10px] sm:text-xs rounded-md 
                                                                                      bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 
                                                                                      font-medium"
                                                                             whileHover={{ scale: 1.05 }}
@@ -277,14 +277,14 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                             </div>
                                                         )}
                                                     </div>
-                                                    <div className="flex gap-3">
+                                                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                                                         <motion.a
                                                             href={cert.pdfUrl}  
                                                             aria-label="Cv"
                                                             download={`${cert.title.replace(/\s+/g, '_')}_Certificate.pdf`}
-                                                            className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 
+                                                            className="w-full sm:flex-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 
                                                                      text-white rounded-lg font-medium flex items-center justify-center 
-                                                                     gap-2 transition-all duration-300 text-sm hover:from-blue-700 hover:to-blue-800
+                                                                     gap-2 transition-all duration-300 text-[12px] sm:text-sm hover:from-blue-700 hover:to-blue-800
                                                                      shadow-md hover:shadow-lg"
                                                             whileHover={{
                                                                 scale: 1.02,
@@ -306,7 +306,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                                 aria-label="Link certification"
                                                                 target="_blank"
                                                                 rel="noopener noreferrer"
-                                                                className={`px-3 py-2 ${cert.iconColor} bg-gray-100 dark:bg-gray-800 
+                                                                className={`w-full sm:w-auto px-3 py-2 ${cert.iconColor} bg-gray-100 dark:bg-gray-800 
                                                                           hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg 
                                                                           transition-all duration-300 shadow-md group/verify`}
                                                                 whileHover={{
@@ -316,7 +316,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                                 whileTap={{ scale: 0.9 }}
                                                                 title="Vérifier la certification"
                                                             >
-                                                                <ExternalLink className="h-4 w-4 group-hover/verify:scale-110 transition-transform" />
+                                                                <ExternalLink className="h-4 w-4 mx-auto group-hover/verify:scale-110 transition-transform" />
                                                             </motion.a>
                                                         )}
                                                     </div>

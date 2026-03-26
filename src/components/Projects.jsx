@@ -79,23 +79,21 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
     };
 
     const years = text.match(/\b(19|20)\d{2}\b/g) || [];
-    let best = 0;
-    if (years.length) {
-      const maxYear = Math.max(...years.map((y) => parseInt(y, 10)));
-      best = maxYear * 12 + 12;
-    }
+    const maxYear = years.length ? Math.max(...years.map((y) => parseInt(y, 10))) : 0;
 
     const lowered = text.toLowerCase();
+    let maxMonth = 0;
     Object.keys(monthMap).forEach((key) => {
       if (lowered.includes(key)) {
-        const yearMatch = text.match(/\b(19|20)\d{2}\b/);
-        const yearVal = yearMatch ? parseInt(yearMatch[0], 10) : 0;
-        const candidate = yearVal * 12 + monthMap[key];
-        if (candidate > best) best = candidate;
+        if (monthMap[key] > maxMonth) maxMonth = monthMap[key];
       }
     });
 
-    return best;
+    if (maxYear) {
+      return maxYear * 12 + (maxMonth || 12);
+    }
+
+    return maxMonth;
   };
 
   const renderLinks = (project) => {

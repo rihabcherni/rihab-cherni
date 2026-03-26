@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rihab-cherni.vercel.app/sitemap.xml

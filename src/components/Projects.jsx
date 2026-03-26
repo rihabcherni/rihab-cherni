@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Calendar, Github, ExternalLink, User, Building2, Briefcase, Filter, Trophy, GraduationCap, SlidersHorizontal, Info, Tag, X } from 'lucide-react';
+import { Calendar, Github, ExternalLink, User, Building2, Briefcase, Filter, Trophy, GraduationCap, SlidersHorizontal, Info, Tag, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import SectionTitle from './SectionTitle';
 import { motion } from 'framer-motion';
 
@@ -8,6 +8,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
   const [showAll, setShowAll] = useState(false);
   const [activeFilterKey, setActiveFilterKey] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [carouselIndex, setCarouselIndex] = useState(0);
   const isVisible = visibleSections?.has('projects') ?? true;
   useEffect(() => {
     const keys = getProjectTypeKeys();
@@ -17,6 +18,10 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
     setShowAll(false);
     setExpandedProjects(new Set());
   }, [tp]);
+
+  useEffect(() => {
+    setCarouselIndex(0);
+  }, [selectedProject]);
 
   const toggleExpanded = (index) => {
     const newExpanded = new Set(expandedProjects);
@@ -177,11 +182,55 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
               <div className="p-8">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    {selectedProject.image && (
-                      <div className="overflow-hidden rounded-xl">
-                        <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-64 md:h-full object-cover" />
-                      </div>
-                    )}
+                    {(() => {
+                      const images = Array.isArray(selectedProject.images) && selectedProject.images.length > 0
+                        ? selectedProject.images
+                        : (selectedProject.image ? [selectedProject.image] : []);
+                      if (images.length === 0) return null;
+                      return (
+                        <div className="flex flex-col gap-3">
+                          <div className={`relative overflow-hidden rounded-xl h-64 md:h-65 lg:h-65 flex items-center justify-center ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}>
+                            <img
+                              src={images[carouselIndex]}
+                              alt={`${selectedProject.title} ${carouselIndex + 1}`}
+                              className="w-full h-auto max-h-full object-contain"
+                            />
+                            {images.length > 1 && (
+                              <>
+                                <button
+                                  aria-label="Previous image"
+                                  onClick={() => setCarouselIndex((i) => (i - 1 + images.length) % images.length)}
+                                  className={`absolute left-3 top-1/2 -translate-y-1/2 rounded-full p-2 shadow-lg transition-colors ${isDark ? 'bg-gray-900/70 text-white hover:bg-gray-900' : 'bg-white/80 text-gray-900 hover:bg-white'}`}
+                                >
+                                  <ChevronLeft className="h-5 w-5" />
+                                </button>
+                                <button
+                                  aria-label="Next image"
+                                  onClick={() => setCarouselIndex((i) => (i + 1) % images.length)}
+                                  className={`absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-2 shadow-lg transition-colors ${isDark ? 'bg-gray-900/70 text-white hover:bg-gray-900' : 'bg-white/80 text-gray-900 hover:bg-white'}`}
+                                >
+                                  <ChevronRight className="h-5 w-5" />
+                                </button>
+                              </>
+                            )}
+                          </div>
+                          {images.length > 1 && (
+                            <div className="flex justify-center gap-2">
+                              {images.map((_, idx) => (
+                                <button
+                                  key={idx}
+                                  aria-label={`Go to image ${idx + 1}`}
+                                  onClick={() => setCarouselIndex(idx)}
+                                  className={`h-2.5 w-2.5 rounded-full transition-all ${idx === carouselIndex
+                                    ? (isDark ? 'bg-white' : 'bg-gray-900')
+                                    : (isDark ? 'bg-white/40 hover:bg-white/70' : 'bg-gray-900/30 hover:bg-gray-900/50')}`}
+                                />
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })()}
                   </div>
                   <div>
                     <div className="flex flex-wrap gap-2 mb-4 text-xs">
@@ -283,7 +332,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                   variants={itemVariants}
                   layout
                 >
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-44 overflow-hidden">
                     <img
                       loading="lazy"
                       src={project.image}

@@ -45,8 +45,6 @@ const Navbar = ({
           >
             RC.
           </motion.div>
-
-          {/* Desktop Navigation */}
           <motion.div
             className="hidden md:flex items-center space-x-8 md:space-x-6 md:text-[12px] lg:text-[16px]"
             initial={{ opacity: 0, x: 20 }}

@@ -61,8 +61,8 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
     if (!date) return 0;
     const text = String(date);
     const monthMap = {
-      jan: 1, january: 1, 'janv': 1, 'janvier': 1, 'jan.': 1,
-      feb: 2, february: 2, fev: 2, 'févr': 2, 'février': 2, 'fevr': 2, 'fevrier': 2,
+      jan: 1, january: 1, 'janv': 1, 'Janvier': 1, 'jan.': 1,
+      feb: 2, february: 2, fev: 2, 'févr': 2, 'Février': 2, 'fevr': 2, 'fevrier': 2,
       mar: 3, march: 3, mars: 3,
       apr: 4, april: 4, avr: 4, avril: 4,
       may: 5, mai: 5,
@@ -72,7 +72,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
       sep: 9, sept: 9, september: 9, septembre: 9,
       oct: 10, october: 10, octobre: 10,
       nov: 11, november: 11, novembre: 11,
-      dec: 12, december: 12, decembre: 12, 'déc': 12, 'décembre': 12, 'dec.': 12,
+      dec: 12, december: 12, decembre: 12, 'déc': 12, 'Décembre': 12, 'dec.': 12,
       'يناير': 1, 'فبراير': 2, 'مارس': 3, 'أبريل': 4, 'ابريل': 4,
       'ماي': 5, 'يونيو': 6, 'يوليو': 7, 'أغسطس': 8, 'اغسطس': 8,
       'سبتمبر': 9, 'أكتوبر': 10, 'اكتوبر': 10, 'نوفمبر': 11, 'ديسمبر': 12
@@ -275,17 +275,17 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid md:grid-cols-2 gap-5 lg:flex lg:flex-wrap lg:justify-center">
             {displayedProjects.map((project, index) => {
               const isExpanded = expandedProjects.has(index);
               const shouldTruncate = project.description.length > 100;
               return (
                 <motion.div
                   key={index}
-                  className={`group relative overflow-hidden rounded-2xl transition-transform duration-300 transform
+                  className={`group relative overflow-hidden rounded-2xl transition-transform duration-300 transform lg:w-[calc(25%-1.25rem)]
                     hover:-translate-y-2 
-                    ${isDark
-                      ? 'hover:shadow-[0_30px_60px_rgba(99,102,241,0.15)] shadow-lg bg-gray-800'
+                    ${isDark 
+                      ? 'hover:shadow-[0_30px_60px_rgba(99,102,241,0.15)] shadow-lg bg-gray-800' 
                       : 'hover:shadow-[0_30px_60px_rgba(59,130,246,0.2)] shadow-md bg-white'}`}
                   variants={itemVariants}
                   layout

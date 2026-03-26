@@ -215,9 +215,9 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
             animate={visibleSections.has('home') ? "visible" : "hidden"}
             className="relative flex justify-center lg:justify-end lg:col-span-1"
           >
-            <div className="relative w-80 h-80 sm:w-80 sm:h-80 md:w-90 md:h-90 lg:w-90 lg:h-90 mb-6 sm:mb-0">
+            <div className="relative w-96 h-80 sm:w-96 sm:h-80 md:w-[24rem] md:h-[20rem] lg:w-[26rem] lg:h-[22rem] mb-6 sm:mb-0">
               <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-300 via-blue-600 to-blue-900 p-1"
+                className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-300 via-blue-600 to-blue-900 p-4"
                 whileHover={{ scale: 1.04, rotate: 1.5 }}
                 transition={{ type: "spring", stiffness: 200, damping: 15 }}
               >
@@ -226,7 +226,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
                     loading="lazy"
                     src="img.webp"
                     alt={t.home.title}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-120"
+                    className="w-full h-full object-cover rounded-full transition-transform duration-300 hover:scale-120"
                   />
                 </div>
               </motion.div>

@@ -260,7 +260,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                 })()}
                 {key === 'all' ? (t.projects.filterAll || 'All') : (t.projects.filters?.[key] || key)}
                 {activeFilterKey === key && (
-                  <span className={`ml-1 px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold ${isDark ? 'bg-white/20 text-white' : 'bg-black/10 text-gray-900'}`}>
+                  <span className={`ml-1 px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-[12px] font-bold text-white ${isDark ? 'bg-white/20' : 'bg-black/10'}`}>
                     {getTypeCountByKey(key)}
                   </span>
                 )}

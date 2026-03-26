@@ -14,15 +14,15 @@ export const translations = {
     },
     home: {
       welcome: 'Disponible pour du travail en freelance',
-      title: 'Rihab Cherni — Développeuse full‑stack en Tunisie',
-      subtitle: 'Ingénieure logicielle | Web, cybersécurité & automatisation',
+      title: 'Rihab Cherni',
+      subtitle: 'Ingénieure en Informatique, autoentrepreneure & Développeur Full-Stack',
       description: 'Spécialisée en Nouvelles Technologies et Sécurité, passionnée par le développement web, mobile et l\'intelligence artificielle.',
       cta: 'Voir Mon Travail',
       download: 'Télécharger CV',
       address: 'Manouba, Tunisie'
     },
     about: {
-      title: 'À propos — Ingénieure logicielle en Tunisie',
+      title: 'À propos',
       subtitle: 'Découvrez la personne derrière le code',
       description: 'Ingénieure en génie informatique diplômée de l\'ENSIT, spécialisée en Nouvelles Technologies et Sécurité. Je suis à la recherche d\'un poste qui me permette de mettre à profit mes compétences techniques et de m\'investir pleinement dans des projets innovants.',
       education: 'Formation',
@@ -78,13 +78,13 @@ export const translations = {
       ]
     },
     certifications: {
-      title: 'Certifications en cybersécurité',
+      title: 'Certifications',
       subtitle: 'Formations certifiantes complétées pour approfondir mes compétences techniques et méthodologiques',
       Skills: 'Compétences',
       pdf: 'Télécharger'
     },
     experience: {
-      title: 'Expérience — Développeuse full‑stack',
+      title: 'Expérience',
       subtitle: 'Un aperçu de mon parcours et de mes réalisations professionnelles',
       current: 'Actuel',
       present: 'Présent',
@@ -147,7 +147,7 @@ export const translations = {
       ]
     },
     projects: {
-      title: 'Projets web & cybersécurité',
+      title: 'Projets',
       subtitle: 'Travaux pratiques et projets que j\'ai réalisés',
       view: 'Voir Projet',
       tech: 'Technologies',
@@ -166,7 +166,7 @@ export const translations = {
       noResults: "Aucun projet trouvé pour ce filtre"
     },
     skills: {
-      title: 'Compétences full‑stack',
+      title: 'Compétences',
       subtitle: 'Un ensemble de compétences techniques et outils maîtrisés',
       programming: 'Langages de Programmation',
       frontend: 'Développement Frontend',
@@ -176,7 +176,7 @@ export const translations = {
       tools: 'Outils & Environnements'
     },
     contact: {
-      title: 'Contact — Développeuse full‑stack en Tunisie',
+      title: 'Contact',
       subtitle: 'Je suis toujours intéressée par de nouvelles opportunités. N\'hésitez pas à me contacter !',
       titleForm: 'Envoyez-moi un message',
       placeholderName: 'Votre nom',
@@ -208,15 +208,15 @@ export const translations = {
     },
     home: {
       welcome: 'Available for freelance work',
-      title: 'Rihab Cherni — Full‑Stack Developer in Tunisia',
-      subtitle: 'Software Engineer | Web, Cybersecurity & Automation',
+      title: 'Rihab Cherni',
+      subtitle: 'Computer Engineer, Freelancer & Full-Stack Developer',
       description: 'Specialized in New Technologies and Security, passionate about web development, mobile development, and artificial intelligence.',
       cta: 'View My Work',
       download: 'Download CV',
       address: 'Manouba, Tunisia'
     },
     about: {
-      title: 'About — Software Engineer in Tunisia',
+      title: 'About',
       subtitle: 'Get to know the person behind the code',
       description: 'Computer Engineering graduate from ENSIT, specialized in New Technologies and Security. I am looking for a position that allows me to leverage my technical skills and fully invest in innovative projects.',
       education: 'Education',
@@ -272,13 +272,13 @@ export const translations = {
       ]
     },
     certifications: {
-      title: 'Cybersecurity Certifications',
+      title: 'Certifications',
       subtitle: 'Completed certification trainings to deepen my technical and methodological skills',
       Skills: 'Skills',
       pdf: 'Download'
     },
     experience: {
-      title: 'Experience — Full‑Stack Developer',
+      title: 'Experience',
       subtitle: 'An overview of my career journey and achievements',
       current: 'Current',
       present: 'Present',
@@ -341,7 +341,7 @@ export const translations = {
       ]
     },
     projects: {
-      title: 'Web & Cybersecurity Projects',
+      title: 'Projects',
       subtitle: 'Practical work and projects I have completed',
       view: 'View Project',
       tech: 'Technologies',
@@ -360,7 +360,7 @@ export const translations = {
       noResults: "No projects found for this filter"
     },
     skills: {
-      title: 'Full‑Stack Skills',
+      title: 'Skills',
       subtitle: 'A set of mastered technical skills and tools',
       programming: 'Programming Languages',
       frontend: 'Frontend Development',
@@ -370,7 +370,7 @@ export const translations = {
       tools: 'Tools & Environments'
     },
     contact: {
-      title: 'Contact — Full‑Stack Developer in Tunisia',
+      title: 'Contact',
       subtitle: 'I\'m always interested in new opportunities. Feel free to reach out!',
       titleForm: 'Send me a message',
       placeholderName: 'Your Name',
@@ -400,21 +400,22 @@ export const translations = {
       contact: 'اتصل بي'
     },
     certifications: {
-      title: 'شهادات في الأمن السيبراني',
+      title: "الشهادات",
       subtitle: 'دورات تدريبية معتمدة أُنجزت لتعزيز مهاراتي التقنية والمنهجية',
       Skills: 'المهارات',
       pdf: 'تحميل'
     },
     home: {
-      welcome: 'متاحة للعمل الحر', title: 'رحاب الشارني — مطوّرة برمجيات متكاملة في تونس',
-      subtitle: 'مهندسة معلوماتية | تطوير الويب والأمن السيبراني',
+      welcome: 'متاحة للعمل الحر',
+      title: 'رحاب الشارني',
+      subtitle: 'مهندسة معلوماتية، مبادرة الذاتية ومطوّرة برمجيات',
       description: 'متخصصة في التقنيات الجديدة والأمن السيبراني، شغوفة بتطوير مواقع الويب والتطبيقات المحمولة والذكاء الاصطناعي.',
       cta: 'اطلع على أعمالي',
       download: 'تحميل السيرة الذاتية',
       address: 'منوبة، تونس'
     },
     about: {
-      title: 'نبذة عني — مهندسة معلوماتية في تونس',
+      title: 'نبذة عني',
       subtitle: 'تعرف على الشخص خلف الكود',
       description: 'مهندسة في الهندسة المعلوماتية متخرجة من المعهد الوطني العالي للمهندسين بتونس، متخصصة في التقنيات الجديدة والأمن. أبحث عن منصب يسمح لي بالاستفادة من مهاراتي التقنية والاستثمار بالكامل في مشاريع مبتكرة.',
       education: 'التعليم',
@@ -470,7 +471,7 @@ export const translations = {
       ]
     },
     experience: {
-      title: 'الخبرة — مطوّرة برمجيات متكاملة',
+      title: 'الخبرة',
       subtitle: 'نظرة عامة على مسيرتي المهنية وإنجازاتي',
       current: 'حالي',
       present: 'الحاضر',
@@ -533,7 +534,7 @@ export const translations = {
       ]
     },
     projects: {
-      title: 'مشاريع الويب والأمن السيبراني',
+      title: 'المشاريع',
       subtitle: 'الأعمال العملية والمشاريع التي أنجزتها',
       view: 'عرض المشروع',
       tech: 'التقنيات',
@@ -552,7 +553,7 @@ export const translations = {
       noResults: "لم يتم العثور على مشاريع لهذا الفلتر"
     },
     skills: {
-      title: 'مهارات التطوير المتكامل',
+      title: 'المهارات',
       subtitle: 'مجموعة من المهارات التقنية والأدوات التي أتقنها',
       programming: 'لغات البرمجة',
       frontend: 'تطوير الواجهة الأمامية',
@@ -562,7 +563,7 @@ export const translations = {
       tools: 'الأدوات والبيئات'
     },
     contact: {
-      title: 'اتصل بي — مطوّرة برمجيات في تونس',
+      title: 'اتصل بي',
       subtitle: 'أنا مهتمة دائماً بالفرص الجديدة. لا تتردد في التواصل معي!',
       titleForm: 'أرسل لي رسالة',
       placeholderName: 'اسمك',

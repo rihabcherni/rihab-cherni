@@ -80,7 +80,8 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
       </div>
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 md:gap-12 lg:gap-16 items-center">
-          <motion.div variants={containerVariants} initial="hidden" animate={visibleSections.has('home') ? "visible" : "hidden"} className="space-y-7 md:space-y-8 lg:col-span-2 text-center lg:text-left">
+          <motion.div variants={containerVariants} initial="hidden" animate={visibleSections.has('home') ? "visible" : "hidden"}
+            className={`space-y-7 md:space-y-8 lg:col-span-2 text-center  ${isRTL ? "lg:text-right" : "lg:text-left"}`}>
             <motion.div variants={itemVariants} className="space-y-2">
               <motion.span
                 className="inline-flex items-center gap-2 px-4 py-2 mt-6 
@@ -101,8 +102,8 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
                 {t.home.welcome}
               </motion.span>
             </motion.div>
-            <motion.div variants={itemVariants} className="space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <motion.div variants={itemVariants} className="space-y-2">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-tight">
                 <motion.span
                   className="bg-gradient-to-r from-gray-600 via-blue-800 to-blue-800 dark:from-white dark:via-blue-200 dark:to-blue-200 bg-clip-text text-transparent"
                   whileHover={{ scale: 1.02 }}
@@ -111,9 +112,8 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
                   {t.home.title}
                 </motion.span>
               </h1>
-
               <motion.div
-                className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-600 dark:text-gray-300"
+                className="text-base sm:text-lg md:text-xl lg:text-3xl font-semibold text-gray-600 dark:text-gray-300"
                 variants={itemVariants}
               >
                 <motion.span
@@ -127,7 +127,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
             </motion.div>
             <motion.p
               variants={itemVariants}
-              className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl mx-auto md:mx-0"
+              className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl mx-auto md:mx-0"
             >
               {t.home.description}
             </motion.p>
@@ -159,8 +159,8 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
                 href="/cv.pdf"
                 download="Rihab_Cherni_CV.pdf"
                 className={`group w-[90%] max-w-xs sm:w-auto md:w-auto justify-center px-7 sm:px-8 py-3.5 sm:py-4 border-2 rounded-xl font-semibold flex items-center gap-3 transition-all duration-300 ${isDark
-                    ? 'border-gray-700 text-gray-300 hover:bg-gray-800 hover:border-gray-600'
-                    : 'border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400'
+                  ? 'border-gray-700 text-gray-300 hover:bg-gray-800 hover:border-gray-600'
+                  : 'border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400'
                   }`}
                 whileHover={{
                   scale: 1.05,
@@ -266,7 +266,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
           </motion.div>
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 export default Hero;

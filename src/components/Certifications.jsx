@@ -187,6 +187,7 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                                         >
                                                             <img 
                                                                 loading="lazy"
+                                                                decoding="async"
                                                                 src={cert.image} 
                                                                 alt={cert.title}
                                                                 className="w-full h-full object-cover"

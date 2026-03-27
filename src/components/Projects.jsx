@@ -193,6 +193,8 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                             <img
                               src={images[carouselIndex]}
                               alt={`${selectedProject.title} ${carouselIndex + 1}`}
+                              loading="lazy"
+                              decoding="async"
                               className="w-full h-auto max-h-full object-contain"
                             />
                             {images.length > 1 && (
@@ -335,6 +337,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                   <div className="relative h-44 overflow-hidden">
                     <img
                       loading="lazy"
+                      decoding="async"
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"

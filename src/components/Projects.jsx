@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Calendar, Github, ExternalLink, User, Building2, Briefcase, Filter, Trophy, GraduationCap, SlidersHorizontal, Info, Tag, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Calendar, Github, ExternalLink, User, Building2, Briefcase, Filter, Trophy, GraduationCap, SlidersHorizontal, Info, Tag, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from 'lucide-react';
 import SectionTitle from './SectionTitle';
 import { motion } from 'framer-motion';
 
@@ -9,6 +9,13 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
   const [activeFilterKey, setActiveFilterKey] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [isPanning, setIsPanning] = useState(false);
+  const panStart = useRef({ x: 0, y: 0 });
+  const panOrigin = useRef({ x: 0, y: 0 });
+  const imageBoxRef = useRef(null);
+  const imageRef = useRef(null);
   const isVisible = visibleSections?.has('projects') ?? true;
   useEffect(() => {
     const keys = getProjectTypeKeys();
@@ -21,7 +28,20 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
 
   useEffect(() => {
     setCarouselIndex(0);
+    setZoomLevel(1);
+    setPan({ x: 0, y: 0 });
   }, [selectedProject]);
+  useEffect(() => {
+    setZoomLevel(1);
+    setPan({ x: 0, y: 0 });
+  }, [carouselIndex]);
+  useEffect(() => {
+    if (zoomLevel === 1) {
+      setPan({ x: 0, y: 0 });
+    } else {
+      setPan((p) => clampPan(p));
+    }
+  }, [zoomLevel]);
 
   const toggleExpanded = (index) => {
     const newExpanded = new Set(expandedProjects);
@@ -31,6 +51,32 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
   };
 
   const truncateText = (text, maxLength = 70) => text.length <= maxLength ? text : text.substring(0, maxLength) + '...';
+  const clampZoom = (value) => Math.min(2.5, Math.max(1, value));
+  const handleZoomChange = (delta) => {
+    setZoomLevel((z) => clampZoom(z + delta));
+    setPan((p) => clampPan(p));
+  };
+  const clampPan = (next) => {
+    const box = imageBoxRef.current;
+    const img = imageRef.current;
+    if (!box || !img) return next;
+
+    const boxRect = box.getBoundingClientRect();
+    const imgRect = img.getBoundingClientRect();
+    const baseWidth = imgRect.width / zoomLevel;
+    const baseHeight = imgRect.height / zoomLevel;
+
+    const scaledWidth = baseWidth * zoomLevel;
+    const scaledHeight = baseHeight * zoomLevel;
+
+    const maxX = Math.max(0, (scaledWidth - boxRect.width) / 2);
+    const maxY = Math.max(0, (scaledHeight - boxRect.height) / 2);
+
+    return {
+      x: Math.min(maxX, Math.max(-maxX, next.x)),
+      y: Math.min(maxY, Math.max(-maxY, next.y)),
+    };
+  };
 
   const getTypeKey = (type) => {
     if (type === 'all') return 'all';
@@ -189,13 +235,54 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                       if (images.length === 0) return null;
                       return (
                         <div className="flex flex-col gap-3">
-                          <div className={`relative overflow-hidden rounded-xl h-64 md:h-65 lg:h-65 flex items-center justify-center ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}>
+                          <div
+                            ref={imageBoxRef}
+                            className={`relative overflow-hidden rounded-xl h-64 md:h-65 lg:h-65 flex items-center justify-center ${isDark ? 'bg-gray-800' : 'bg-gray-100'} ${zoomLevel > 1 ? 'cursor-grab' : 'cursor-default'}`}
+                            onPointerDown={(e) => {
+                              if (zoomLevel <= 1) return;
+                              if (e.target.closest('button')) return;
+                              if (e.button !== 0) return;
+                              e.preventDefault();
+                              e.currentTarget.setPointerCapture(e.pointerId);
+                              setIsPanning(true);
+                              panStart.current = { x: e.clientX, y: e.clientY };
+                              panOrigin.current = { ...pan };
+                            }}
+                            onPointerMove={(e) => {
+                              if (!isPanning || zoomLevel <= 1) return;
+                              const dx = e.clientX - panStart.current.x;
+                              const dy = e.clientY - panStart.current.y;
+                              setPan(clampPan({ x: panOrigin.current.x + dx, y: panOrigin.current.y + dy }));
+                            }}
+                            onPointerUp={(e) => {
+                              setIsPanning(false);
+                              if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+                                e.currentTarget.releasePointerCapture(e.pointerId);
+                              }
+                            }}
+                            onPointerLeave={(e) => {
+                              setIsPanning(false);
+                              if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+                                e.currentTarget.releasePointerCapture(e.pointerId);
+                              }
+                            }}
+                            onPointerCancel={(e) => {
+                              setIsPanning(false);
+                              if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+                                e.currentTarget.releasePointerCapture(e.pointerId);
+                              }
+                            }}
+                            style={{ touchAction: 'none' }}
+                          >
                             <img
+                              ref={imageRef}
                               src={images[carouselIndex]}
                               alt={`${selectedProject.title} ${carouselIndex + 1}`}
                               loading="lazy"
                               decoding="async"
-                              className="w-full h-auto max-h-full object-contain"
+                              className={`w-full h-auto max-h-full object-contain transition-transform duration-200 ease-out ${isPanning ? 'cursor-grabbing' : ''}`}
+                              onLoad={() => setPan(clampPan({ x: 0, y: 0 }))}
+                              style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoomLevel})` }}
                             />
                             {images.length > 1 && (
                               <>
@@ -215,6 +302,24 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                                 </button>
                               </>
                             )}
+                            <div className="absolute right-3 bottom-3 flex items-center gap-2">
+                              <button
+                                aria-label="Zoom out"
+                                onClick={() => handleZoomChange(-0.25)}
+                                disabled={zoomLevel <= 1}
+                                className={`rounded-full p-2 shadow-lg transition-colors disabled:opacity-40 ${isDark ? 'bg-gray-900/70 text-white hover:bg-gray-900' : 'bg-white/80 text-gray-900 hover:bg-white'}`}
+                              >
+                                <ZoomOut className="h-4 w-4" />
+                              </button>
+                              <button
+                                aria-label="Zoom in"
+                                onClick={() => handleZoomChange(0.25)}
+                                disabled={zoomLevel >= 2.5}
+                                className={`rounded-full p-2 shadow-lg transition-colors disabled:opacity-40 ${isDark ? 'bg-gray-900/70 text-white hover:bg-gray-900' : 'bg-white/80 text-gray-900 hover:bg-white'}`}
+                              >
+                                <ZoomIn className="h-4 w-4" />
+                              </button>
+                            </div>
                           </div>
                           {images.length > 1 && (
                             <div className="flex justify-center gap-2">

@@ -63,17 +63,6 @@ const App = () => {
     if (loading) return;
     const handleScroll = () => {
       sessionStorage.setItem('scrollY', String(window.scrollY));
-      const sections = ['home', 'about', 'experience', 'projects', 'skills', 'certifications', 'contact'];
-      const scrollY = window.scrollY;
-      sections.forEach(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollY >= offsetTop - 100 && scrollY < offsetTop + offsetHeight - 100) {
-            setActiveSection(section);
-          }
-        }
-      });
     };
     window.addEventListener('scroll', handleScroll);
     handleScroll();
@@ -82,7 +71,8 @@ const App = () => {
 
   useEffect(() => {
     if (loading) return;
-    const observer = new IntersectionObserver(
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const visibilityObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -93,11 +83,30 @@ const App = () => {
       { threshold: 0.1 }
     );
 
-    const sections = document.querySelectorAll('section[id]');
-    sections.forEach(section => observer.observe(section));
+    const activeObserver = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (!visible.length) return;
+        visible.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        setActiveSection(visible[0].target.id);
+      },
+      {
+        root: null,
+        rootMargin: '-40% 0px -50% 0px',
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      }
+    );
+
+    sections.forEach(section => {
+      visibilityObserver.observe(section);
+      activeObserver.observe(section);
+    });
 
     return () => {
-      sections.forEach(section => observer.unobserve(section));
+      sections.forEach(section => {
+        visibilityObserver.unobserve(section);
+        activeObserver.unobserve(section);
+      });
     };
   }, [loading]);
 

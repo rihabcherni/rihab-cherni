@@ -434,6 +434,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
             {displayedProjects.map((project, index) => {
               const isExpanded = expandedProjects.has(index);
               const shouldTruncate = project.description.length > 100;
+              const isLcpCandidate = index === 0;
               return (
                 <motion.div
                   key={index}
@@ -447,7 +448,8 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                 >
                   <div className="relative h-44 overflow-hidden">
                     <img
-                      loading="lazy"
+                      loading={isLcpCandidate ? "eager" : "lazy"}
+                      fetchpriority={isLcpCandidate ? "high" : "auto"}
                       decoding="async"
                       src={project.image}
                       alt={project.title}

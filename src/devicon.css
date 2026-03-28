@@ -1,0 +1,9 @@
+@import "devicon/devicon.min.css";
+
+@font-face {
+  font-family: "devicon";
+  src: url("devicon/fonts/devicon.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

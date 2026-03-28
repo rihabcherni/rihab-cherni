@@ -9,7 +9,7 @@ const SectionTitle = ({ title, subtitle, center = true }) => {
         </span>
       </motion.h2>
       {subtitle && (
-        <motion.p className="text-[16px] font-medium text-gray-600 dark:text-gray-300" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
+      <motion.p className="text-[16px] font-medium text-gray-700 dark:text-gray-200" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
           {subtitle}
         </motion.p>
       )}

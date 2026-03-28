@@ -118,13 +118,15 @@ const App = () => {
         <Navbar isDark={isDark} setIsDark={setIsDark} language={language} setLanguage={setLanguage}
           isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}
           activeSection={activeSection} scrollToSection={scrollToSection} translations={translations} />
-        <Hero t={t} isDark={isDark} visibleSections={visibleSections} scrollToSection={scrollToSection} isRTL={isRTL} />
-        <About t={t} isDark={isDark} visibleSections={visibleSections} />
-        <Experience t={t} isDark={isDark} visibleSections={visibleSections} isRTL={isRTL}/>
-        <Projects t={t} tp={tp} isDark={isDark} visibleSections={visibleSections} />
-        <Skills t={t} skills={skills} isDark={isDark} visibleSections={visibleSections} />
-        <Certifications t={t} isDark={isDark} visibleSections={visibleSections} isRTL={isRTL} />
-        <Contact t={t} isDark={isDark} visibleSections={visibleSections} contactItems={contactItems} />
+        <main id="main-content" aria-label="Main content" className="flex-1">
+          <Hero t={t} isDark={isDark} visibleSections={visibleSections} scrollToSection={scrollToSection} isRTL={isRTL} />
+          <About t={t} isDark={isDark} visibleSections={visibleSections} />
+          <Experience t={t} isDark={isDark} visibleSections={visibleSections} isRTL={isRTL}/>
+          <Projects t={t} tp={tp} isDark={isDark} visibleSections={visibleSections} />
+          <Skills t={t} skills={skills} isDark={isDark} visibleSections={visibleSections} />
+          <Certifications t={t} isDark={isDark} visibleSections={visibleSections} isRTL={isRTL} />
+          <Contact t={t} isDark={isDark} visibleSections={visibleSections} contactItems={contactItems} />
+        </main>
         <Footer t={t} isDark={isDark} scrollToSection={scrollToSection} />
         <BackgroundAnimation isDark={isDark} />
       </div>

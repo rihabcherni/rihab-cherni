@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { certifications } from '../data/certifications';
 import SectionTitle from './SectionTitle';
 
-const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
+const Certifications = ({ t, isDark, visibleSections, isRTL }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [cardsPerSlide, setCardsPerSlide] = useState(3);
 
@@ -105,14 +105,14 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                 aria-label="Chevron"
                                 className={`pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center
                                           shadow-lg backdrop-blur-sm border transition-all duration-300 -ml-3 sm:-ml-5 lg:-ml-7
-                                          ${canGoPrev 
-                                            ? 'bg-white/95 dark:bg-gray-800/95 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 hover:shadow-xl' 
-                                            : 'bg-gray-100/50 dark:bg-gray-900/50 border-gray-300/50 dark:border-gray-700/50 text-gray-400 dark:text-gray-600 cursor-not-allowed'
-                                          }`}
+                                          ${canGoPrev
+                                        ? 'bg-white/95 dark:bg-gray-800/95 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 hover:shadow-xl'
+                                        : 'bg-gray-100/50 dark:bg-gray-900/50 border-gray-300/50 dark:border-gray-700/50 text-gray-400 dark:text-gray-600 cursor-not-allowed'
+                                    }`}
                                 whileHover={canGoPrev ? { scale: 1.1, x: -2 } : {}}
                                 whileTap={canGoPrev ? { scale: 0.9 } : {}}
                             >
-                                {isRTL ?<ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />:<ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />}
+                                {isRTL ? <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" /> : <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />}
                             </motion.button>
                             <motion.button
                                 aria-label="Chevron"
@@ -120,27 +120,27 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                 disabled={!canGoNext}
                                 className={`pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center
                                           shadow-lg backdrop-blur-sm border transition-all duration-300 -mr-3 sm:-mr-5 lg:-mr-7
-                                          ${canGoNext 
-                                            ? 'bg-white/95 dark:bg-gray-800/95 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 hover:shadow-xl' 
-                                            : 'bg-gray-100/50 dark:bg-gray-900/50 border-gray-300/50 dark:border-gray-700/50 text-gray-400 dark:text-gray-600 cursor-not-allowed'
-                                          }`}
+                                          ${canGoNext
+                                        ? 'bg-white/95 dark:bg-gray-800/95 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 hover:shadow-xl'
+                                        : 'bg-gray-100/50 dark:bg-gray-900/50 border-gray-300/50 dark:border-gray-700/50 text-gray-400 dark:text-gray-600 cursor-not-allowed'
+                                    }`}
                                 whileHover={canGoNext ? { scale: 1.1, x: 2 } : {}}
                                 whileTap={canGoNext ? { scale: 0.9 } : {}}
                             >
-                                {isRTL ?<ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />:<ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />}
+                                {isRTL ? <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" /> : <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />}
                             </motion.button>
                         </div>
                     </div>
                     <div className="overflow-hidden rounded-2xl mx-4 sm:mx-6 lg:mx-8">
                         <motion.div
                             className="flex transition-transform duration-500 ease-out gap-4 sm:gap-6"
-                            style={{ 
+                            style={{
                                 transform: `translateX(${isRTL ? currentIndex * (100 / totalSlides) : -currentIndex * (100 / totalSlides)}%)`,
                                 width: `${totalSlides * 100}%`
                             }}
                         >
                             {Array.from({ length: totalSlides }).map((_, slideIndex) => (
-                                <div 
+                                <div
                                     key={slideIndex}
                                     className="flex gap-4 sm:gap-6 min-w-0"
                                     style={{ width: `${100 / totalSlides}%` }}
@@ -148,188 +148,188 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                     {certifications
                                         .slice(slideIndex * cardsPerSlide, (slideIndex + 1) * cardsPerSlide)
                                         .map((cert, certIndex) => (
-                                        <motion.div
-                                            key={cert.title}
-                                            className="flex-1 min-w-0"
-                                            variants={cardVariants}
-                                            whileHover={{ y: -10, scale: 1.02 }}
-                                            transition={{ duration: 0.3 }}
-                                        >
-                                            <div className={`group relative overflow-hidden rounded-2xl ${cert.bgColor} ${cert.borderColor} border-2 shadow-xl hover:shadow-2xl transition-all duration-300 h-full flex flex-col`}>
-                                                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
-                                                    <motion.span
-                                                        className={`inline-block px-2.5 py-1 text-[10px] sm:text-xs font-medium rounded-full 
+                                            <motion.div
+                                                key={cert.title}
+                                                className="flex-1 min-w-0"
+                                                variants={cardVariants}
+                                                whileHover={{ y: -10, scale: 1.02 }}
+                                                transition={{ duration: 0.3 }}
+                                            >
+                                                <div className={`group relative overflow-hidden rounded-2xl ${cert.bgColor} ${cert.borderColor} border-2 shadow-xl hover:shadow-2xl transition-all duration-300 h-full flex flex-col`}>
+                                                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
+                                                        <motion.span
+                                                            className={`inline-block px-2.5 py-1 text-[10px] sm:text-xs font-medium rounded-full 
                                                                   bg-white/90 dark:bg-gray-800/90 
                                                                   ${cert.iconColor} backdrop-blur-sm 
                                                                   shadow-md border border-white/50 dark:border-gray-700/50`}
-                                                        whileHover={{ scale: 1.05 }}
-                                                    >
-                                                        {cert.domain}
-                                                    </motion.span>
-                                                </div>
-                                                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10">
-                                                    
-                                                     <motion.span
-                                                        className="px-2 py-1 font-bold 
+                                                            whileHover={{ scale: 1.05 }}
+                                                        >
+                                                            {cert.domain}
+                                                        </motion.span>
+                                                    </div>
+                                                    <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10">
+
+                                                        <motion.span
+                                                            className="px-2 py-1 font-bold 
                                                                  bg-black/20 text-white rounded-full backdrop-blur-sm flex items-center gap-2 text-[10px] sm:text-xs mb-3"
                                                             whileHover={{ x: 3 }}
                                                         >
                                                             <Calendar className="h-3 w-3" />
                                                             {cert.date}
                                                         </motion.span>
-                                                </div>
-                                                <div className="relative h-40 sm:h-48 overflow-hidden">
-                                                    {cert.image ? (
-                                                        <motion.div
-                                                            className="absolute inset-0"
-                                                            whileHover={{ scale: 1.05 }}
-                                                            transition={{ duration: 0.3 }}
-                                                        >
-                                                            <img 
-                                                                loading="lazy"
-                                                                decoding="async"
-                                                                src={cert.image} 
-                                                                alt={cert.title}
-                                                                className="w-full h-full object-cover"
+                                                    </div>
+                                                    <div className="relative h-40 sm:h-48 overflow-hidden">
+                                                        {cert.image ? (
+                                                            <motion.div
+                                                                className="absolute inset-0"
+                                                                whileHover={{ scale: 1.05 }}
+                                                                transition={{ duration: 0.3 }}
+                                                            >
+                                                                <img
+                                                                    loading="lazy"
+                                                                    decoding="async"
+                                                                    src={cert.image}
+                                                                    alt={cert.title}
+                                                                    className="w-full h-full object-cover"
+                                                                />
+                                                                <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-black/40" />
+                                                            </motion.div>
+                                                        ) : (
+                                                            <motion.div
+                                                                className={`absolute inset-0 bg-gradient-to-br ${cert.color} opacity-90`}
+                                                                whileHover={{ scale: 1.05 }}
+                                                                transition={{ duration: 0.3 }}
                                                             />
-                                                            <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-black/40" />
-                                                        </motion.div>
-                                                    ) : (
+                                                        )}
+                                                        <div className="absolute inset-0 flex items-center justify-center">
+                                                            <motion.div
+                                                                className={`w-12 h-12 sm:w-16 sm:h-16 ${cert.image ? 'bg-black/500' : 'bg-white/20'} rounded-full flex items-center justify-center backdrop-blur-sm`}
+                                                                animate={{
+                                                                    rotate: [0, 20, -20, 0],
+                                                                    scale: [1, 1.15, 1]
+                                                                }}
+                                                                transition={{
+                                                                    duration: 4,
+                                                                    repeat: Infinity,
+                                                                    delay: (slideIndex * cardsPerSlide + certIndex) * 0.5
+                                                                }}
+                                                            >
+                                                                <Award className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+                                                            </motion.div>
+                                                        </div>
                                                         <motion.div
-                                                            className={`absolute inset-0 bg-gradient-to-br ${cert.color} opacity-90`}
-                                                            whileHover={{ scale: 1.05 }}
-                                                            transition={{ duration: 0.3 }}
-                                                        />
-                                                    )}
-                                                    <div className="absolute inset-0 flex items-center justify-center">
-                                                        <motion.div
-                                                            className={`w-12 h-12 sm:w-16 sm:h-16 ${cert.image ? 'bg-black/500' : 'bg-white/20'} rounded-full flex items-center justify-center backdrop-blur-sm`}
+                                                            className="absolute bottom-4 left-4 w-6 h-6 bg-white/10 rounded-full"
                                                             animate={{
-                                                                rotate: [0, 20, -20, 0],
-                                                                scale: [1, 1.15, 1]
+                                                                y: [0, -8, 0],
+                                                                opacity: [0.3, 0.6, 0.3]
                                                             }}
                                                             transition={{
-                                                                duration: 4,
+                                                                duration: 3,
                                                                 repeat: Infinity,
-                                                                delay: (slideIndex * cardsPerSlide + certIndex) * 0.5
+                                                                delay: (slideIndex * cardsPerSlide + certIndex) * 0.3
                                                             }}
-                                                        >
-                                                            <Award className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
-                                                        </motion.div>
+                                                        />
                                                     </div>
-                                                    <motion.div
-                                                        className="absolute bottom-4 left-4 w-6 h-6 bg-white/10 rounded-full"
-                                                        animate={{
-                                                            y: [0, -8, 0],
-                                                            opacity: [0.3, 0.6, 0.3]
-                                                        }}
-                                                        transition={{
-                                                            duration: 3,
-                                                            repeat: Infinity,
-                                                            delay: (slideIndex * cardsPerSlide + certIndex) * 0.3
-                                                        }}
-                                                    />
-                                                </div>
-                                                <div className={`px-4 sm:px-6 py-3 space-y-3 sm:space-y-4 bg-gradient-to-r ${cert.color} flex-1 flex flex-col`}>
-                                                    <div className="flex-1">
-                                                        <h3 className="text-[13px] sm:text-[14px] font-bold text-gray-800 dark:text-white
+                                                    <div className={`px-4 sm:px-6 py-3 space-y-3 sm:space-y-4 bg-gradient-to-r ${cert.color} flex-1 flex flex-col`}>
+                                                        <div className="flex-1">
+                                                            <h3 className="text-[13px] sm:text-[14px] font-bold text-gray-800 dark:text-white
                                                                      group-hover:text-gray-900 dark:group-hover:text-gray-100 
                                                                      transition-colors line-clamp-2 min-h-[2rem]">
-                                                            {cert.title}
-                                                        </h3>
-                                                        <p className="text-gray-600 dark:text-gray-400 font-medium text-xs sm:text-sm mb-3">
-                                                            {cert.organization}
-                                                        </p>
-                                                       
-                                                        {cert.skills && cert.skills.length > 0 && (
-                                                            <div>
-                                                                <motion.div className="flex items-center gap-1 mb-1">
-                                                                    <Tag className="h-3 w-3 text-gray-500 dark:text-gray-400" />
-                                                                    <span className="text-[10px] sm:text-xs font-medium text-gray-500 dark:text-gray-400">
-                                                                        {t.certifications.Skills}
-                                                                    </span>
-                                                                </motion.div>
-                                                                <div className="flex flex-wrap gap-1">
-                                                                    {cert.skills.slice(0, 3).map((skill, skillIndex) => (
-                                                                        <motion.span
-                                                                            key={skillIndex}
-                                                                            className={`px-2 pt-1 text-[10px] sm:text-xs rounded-md 
+                                                                {cert.title}
+                                                            </h3>
+                                                            <p className="text-gray-600 dark:text-gray-400 font-medium text-xs sm:text-sm mb-3">
+                                                                {cert.organization}
+                                                            </p>
+
+                                                            {cert.skills && cert.skills.length > 0 && (
+                                                                <div>
+                                                                    <motion.div className="flex items-center gap-1 mb-1">
+                                                                        <Tag className="h-3 w-3 text-gray-500 dark:text-gray-400" />
+                                                                        <span className="text-[10px] sm:text-xs font-medium text-gray-500 dark:text-gray-400">
+                                                                            {t.certifications.Skills}
+                                                                        </span>
+                                                                    </motion.div>
+                                                                    <div className="flex flex-wrap gap-1">
+                                                                        {cert.skills.slice(0, 3).map((skill, skillIndex) => (
+                                                                            <motion.span
+                                                                                key={skillIndex}
+                                                                                className={`px-2 pt-1 text-[10px] sm:text-xs rounded-md 
                                                                                       ${cert.iconColor} bg-white/50 dark:bg-gray-800/50 
                                                                                       font-medium backdrop-blur-sm`}
-                                                                            whileHover={{ scale: 1.05 }}
-                                                                            initial={{ opacity: 0, scale: 0.8 }}
-                                                                            animate={{ opacity: 1, scale: 1 }}
-                                                                            transition={{ delay: skillIndex * 0.1 }}
-                                                                        >
-                                                                            {skill}
-                                                                        </motion.span>
-                                                                    ))}
-                                                                    {cert.skills.length > 3 && (
-                                                                        <motion.span
-                                                                            className="px-2 py-1 text-[10px] sm:text-xs rounded-md 
+                                                                                whileHover={{ scale: 1.05 }}
+                                                                                initial={{ opacity: 0, scale: 0.8 }}
+                                                                                animate={{ opacity: 1, scale: 1 }}
+                                                                                transition={{ delay: skillIndex * 0.1 }}
+                                                                            >
+                                                                                {skill}
+                                                                            </motion.span>
+                                                                        ))}
+                                                                        {cert.skills.length > 3 && (
+                                                                            <motion.span
+                                                                                className="px-2 py-1 text-[10px] sm:text-xs rounded-md 
                                                                                      bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 
                                                                                      font-medium"
-                                                                            whileHover={{ scale: 1.05 }}
-                                                                        >
-                                                                            +{cert.skills.length - 3}
-                                                                        </motion.span>
-                                                                    )}
+                                                                                whileHover={{ scale: 1.05 }}
+                                                                            >
+                                                                                +{cert.skills.length - 3}
+                                                                            </motion.span>
+                                                                        )}
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        )}
-                                                    </div>
-                                                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-                                                        <motion.a
-                                                            href={cert.pdfUrl}  
-                                                            aria-label="Cv"
-                                                            download={`${cert.title.replace(/\s+/g, '_')}_Certificate.pdf`}
-                                                            className="w-full sm:flex-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 
-                                                                     text-white rounded-lg font-medium flex items-center justify-center 
-                                                                     gap-2 transition-all duration-300 text-[12px] sm:text-sm hover:from-blue-700 hover:to-blue-800
-                                                                     shadow-md hover:shadow-lg"
-                                                            whileHover={{
-                                                                scale: 1.02,
-                                                                boxShadow: "0 8px 25px rgba(37, 99, 235, 0.3)"
-                                                            }}
-                                                            whileTap={{ scale: 0.98 }}
-                                                        >
-                                                            <motion.div
-                                                                animate={{ y: [0, -1, 0] }}
-                                                                transition={{ duration: 2, repeat: Infinity }}
-                                                            >
-                                                                <Download className="h-4 w-4" />
-                                                            </motion.div>
-                                                            <span>{t.certifications.pdf}</span>
-                                                        </motion.a>
-                                                        {(cert.link || cert.verifyUrl) && (
+                                                            )}
+                                                        </div>
+                                                        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                                                             <motion.a
-                                                                href={cert.link || cert.verifyUrl}
-                                                                aria-label="Link certification"
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                                className={`w-full sm:w-auto px-3 py-2 ${cert.iconColor} bg-gray-100 dark:bg-gray-800 
+                                                                href={cert.pdfUrl}
+                                                                aria-label={`Download certificate: ${cert.title}`}
+                                                                download={`${cert.title.replace(/\s+/g, '_')}_Certificate.pdf`}
+                                                                className="w-full sm:flex-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700
+                                                            text-white rounded-lg font-medium flex items-center justify-center
+                                                            gap-2 transition-all duration-300 text-[12px] sm:text-sm hover:from-blue-700 hover:to-blue-800
+                                                            shadow-md hover:shadow-lg"
+                                                                whileHover={{
+                                                                    scale: 1.02,
+                                                                    boxShadow: "0 8px 25px rgba(37, 99, 235, 0.3)"
+                                                                }}
+                                                                whileTap={{ scale: 0.98 }}
+                                                            >
+                                                                <motion.div
+                                                                    animate={{ y: [0, -1, 0] }}
+                                                                    transition={{ duration: 2, repeat: Infinity }}
+                                                                >
+                                                                    <Download className="h-4 w-4" />
+                                                                </motion.div>
+                                                                <span>{t.certifications.pdf}</span>
+                                                            </motion.a>
+                                                            {(cert.link || cert.verifyUrl) && (
+                                                                <motion.a
+                                                                    href={cert.link || cert.verifyUrl}
+                                                                    aria-label="Link certification"
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                    className={`w-full sm:w-auto px-3 py-2 ${cert.iconColor} bg-gray-100 dark:bg-gray-800 
                                                                           hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg 
                                                                           transition-all duration-300 shadow-md group/verify`}
-                                                                whileHover={{
-                                                                    scale: 1.1,
-                                                                    rotate: 5
-                                                                }}
-                                                                whileTap={{ scale: 0.9 }}
-                                                                title="Vérifier la certification"
-                                                            >
-                                                                <ExternalLink className="h-4 w-4 mx-auto group-hover/verify:scale-110 transition-transform" />
-                                                            </motion.a>
-                                                        )}
+                                                                    whileHover={{
+                                                                        scale: 1.1,
+                                                                        rotate: 5
+                                                                    }}
+                                                                    whileTap={{ scale: 0.9 }}
+                                                                    title="Vérifier la certification"
+                                                                >
+                                                                    <ExternalLink className="h-4 w-4 mx-auto group-hover/verify:scale-110 transition-transform" />
+                                                                </motion.a>
+                                                            )}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <motion.div
-                                                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent 
+                                                    <motion.div
+                                                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent 
                                                              translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"
-                                                    initial={false}
-                                                />
-                                            </div>
-                                        </motion.div>
-                                    ))}
+                                                        initial={false}
+                                                    />
+                                                </div>
+                                            </motion.div>
+                                        ))}
                                 </div>
                             ))}
                         </motion.div>
@@ -340,19 +340,18 @@ const Certifications = ({ t, isDark, visibleSections,isRTL}) => {
                                 aria-label="Slide"
                                 key={index}
                                 onClick={() => goToSlide(index)}
-                                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                    currentIndex === index
-                                        ? 'bg-blue-600 dark:bg-blue-400 scale-110'
-                                        : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
-                                }`}
+                                className={`w-3 h-3 rounded-full transition-all duration-300 ${currentIndex === index
+                                    ? 'bg-blue-600 dark:bg-blue-400 scale-110'
+                                    : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
+                                    }`}
                                 whileHover={{ scale: 1.2 }}
                                 whileTap={{ scale: 0.9 }}
                             />
                         ))}
                     </div>
                 </motion.div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 };
 

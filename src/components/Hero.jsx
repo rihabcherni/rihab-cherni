@@ -155,7 +155,7 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
                 </motion.div>
               </motion.button>
               <motion.a
-                aria-label="CV"
+                aria-label="Download CV (PDF)"
                 href="/cv.pdf"
                 download="Rihab_Cherni_CV.pdf"
                 className={`group w-[90%] max-w-xs sm:w-auto md:w-auto justify-center px-7 sm:px-8 py-3.5 sm:py-4 border-2 rounded-xl font-semibold flex items-center gap-3 transition-all duration-300 ${isDark

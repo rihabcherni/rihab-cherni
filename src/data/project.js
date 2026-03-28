@@ -80,9 +80,8 @@ export const translationsProject = {
         link: 'https://rihab-cherni.vercel.app',
         date: '2025',
         type: 'Projet Personnel',
-        image: 'projects/portfolio/portfolio-img.webp',
+        image: 'projects/portfolio/1.webp',
         images: [
-          "projects/portfolio/portfolio-img.webp",
           "projects/portfolio/1.webp",
           "projects/portfolio/2.webp",
           "projects/portfolio/3.webp",
@@ -576,9 +575,8 @@ export const translationsProject = {
         link: 'https://rihab-cherni.vercel.app',
         date: '2025',
         type: 'Personal Project',
-        image: 'projects/portfolio/portfolio-img.webp',
+        image: 'projects/portfolio/1.webp',
         images: [
-          "projects/portfolio/portfolio-img.webp",
           "projects/portfolio/1.webp",
           "projects/portfolio/2.webp",
           "projects/portfolio/3.webp",
@@ -1073,9 +1071,8 @@ export const translationsProject = {
         link: 'https://rihab-cherni.vercel.app/',
         date: '2025',
         type: 'مشروع شخصي',
-        image: 'projects/portfolio/portfolio-img.webp',
+        image: 'projects/portfolio/1.webp',
         images: [
-          "projects/portfolio/portfolio-img.webp",
           "projects/portfolio/1.webp",
           "projects/portfolio/2.webp",
           "projects/portfolio/3.webp",

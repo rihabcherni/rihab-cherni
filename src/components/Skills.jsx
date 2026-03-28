@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Code, Globe, Briefcase, Phone, Award, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { techIconsClass } from '../data/data';
@@ -14,6 +14,14 @@ const categoryIcons = {
 };
 
 const Skills = ({ t, skills, isDark, visibleSections }) => {
+  const [iconsLoaded, setIconsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!iconsLoaded && visibleSections?.has('skills')) {
+      import('../devicon.css').then(() => setIconsLoaded(true));
+    }
+  }, [iconsLoaded, visibleSections]);
+
   return (
     <section id="skills" className="py-10">
       <div className="max-w-6xl mx-auto px-5 md:px-12">

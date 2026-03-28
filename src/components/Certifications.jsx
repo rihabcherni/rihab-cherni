@@ -337,16 +337,20 @@ const Certifications = ({ t, isDark, visibleSections, isRTL }) => {
                     <div className="flex justify-center gap-2 mt-8">
                         {Array.from({ length: totalSlides }).map((_, index) => (
                             <motion.button
-                                aria-label="Slide"
+                                aria-label={`Go to slide ${index + 1}`}
                                 key={index}
                                 onClick={() => goToSlide(index)}
-                                className={`w-3 h-3 rounded-full transition-all duration-300 ${currentIndex === index
-                                    ? 'bg-blue-600 dark:bg-blue-400 scale-110'
-                                    : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
-                                    }`}
-                                whileHover={{ scale: 1.2 }}
+                                className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300"
+                                whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.9 }}
-                            />
+                            >
+                                <span
+                                    className={`block w-3 h-3 rounded-full transition-all duration-300 ${currentIndex === index
+                                        ? 'bg-blue-600 dark:bg-blue-400 scale-110'
+                                        : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
+                                        }`}
+                                />
+                            </motion.button>
                         ))}
                     </div>
                 </motion.div>

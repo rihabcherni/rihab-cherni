@@ -153,7 +153,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
       <a
         key="github"
         href={project.link}
-        aria-label="Voir mon projet GitHub"
+        aria-label={`GitHub: ${project.title}`}
         target="_blank"
         rel="noopener noreferrer"
         onClick={(e) => e.stopPropagation()}

@@ -54,7 +54,7 @@ const Experience = ({ t, isDark, visibleSections, isRTL }) => {
                       <div className="relative z-10">
                         <motion.div className="flex justify-between items-center mb-4">
                           {exp.link && (
-                            <motion.a href={exp.link} aria-label="Voir mon projet GitHub" target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1 text-xs font-medium ${isDark ? 'text-gray-200 hover:text-white' : 'text-gray-700 hover:text-black'} transition-colors`} whileHover={{ scale: 1.1, rotate: 3 }} transition={{ duration: 0.2 }}>
+                            <motion.a href={exp.link} aria-label={`GitHub: ${exp.title}`} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1 text-xs font-medium ${isDark ? 'text-gray-200 hover:text-white' : 'text-gray-700 hover:text-black'} transition-colors`} whileHover={{ scale: 1.1, rotate: 3 }} transition={{ duration: 0.2 }}>
                               <Github className={`h-5 w-5 hover:text-white transition-colors z-50`} />
                             </motion.a>
                           )}
@@ -127,7 +127,7 @@ const Experience = ({ t, isDark, visibleSections, isRTL }) => {
                       <div className="relative z-10">
                         <motion.div className="flex justify-between items-center mb-4">
                           {exp.link && (
-                            <motion.a href={exp.link} aria-label="Voir mon projet GitHub" target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1 text-xs font-medium ${isDark ? 'text-gray-200 hover:text-white' : 'text-gray-700 hover:text-black'} transition-colors`} whileHover={{ scale: 1.1, rotate: 3 }} transition={{ duration: 0.2 }}>
+                            <motion.a href={exp.link} aria-label={`GitHub: ${exp.title}`} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1 text-xs font-medium ${isDark ? 'text-gray-200 hover:text-white' : 'text-gray-700 hover:text-black'} transition-colors`} whileHover={{ scale: 1.1, rotate: 3 }} transition={{ duration: 0.2 }}>
                               <Github className={`h-5 w-5 hover:text-white transition-colors z-50`} />
                             </motion.a>
                           )}
@@ -192,7 +192,7 @@ const Experience = ({ t, isDark, visibleSections, isRTL }) => {
                       <div className="relative z-10">
                         <motion.div className="flex justify-between items-center mb-4">
                           {exp.link && (
-                            <motion.a href={exp.link} target="_blank" aria-label="Voir mon projet GitHub" rel="noopener noreferrer"
+                            <motion.a href={exp.link} target="_blank" aria-label={`GitHub: ${exp.title}`} rel="noopener noreferrer"
                               className={`inline-flex items-center gap-1 text-xs font-medium ${isDark ? 'text-gray-200 hover:text-white' : 'text-gray-700 hover:text-black'}  transition-colors`} whileHover={{ scale: 1.1, rotate: 3 }} transition={{ duration: 0.2 }}>
                               <Github className={`h-5 w-5 hover:text-white transition-colors z-50`} />
                             </motion.a>

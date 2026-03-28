@@ -83,24 +83,17 @@ const Hero = ({ t, isDark, visibleSections, scrollToSection, isRTL }) => {
           <motion.div variants={containerVariants} initial="hidden" animate={visibleSections.has('home') ? "visible" : "hidden"}
             className={`space-y-7 md:space-y-8 lg:col-span-2 text-center  ${isRTL ? "lg:text-right" : "lg:text-left"}`}>
             <motion.div variants={itemVariants} className="space-y-2">
-              <motion.span
+              <span
                 className="inline-flex items-center gap-2 px-4 py-2 mt-6 
                           bg-gradient-to-r from-blue-50/20 via-transparent to-blue-100/20 
                           dark:from-blue-900/20 dark:via-transparent dark:to-blue-800/20 
                           rounded-2xl text-sm font-medium text-blue-600 dark:text-blue-400 
                           border border-white/40 dark:border-gray-600 
                           shadow-md shadow-blue-500/30"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
-                <motion.div
-                  animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
-                  transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 3 }}
-                >
-                  👋
-                </motion.div>
+                <span>👋</span>
                 {t.home.welcome}
-              </motion.span>
+              </span>
             </motion.div>
             <motion.div variants={itemVariants} className="space-y-2">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-tight">

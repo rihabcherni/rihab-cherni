@@ -22,6 +22,7 @@ const App = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [visibleSections, setVisibleSections] = useState(new Set());
   const [loading, setLoading] = useState(true);
+  const [showBackground, setShowBackground] = useState(false);
   const isRTL = language === 'ar';
 
   const t = translations[language];
@@ -31,6 +32,16 @@ const App = () => {
     if (savedLang) {
       setLanguage(savedLang);
     }
+  }, []);
+
+  useEffect(() => {
+    const onIdle = () => setShowBackground(true);
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(onIdle, { timeout: 3000 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const t = window.setTimeout(onIdle, 1500);
+    return () => window.clearTimeout(t);
   }, []);
 
   useEffect(() => {
@@ -136,7 +147,7 @@ const App = () => {
           <Contact t={t} isDark={isDark} visibleSections={visibleSections} contactItems={contactItems} />
         </main>
         <Footer t={t} isDark={isDark} scrollToSection={scrollToSection} />
-        <BackgroundAnimation isDark={isDark} />
+        {showBackground && <BackgroundAnimation isDark={isDark} />}
       </div>
     </div>
   );

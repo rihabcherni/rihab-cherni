@@ -201,7 +201,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
   };
 
   return (
-    <section id="projects" className={`py-8 md:py-12 transition-colors duration-300 ${isDark ? 'bg-gray-900/70' : 'bg-gray-200'}`}>
+    <section id="projects" className={`py-8 md:py-12 transition-colors duration-300 ${isDark ? 'bg-gray-800/50' : 'bg-gray-200'}`}>
       <div className="px-5 sm:px-6 md:px-12 lg:px-10 xl:px-5 mx-auto">
         {selectedProject && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4" onClick={() => setSelectedProject(null)}>
@@ -224,7 +224,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                   onClick={() => setSelectedProject(null)}
                   className={`rounded-full p-2 transition-colors bg-red-500 ${isDark ? 'hover:bg-red-700' : 'hover:bg-red-600'}`}
                 >
-                  <X className="h-5 w-5 text-white"/>
+                  <X className="h-5 w-5 text-white" />
                 </button>
               </div>
               <div className="p-8">
@@ -240,17 +240,17 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                           <div
                             ref={imageBoxRef}
                             className={`relative overflow-hidden rounded-xl h-64 md:h-65 lg:h-65 flex items-center justify-center ${isDark ? 'bg-gray-800' : 'bg-gray-100'} ${zoomLevel > 1 ? 'cursor-grab' : 'cursor-default'}`}
-                              onPointerDown={(e) => {
-                                if (zoomLevel <= 1) return;
-                                if (e.target.closest('button')) return;
-                                if (e.button !== 0) return;
-                                e.preventDefault();
-                                e.currentTarget.setPointerCapture(e.pointerId);
-                                updatePanBounds();
-                                setIsPanning(true);
-                                panStart.current = { x: e.clientX, y: e.clientY };
-                                panOrigin.current = { ...pan };
-                              }}
+                            onPointerDown={(e) => {
+                              if (zoomLevel <= 1) return;
+                              if (e.target.closest('button')) return;
+                              if (e.button !== 0) return;
+                              e.preventDefault();
+                              e.currentTarget.setPointerCapture(e.pointerId);
+                              updatePanBounds();
+                              setIsPanning(true);
+                              panStart.current = { x: e.clientX, y: e.clientY };
+                              panOrigin.current = { ...pan };
+                            }}
                             onPointerMove={(e) => {
                               if (!isPanning || zoomLevel <= 1) return;
                               const dx = e.clientX - panStart.current.x;
@@ -353,15 +353,15 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                           {selectedProject.date}
                         </span>
                       )}
-                    {selectedProject.type && (
-                      <span className={`px-3 py-1 rounded-full inline-flex items-center gap-1.5 ${isDark ? 'bg-blue-500/20 text-blue-200' : 'bg-blue-100 text-blue-800'}`}>
-                        {(() => {
-                          const TypeIcon = getFilterIconByKey(getTypeKey(selectedProject.type));
-                          return <TypeIcon className="h-3 w-3" />;
-                        })()}
-                        {selectedProject.type}
-                      </span>
-                    )}
+                      {selectedProject.type && (
+                        <span className={`px-3 py-1 rounded-full inline-flex items-center gap-1.5 ${isDark ? 'bg-blue-500/20 text-blue-200' : 'bg-blue-100 text-blue-800'}`}>
+                          {(() => {
+                            const TypeIcon = getFilterIconByKey(getTypeKey(selectedProject.type));
+                            return <TypeIcon className="h-3 w-3" />;
+                          })()}
+                          {selectedProject.type}
+                        </span>
+                      )}
                     </div>
                     <p className={`text-sm leading-relaxed ${isDark ? 'text-gray-200' : 'text-gray-700'}`}>
                       {selectedProject.description}
@@ -380,12 +380,12 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                           GitHub
                         </a>
                       )}
-                    {selectedProject.linkweb && (
-                      <a href={selectedProject.linkweb} target="_blank" rel="noopener noreferrer" className={`px-4 py-2 rounded-lg text-sm font-semibold inline-flex items-center gap-2 ${isDark ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-blue-600 hover:bg-blue-500 text-white'}`}>
-                        <ExternalLink className="h-4 w-4" />
-                        {t.projects.live || 'Demo'}
-                      </a>
-                    )}
+                      {selectedProject.linkweb && (
+                        <a href={selectedProject.linkweb} target="_blank" rel="noopener noreferrer" className={`px-4 py-2 rounded-lg text-sm font-semibold inline-flex items-center gap-2 ${isDark ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-blue-600 hover:bg-blue-500 text-white'}`}>
+                          <ExternalLink className="h-4 w-4" />
+                          {t.projects.live || 'Demo'}
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -402,15 +402,15 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                 key={key}
                 onClick={() => {
                   setActiveFilterKey(key);
-                  setShowAll(false); 
+                  setShowAll(false);
                 }}
                 className={`px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 whitespace-nowrap 
-                  ${activeFilterKey === key 
-                    ? (isDark 
-                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' 
+                  ${activeFilterKey === key
+                    ? (isDark
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
                       : 'bg-blue-500 text-white shadow-lg shadow-blue-500/30')
-                    : (isDark 
-                      ? 'bg-gray-700 text-gray-100 hover:bg-gray-600' 
+                    : (isDark
+                      ? 'bg-gray-700 text-gray-100 hover:bg-gray-600'
                       : 'bg-white text-gray-700 hover:bg-gray-100')
                   }`}
                 whileHover={{ scale: 1.05 }}
@@ -440,8 +440,8 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                   key={index}
                   className={`group relative overflow-hidden rounded-2xl transition-transform duration-300 transform lg:w-[calc(25%-1.25rem)]
                     hover:-translate-y-2 
-                    ${isDark 
-                      ? 'hover:shadow-[0_30px_60px_rgba(99,102,241,0.15)] shadow-lg bg-gray-800' 
+                    ${isDark
+                      ? 'hover:shadow-[0_30px_60px_rgba(99,102,241,0.15)] shadow-lg bg-gray-800'
                       : 'hover:shadow-[0_30px_60px_rgba(59,130,246,0.2)] shadow-md bg-white'}`}
                   variants={itemVariants}
                   layout

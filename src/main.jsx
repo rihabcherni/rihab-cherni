@@ -1,12 +1,20 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
-import ReactGA from "react-ga4";
 import appCssUrl from './App.css?url';
 
-ReactGA.initialize("G-8L8QX5MLTQ"); 
+const initAnalytics = () => {
+  import("react-ga4").then(({ default: ReactGA }) => {
+    ReactGA.initialize("G-8L8QX5MLTQ");
+    ReactGA.send("pageview");
+  });
+};
 
-ReactGA.send("pageview");
+if ('requestIdleCallback' in window) {
+  window.requestIdleCallback(initAnalytics, { timeout: 3000 });
+} else {
+  window.setTimeout(initAnalytics, 1500);
+}
 
 const cssLink = document.createElement('link');
 cssLink.rel = 'stylesheet';

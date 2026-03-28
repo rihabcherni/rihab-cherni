@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 
 const SectionTitle = ({ title, subtitle, center = true }) => {
   return (
-    <div className={`relative mt-8 mb-10 ${center ? 'text-center' : ''}`}>
+    <div className={`relative mt-8 mb-6 ${center ? 'text-center' : ''}`}>
        <motion.h2 className="text-[36px] font-bold leading-tight">
         <span className="bg-gradient-to-r from-gray-600 via-blue-400 to-blue-800 dark:from-white dark:via-blue-200 dark:to-blue-200 bg-clip-text text-transparent">
           {title}
         </span>
       </motion.h2>
       {subtitle && (
-      <motion.p className="text-[16px] font-medium text-gray-900 dark:text-white" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
+      <motion.p className="text-[16px] font-medium text-gray-600 dark:text-gray-100 mt-2" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
           {subtitle}
         </motion.p>
       )}

@@ -14,6 +14,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
   const [isPanning, setIsPanning] = useState(false);
   const panStart = useRef({ x: 0, y: 0 });
   const panOrigin = useRef({ x: 0, y: 0 });
+  const panBounds = useRef({ maxX: 0, maxY: 0 });
   const imageBoxRef = useRef(null);
   const imageRef = useRef(null);
   const isVisible = visibleSections?.has('projects') ?? true;
@@ -41,7 +42,11 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
     } else {
       setPan((p) => clampPan(p));
     }
+    requestAnimationFrame(updatePanBounds);
   }, [zoomLevel]);
+  useEffect(() => {
+    requestAnimationFrame(updatePanBounds);
+  }, [selectedProject, carouselIndex]);
 
   const toggleExpanded = (index) => {
     const newExpanded = new Set(expandedProjects);
@@ -57,25 +62,22 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
     setPan((p) => clampPan(p));
   };
   const clampPan = (next) => {
-    const box = imageBoxRef.current;
-    const img = imageRef.current;
-    if (!box || !img) return next;
-
-    const boxRect = box.getBoundingClientRect();
-    const imgRect = img.getBoundingClientRect();
-    const baseWidth = imgRect.width / zoomLevel;
-    const baseHeight = imgRect.height / zoomLevel;
-
-    const scaledWidth = baseWidth * zoomLevel;
-    const scaledHeight = baseHeight * zoomLevel;
-
-    const maxX = Math.max(0, (scaledWidth - boxRect.width) / 2);
-    const maxY = Math.max(0, (scaledHeight - boxRect.height) / 2);
-
+    const { maxX, maxY } = panBounds.current;
     return {
       x: Math.min(maxX, Math.max(-maxX, next.x)),
       y: Math.min(maxY, Math.max(-maxY, next.y)),
     };
+  };
+
+  const updatePanBounds = () => {
+    const box = imageBoxRef.current;
+    const img = imageRef.current;
+    if (!box || !img) return;
+    const boxRect = box.getBoundingClientRect();
+    const imgRect = img.getBoundingClientRect();
+    const maxX = Math.max(0, (imgRect.width - boxRect.width) / 2);
+    const maxY = Math.max(0, (imgRect.height - boxRect.height) / 2);
+    panBounds.current = { maxX, maxY };
   };
 
   const getTypeKey = (type) => {
@@ -199,7 +201,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
   };
 
   return (
-    <section id="projects" className={`py-8 md:py-12 transition-colors duration-300 ${isDark ? 'bg-gray-800/50' : 'bg-gray-200'}`}>
+    <section id="projects" className={`py-8 md:py-12 transition-colors duration-300 ${isDark ? 'bg-gray-900/70' : 'bg-gray-200'}`}>
       <div className="px-5 sm:px-6 md:px-12 lg:px-10 xl:px-5 mx-auto">
         {selectedProject && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4" onClick={() => setSelectedProject(null)}>
@@ -238,16 +240,17 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                           <div
                             ref={imageBoxRef}
                             className={`relative overflow-hidden rounded-xl h-64 md:h-65 lg:h-65 flex items-center justify-center ${isDark ? 'bg-gray-800' : 'bg-gray-100'} ${zoomLevel > 1 ? 'cursor-grab' : 'cursor-default'}`}
-                            onPointerDown={(e) => {
-                              if (zoomLevel <= 1) return;
-                              if (e.target.closest('button')) return;
-                              if (e.button !== 0) return;
-                              e.preventDefault();
-                              e.currentTarget.setPointerCapture(e.pointerId);
-                              setIsPanning(true);
-                              panStart.current = { x: e.clientX, y: e.clientY };
-                              panOrigin.current = { ...pan };
-                            }}
+                              onPointerDown={(e) => {
+                                if (zoomLevel <= 1) return;
+                                if (e.target.closest('button')) return;
+                                if (e.button !== 0) return;
+                                e.preventDefault();
+                                e.currentTarget.setPointerCapture(e.pointerId);
+                                updatePanBounds();
+                                setIsPanning(true);
+                                panStart.current = { x: e.clientX, y: e.clientY };
+                                panOrigin.current = { ...pan };
+                              }}
                             onPointerMove={(e) => {
                               if (!isPanning || zoomLevel <= 1) return;
                               const dx = e.clientX - panStart.current.x;
@@ -281,7 +284,10 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                               loading="lazy"
                               decoding="async"
                               className={`w-full h-auto max-h-full object-contain transition-transform duration-200 ease-out ${isPanning ? 'cursor-grabbing' : ''}`}
-                              onLoad={() => setPan(clampPan({ x: 0, y: 0 }))}
+                              onLoad={() => {
+                                updatePanBounds();
+                                setPan(clampPan({ x: 0, y: 0 }));
+                              }}
                               style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoomLevel})` }}
                             />
                             {images.length > 1 && (
@@ -404,7 +410,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                       ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' 
                       : 'bg-blue-500 text-white shadow-lg shadow-blue-500/30')
                     : (isDark 
-                      ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' 
+                      ? 'bg-gray-700 text-gray-100 hover:bg-gray-600' 
                       : 'bg-white text-gray-700 hover:bg-gray-100')
                   }`}
                 whileHover={{ scale: 1.05 }}
@@ -416,7 +422,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                 })()}
                 {key === 'all' ? (t.projects.filterAll || 'All') : (t.projects.filters?.[key] || key)}
                 {activeFilterKey === key && (
-                  <span className={`ml-1 px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-[12px] font-bold text-white ${isDark ? 'bg-white/20' : 'bg-black/10'}`}>
+                  <span className={`ml-1 px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-[12px] font-bold text-white ${isDark ? 'bg-white/30' : 'bg-black/10'}`}>
                     {getTypeCountByKey(key)}
                   </span>
                 )}
@@ -481,13 +487,13 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                     <div className="mb-3 space-y-2">
                       <div className="flex items-center gap-4 text-xs">
                         {project.type && (
-                          <div className={`flex items-center gap-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                          <div className={`flex items-center gap-1 ${isDark ? 'text-gray-200' : 'text-gray-600'}`}>
                             <Briefcase className="w-2.5 h-2.5" />
                             <span className='text-[11px]'>{project.type}</span>
                           </div>
                         )}
                         {project.organisation && (
-                          <div className={`flex items-center gap-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                          <div className={`flex items-center gap-1 ${isDark ? 'text-gray-200' : 'text-gray-600'}`}>
                             <Building2 className="w-2.5 h-2.5" />
                             <span className='text-[11px]'>{project.organisation}</span>
                           </div>
@@ -495,7 +501,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                       </div>
                     </div>
                     <div className={`mb-2 text-sm leading-relaxed transition-colors duration-300
-                      ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                      ${isDark ? 'text-gray-200' : 'text-gray-700'}`}>
                       <p className='text-[12px]'>{isExpanded || !shouldTruncate ? project.description : truncateText(project.description)}</p>
                       {shouldTruncate && (
                         <button aria-label="View btn" onClick={(e) => { e.stopPropagation(); toggleExpanded(index); }} className={`mt-1 text-xs font-semibold hover:underline transition-colors duration-200 ${isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-500'}`}>

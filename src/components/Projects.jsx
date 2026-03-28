@@ -449,7 +449,7 @@ const Projects = ({ t, tp, isDark, visibleSections }) => {
                   <div className="relative h-44 overflow-hidden">
                     <img
                       loading={isLcpCandidate ? "eager" : "lazy"}
-                      fetchpriority={isLcpCandidate ? "high" : "auto"}
+                      fetchPriority={isLcpCandidate ? "high" : "auto"}
                       decoding="async"
                       src={project.image}
                       alt={project.title}

@@ -32,30 +32,15 @@
   <meta name="twitter:description" content="Découvrez mes projets en cybersécurité, développement web, automatisation et performance." />
   <meta name="twitter:image" content="https://rihab-cherni.vercel.app/img.webp" />
 
-  <!-- Preconnect & DNS Prefetch -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-
   <!-- Content Security Policy optimisée -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com;
-    style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+    style-src 'self' 'unsafe-inline';
     font-src 'self';
     img-src 'self' data: https://www.google-analytics.com https://rihab-cherni.vercel.app;
     connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://api.emailjs.com;
   ">
-
-  <!-- Font Awesome -->
-  <link id="fa-css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    media="print" />
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  </noscript>
-  <script type="module">
-    const faLink = document.getElementById('fa-css');
-    faLink.onload = () => faLink.media = 'all';
-  </script>
 
   <script type="application/ld+json">
     {

@@ -545,7 +545,7 @@ export const translations = {
         competition: 'مشروع مسابقة',
         personal: 'مشروع شخصي',
         academic: 'مشروع أكاديمي',
-        freelance: 'مشروع حر',
+        freelance: 'مشروع عمل حر',
         competence: 'مشروع كفاءة',
         other: 'أخرى'
       },

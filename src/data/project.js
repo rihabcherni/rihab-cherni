@@ -2,6 +2,44 @@ export const translationsProject = {
   fr: {
     projectsListe: [
       {
+        title: "Sportify",
+        description: "Plateforme sportive full-stack centralisant les contenus sportifs tunisiens et internationaux. Elle offre une interface publique permettant de consulter les actualités, les matchs, les vidéos, les articles et les profils des joueurs, ainsi qu’un tableau de bord administrateur complet pour la gestion du contenu. L’application intègre une authentification sécurisée avec gestion des rôles (utilisateur/administrateur), des tableaux de bord interactifs et des fonctionnalités de gestion des médias.",
+        tech: [
+          "React 18",
+          "Node.js",
+          "Express",
+          "MongoDB",
+          "Mongoose",
+          "Authentification JWT",
+          "Docker",
+          "Nginx",
+          "Swagger",
+          "ApexCharts"
+        ],
+        link: "https://github.com/rihabcherni/sportify",
+        linkweb: "http://sportify-front.vercel.app/",
+        date: "Avril 2026",
+        type: "Projet Freelance",
+        organisation: "",
+        image: "projects/sportify/home-1.png",
+        images: [
+          "projects/sportify/home-1.png",
+          "projects/sportify/home-2.png",
+          "projects/sportify/login.png",
+          "projects/sportify/news.png",
+          "projects/sportify/stars.png",
+          "projects/sportify/star-detail.png",
+          "projects/sportify/matches.png",
+          "projects/sportify/videos.png",
+          "projects/sportify/video-detail.png",
+          "projects/sportify/admin-dashboard.png",
+          "projects/sportify/admin-articles.png",
+          "projects/sportify/admin-stars.png",
+          "projects/sportify/admin-news.png",
+          "projects/sportify/admin-news-edit.png"
+        ]
+      },
+      {
         title: "Bioinformation",
         description: "Application web full-stack développée avec un frontend React (Vite) et un backend Node.js/Express avec Prisma et PostgreSQL. Le projet inclut un panneau d’administration complet pour la gestion des cours, notifications et témoignages, une API REST documentée avec Swagger, ainsi qu’un environnement de développement Dockerisé.",
         tech: ["React 18", "Vite", "TypeScript", "Tailwind CSS", "React Router", "React Query", "Node.js", "Express", "Prisma", "PostgreSQL", "Docker", "Swagger"],
@@ -496,6 +534,44 @@ export const translationsProject = {
   },
   en: {
     projectsListe: [
+      {
+        title: "Sportify",
+        description: "Full-stack sports platform that centralizes Tunisian and international sports content. It provides a public interface for browsing news, matches, videos, articles, and player profiles, along with a complete admin dashboard for managing content. The application includes secure authentication with role-based access (user/admin), interactive dashboards, and media management features.",
+        tech: [
+          "React 18",
+          "Node.js",
+          "Express",
+          "MongoDB",
+          "Mongoose",
+          "JWT Authentication",
+          "Docker",
+          "Nginx",
+          "Swagger",
+          "ApexCharts"
+        ],
+        link: "https://github.com/rihabcherni/sportify",
+        linkweb: "http://sportify-front.vercel.app/",
+        date: "April 2026",
+        type: "Freelance Project",
+        organisation: "",
+        image: "projects/sportify/home-1.png",
+        images: [
+          "projects/sportify/home-1.png",
+          "projects/sportify/home-2.png",
+          "projects/sportify/login.png",
+          "projects/sportify/news.png",
+          "projects/sportify/stars.png",
+          "projects/sportify/star-detail.png",
+          "projects/sportify/matches.png",
+          "projects/sportify/videos.png",
+          "projects/sportify/video-detail.png",
+          "projects/sportify/admin-dashboard.png",
+          "projects/sportify/admin-articles.png",
+          "projects/sportify/admin-stars.png",
+          "projects/sportify/admin-news.png",
+          "projects/sportify/admin-news-edit.png"
+        ]
+      },
       {
         title: "Bioinformation",
         description: "A full- stack web application built with a React(Vite) frontend and a Node.js / Express backend using Prisma and PostgreSQL.The project includes a complete admin dashboard for managing courses, notifications, and testimonials, a REST API documented with Swagger, and a fully Dockerized development environment.",
@@ -993,11 +1069,49 @@ export const translationsProject = {
   ar: {
     projectsListe: [
       {
+        title: "Sportify",
+        description: "منصة رياضية متكاملة (Full-Stack) تجمع المحتوى الرياضي التونسي والدولي في مكان واحد. توفر واجهة للمستخدمين لتصفح الأخبار، المباريات، الفيديوهات، المقالات وملفات اللاعبين، بالإضافة إلى لوحة تحكم إدارية متكاملة لإدارة المحتوى. يتضمن التطبيق نظام مصادقة آمن مع إدارة الأدوار (مستخدم / مدير)، ولوحات معلومات تفاعلية، وميزات متقدمة لإدارة الوسائط.",
+        tech: [
+          "React 18",
+          "Node.js",
+          "Express",
+          "MongoDB",
+          "Mongoose",
+          "JWT Authentication",
+          "Docker",
+          "Nginx",
+          "Swagger",
+          "ApexCharts"
+        ],
+        link: "https://github.com/rihabcherni/sportify",
+        linkweb: "http://sportify-front.vercel.app/",
+        date: "أفريل 2026",
+        type: "مشروع عمل حر",
+        organisation: "",
+        image: "projects/sportify/home-1.png",
+        images: [
+          "projects/sportify/home-1.png",
+          "projects/sportify/home-2.png",
+          "projects/sportify/login.png",
+          "projects/sportify/news.png",
+          "projects/sportify/stars.png",
+          "projects/sportify/star-detail.png",
+          "projects/sportify/matches.png",
+          "projects/sportify/videos.png",
+          "projects/sportify/video-detail.png",
+          "projects/sportify/admin-dashboard.png",
+          "projects/sportify/admin-articles.png",
+          "projects/sportify/admin-stars.png",
+          "projects/sportify/admin-news.png",
+          "projects/sportify/admin-news-edit.png"
+        ]
+      },
+      {
         title: "Bioinformation",
         description: "تطبيق ويب متكامل (Full-Stack) تم تطويره باستخدام React (Vite) في الواجهة الأمامية و Node.js/Express في الواجهة الخلفية مع Prisma وقاعدة بيانات PostgreSQL. يتضمن المشروع لوحة تحكم للإدارة لإدارة الدورات والإشعارات والتوصيات، بالإضافة إلى API من نوع REST موثقة باستخدام Swagger وبيئة تطوير كاملة باستخدام Docker.",
         tech: ["React 18", "Vite", "TypeScript", "Tailwind CSS", "React Router", "React Query", "Node.js", "Express", "Prisma", "PostgreSQL", "Docker", "Swagger"],
         date: "فيفري - مارس 2026",
-        type: "مشروع حر",
+        type: "مشروع عمل حر",
         image: "projects/bioinformation.webp"
       },
       {
@@ -1005,7 +1119,7 @@ export const translationsProject = {
         description: "تطبيق إدارة المخزون الكامل للمختبرات، منظم على شكل خزانات → رفوف → صناديق → خلايا، مع تحكم متقدم في الصلاحيات، تتبع السجل، والأرشفة.",
         tech: ["Angular", "Spring Boot", "TypeScript", "Java", "PostgreSQL", "MySQL", "Docker", "CI/CD", "Jenkins"],
         date: "جانفي - فيفري 2026",
-        type: "مشروع حر",
+        type: "مشروع عمل حر",
         image: "projects/rackmanager.webp"
       },
       {
@@ -1158,7 +1272,7 @@ export const translationsProject = {
         link: "https://github.com/rihabcherni/Hangman-game",
         linkweb: "https://rihabcherni.github.io/Hangman-game/",
         date: "أوت 2022",
-        type: "مشروع حر",
+        type: "مشروع عمل حر",
         organisation: "ENSIT / IEEE ENSIT",
         image: "projects/hangman/hangman.webp",
         images: [
@@ -1394,7 +1508,7 @@ export const translationsProject = {
         link: 'https://github.com/rihabcherni/ieee-ras-event',
         linkweb: 'https://ieee-ras-event.onrender.com/',
         date: 'أوت 2025',
-        type: 'مشروع حر',
+        type: 'مشروع عمل حر',
         organisation: 'IEEE RAS تونس',
         image: 'projects/rtc/1.webp',
         images: [
@@ -1418,7 +1532,7 @@ export const translationsProject = {
         tech: ['Angular', 'PHP', 'JavaScript', 'HTML', 'CSS', 'Bootstrap', 'MUI', 'MySQL', 'MongoDB'],
         linkweb: 'https://ensit.ieee.tn/',
         date: '2023 - 2025',
-        type: 'مشروع حر',
+        type: 'مشروع عمل حر',
         organisation: 'IEEE ENSIT',
         image: 'projects/ieee.webp',
       },
@@ -1471,7 +1585,7 @@ export const translationsProject = {
         tech: ["HTML", "CSS", "JavaScript", "PHP", "CSV"],
         link: "https://github.com/rihabcherni/Typing-Game-IEEE-ENSIT",
         date: "أكتوبر 2023",
-        type: "مشروع حر",
+        type: "مشروع عمل حر",
         organisation: "IEEE ENSIT",
         image: "projects/typing-game/1.webp",
         images: [

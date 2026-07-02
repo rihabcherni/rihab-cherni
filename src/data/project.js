@@ -16,7 +16,6 @@ export const translationsProject = {
           "Swagger",
           "ApexCharts"
         ],
-        link: "https://github.com/rihabcherni/sportify",
         linkweb: "http://sportify-front.vercel.app/",
         date: "Avril 2026",
         type: "Projet Freelance",
@@ -45,7 +44,18 @@ export const translationsProject = {
         tech: ["React 18", "Vite", "TypeScript", "Tailwind CSS", "React Router", "React Query", "Node.js", "Express", "Prisma", "PostgreSQL", "Docker", "Swagger"],
         date: "Février - Mars 2026",
         type: "Projet Freelance",
-        image: "projects/bioinformation.webp"
+        image: [
+          "projects/bioinformation/1.webp",
+          "projects/bioinformation/2.webp",
+          "projects/bioinformation/3.webp",
+          "projects/bioinformation/4.webp",
+          "projects/bioinformation/5.webp",
+          "projects/bioinformation/6.webp",
+          "projects/bioinformation/7.webp",
+          "projects/bioinformation/8.webp",
+          "projects/bioinformation/9.webp",
+          "projects/bioinformation/10.webp",
+        ]
       },
       {
         title: "RackManager",
@@ -549,7 +559,6 @@ export const translationsProject = {
           "Swagger",
           "ApexCharts"
         ],
-        link: "https://github.com/rihabcherni/sportify",
         linkweb: "http://sportify-front.vercel.app/",
         date: "April 2026",
         type: "Freelance Project",
@@ -578,7 +587,18 @@ export const translationsProject = {
         tech: ["React 18", "Vite", "TypeScript", "Tailwind CSS", "React Router", "React Query", "Node.js", "Express", "Prisma", "PostgreSQL", "Docker", "Swagger"],
         date: "February - March 2026",
         type: "Freelance Project",
-        image: "projects/bioinformation.webp"
+        image: [
+          "projects/bioinformation/1.webp",
+          "projects/bioinformation/2.webp",
+          "projects/bioinformation/3.webp",
+          "projects/bioinformation/4.webp",
+          "projects/bioinformation/5.webp",
+          "projects/bioinformation/6.webp",
+          "projects/bioinformation/7.webp",
+          "projects/bioinformation/8.webp",
+          "projects/bioinformation/9.webp",
+          "projects/bioinformation/10.webp",
+        ]
       },
       {
         title: "RackManager",
@@ -1083,7 +1103,6 @@ export const translationsProject = {
           "Swagger",
           "ApexCharts"
         ],
-        link: "https://github.com/rihabcherni/sportify",
         linkweb: "http://sportify-front.vercel.app/",
         date: "أفريل 2026",
         type: "مشروع عمل حر",
@@ -1112,7 +1131,18 @@ export const translationsProject = {
         tech: ["React 18", "Vite", "TypeScript", "Tailwind CSS", "React Router", "React Query", "Node.js", "Express", "Prisma", "PostgreSQL", "Docker", "Swagger"],
         date: "فيفري - مارس 2026",
         type: "مشروع عمل حر",
-        image: "projects/bioinformation.webp"
+        image: [
+          "projects/bioinformation/1.webp",
+          "projects/bioinformation/2.webp",
+          "projects/bioinformation/3.webp",
+          "projects/bioinformation/4.webp",
+          "projects/bioinformation/5.webp",
+          "projects/bioinformation/6.webp",
+          "projects/bioinformation/7.webp",
+          "projects/bioinformation/8.webp",
+          "projects/bioinformation/9.webp",
+          "projects/bioinformation/10.webp",
+        ]
       },
       {
         title: "RackManager",

@@ -44,6 +44,7 @@ export const translationsProject = {
         tech: ["React 18", "Vite", "TypeScript", "Tailwind CSS", "React Router", "React Query", "Node.js", "Express", "Prisma", "PostgreSQL", "Docker", "Swagger"],
         date: "Février - Mars 2026",
         type: "Projet Freelance",
+        image: "projects/bioinformation/3.webp",
         images: [
           "projects/bioinformation/1.webp",
           "projects/bioinformation/2.webp",
@@ -587,6 +588,7 @@ export const translationsProject = {
         tech: ["React 18", "Vite", "TypeScript", "Tailwind CSS", "React Router", "React Query", "Node.js", "Express", "Prisma", "PostgreSQL", "Docker", "Swagger"],
         date: "February - March 2026",
         type: "Freelance Project",
+        image: "projects/bioinformation/3.webp",
         images: [
           "projects/bioinformation/1.webp",
           "projects/bioinformation/2.webp",
@@ -1131,6 +1133,7 @@ export const translationsProject = {
         tech: ["React 18", "Vite", "TypeScript", "Tailwind CSS", "React Router", "React Query", "Node.js", "Express", "Prisma", "PostgreSQL", "Docker", "Swagger"],
         date: "فيفري - مارس 2026",
         type: "مشروع عمل حر",
+        image: "projects/bioinformation/3.webp",
         images: [
           "projects/bioinformation/1.webp",
           "projects/bioinformation/2.webp",
